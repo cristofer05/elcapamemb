@@ -11,7 +11,6 @@
 
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/img/favicon.png" />
-<h1>Hola mundo</h1>
     <!-- Bootstrap 3.3.2 -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
@@ -25,6 +24,7 @@
 
   </head>
   <body class="login-page bg-login">
+   <h1>Hola mundo</h1>
     <div class="login-box">
       <div style="color:#3c8dbc" class="login-logo">
         <img style="margin-top:-12px" src="assets/img/el-capacitador-logo.png" alt="Logo" height="50"> <b>Membresias</b>
