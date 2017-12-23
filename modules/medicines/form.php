@@ -4,11 +4,11 @@ if ($_GET['form']=='add') { ?>
 
   <section class="content-header">
     <h1>
-      <i class="fa fa-edit icon-title"></i> Agregar Medicamentos
+      <i class="fa fa-edit icon-title"></i> Agregar Miembros
     </h1>
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
-      <li><a href="?module=medicines"> Medicamentos </a></li>
+      <li><a href="?module=medicines"> Miembros </a></li>
       <li class="active"> Más </li>
     </ol>
   </section>
@@ -119,11 +119,11 @@ elseif ($_GET['form']=='edit') {
 
   <section class="content-header">
     <h1>
-      <i class="fa fa-edit icon-title"></i> Modificar Medicamento
+      <i class="fa fa-edit icon-title"></i> Modificar Miembro
     </h1>
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
-      <li><a href="?module=medicines"> Medicamentos </a></li>
+      <li><a href="?module=medicines"> Miembros </a></li>
       <li class="active"> Modificar </li>
     </ol>
   </section>

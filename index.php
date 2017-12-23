@@ -24,7 +24,6 @@
 
   </head>
   <body class="login-page bg-login">
-   <h1>Hola mundo</h1>
     <div class="login-box">
       <div style="color:#3c8dbc" class="login-logo">
         <img style="margin-top:-12px" src="assets/img/el-capacitador-logo.png" alt="Logo" height="50"> <b>Membresias</b>
