@@ -1,4 +1,4 @@
-<!-- Comentario de kelvin 2 nada nada -->
+<!-- Comentario de kelvin 3 nada nada -->
 <!DOCTYPE html>
 <html>
   <head>
@@ -72,7 +72,7 @@
           </div>
         </form>
 
-      </div><!-- /.login-box-body --><!-- prueba -->
+      </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
 
     <!-- jQuery 2.1.3 -->
