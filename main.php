@@ -248,6 +248,5 @@ var idioma_español= {
 }
 
     </script>
-
   </body>
 </html>

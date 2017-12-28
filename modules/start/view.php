@@ -38,8 +38,8 @@
            
             $data = mysqli_fetch_assoc($query);
             ?>
-            <h3><?php echo $data['numero']; ?></h3>
-            <h3>AGREGAR USUARIOS</h3>
+            <h3><?php // echo $data['numero']; ?></h3>
+            <h3>NUEVO USUARIO</h3>
           </div>
           <div class="icon">
             <i class="fa fa-folder"></i>
@@ -66,7 +66,7 @@
 
             $data = mysqli_fetch_assoc($query);
             ?>
-            <h3><?php echo $data['numero']; ?></h3>
+            <h3><?php // echo $data['numero']; ?></h3>
             <h3>ESCANEAR CODIGO</h3>
           </div>
           <div class="icon">
@@ -95,7 +95,7 @@
 
             $data = mysqli_fetch_assoc($query);
             ?>
-            <h3><?php echo $data['numero']; ?></h3>
+            <h4>Usuarios existentes = <?php echo $data['numero']; ?></h4>
             <h3>MOSTRAR USUARIOS</h3>
           </div>
           <div class="icon">
@@ -116,7 +116,7 @@
 
             $data = mysqli_fetch_assoc($query);
             ?>
-            <h3><?php echo $data['numero']; ?></h3>
+            <h3><?php // echo $data['numero']; ?></h3>
             <h3>REPORTES</h3>
           </div>
           <div class="icon">
