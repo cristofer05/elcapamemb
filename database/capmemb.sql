@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `medicamentos`
+-- Estructura de tabla para la tabla `miembros`
 --
 
 CREATE TABLE `miembros` (
