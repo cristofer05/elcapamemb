@@ -18,16 +18,16 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 	  	</li>
 	<?php
 
-  if ($_GET["module"]=="medicines" || $_GET["module"]=="form_medicines") { ?>
+  if ($_GET["module"]=="miembros" || $_GET["module"]=="form_miembros") { ?>
     <li class="active">
-      <a href="?module=medicines"><i class="fa fa-folder"></i> Datos de medicamentos </a>
+      <a href="?module=miembros"><i class="fa fa-folder"></i> Datos de Miembros </a>
       </li>
   <?php
   }
 
   else { ?>
     <li>
-      <a href="?module=medicines"><i class="fa fa-folder"></i> Datos de medicamentos </a>
+      <a href="?module=miembros"><i class="fa fa-folder"></i> Datos de Miembros </a>
       </li>
   <?php
   }
@@ -217,15 +217,15 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
   <?php
   }
 
-  if ($_GET["module"]=="medicines" || $_GET["module"]=="form_medicines") { ?>
+  if ($_GET["module"]=="miembros" || $_GET["module"]=="form_miembros") { ?>
     <li class="active">
-      <a href="?module=medicines"><i class="fa fa-folder"></i> Datos de medicamentos </a>
+      <a href="?module=miembros"><i class="fa fa-folder"></i> Datos de Miembros </a>
       </li>
   <?php
   }
   else { ?>
     <li>
-      <a href="?module=medicines"><i class="fa fa-folder"></i> Datos de medicamentos </a>
+      <a href="?module=miembros"><i class="fa fa-folder"></i> Datos de Miembros </a>
       </li>
   <?php
   }

@@ -8,7 +8,7 @@ if ($_GET['form']=='add') { ?>
     </h1>
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
-      <li><a href="?module=medicines"> Miembros </a></li>
+      <li><a href="?module=miembros"> Miembros </a></li>
       <li class="active"> Más </li>
     </ol>
   </section>
@@ -19,11 +19,11 @@ if ($_GET['form']=='add') { ?>
       <div class="col-md-12">
         <div class="box box-primary">
           <!-- form start -->
-          <form role="form" class="form-horizontal" action="modules/medicines/proses.php?act=insert" method="POST">
+          <form role="form" class="form-horizontal" action="modules/miembros/proses.php?act=insert" method="POST">
             <div class="box-body">
               <?php  
           
-              $query_id = mysqli_query($mysqli, "SELECT RIGHT(codigo,6) as codigo FROM medicamentos
+              $query_id = mysqli_query($mysqli, "SELECT RIGHT(codigo,6) as codigo FROM miembros
                                                 ORDER BY codigo DESC LIMIT 1")
                                                 or die('error '.mysqli_error($mysqli));
 
@@ -39,7 +39,7 @@ if ($_GET['form']=='add') { ?>
 
 
               $buat_id   = str_pad($codigo, 6, "0", STR_PAD_LEFT);
-              $codigo = "B$buat_id";
+              $codigo = "CAP-$buat_id";
               ?>
               <div class="form-group">
                 <label class="col-sm-2 control-label"></label>
@@ -173,7 +173,7 @@ if ($_GET['form']=='add') { ?>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <input type="submit" class="btn btn-primary btn-submit" name="Guardar" value="Guardar">
-                  <a href="?module=medicines" class="btn btn-default btn-reset">Cancelar</a>
+                  <a href="?module=miembros" class="btn btn-default btn-reset">Cancelar</a>
                 </div>
               </div>
             </div><!-- /.box footer -->
@@ -188,7 +188,7 @@ if ($_GET['form']=='add') { ?>
 elseif ($_GET['form']=='edit') { 
   if (isset($_GET['id'])) {
 
-      $query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,unidad FROM medicamentos WHERE codigo='$_GET[id]'") 
+      $query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,unidad FROM miembros WHERE codigo='$_GET[id]'") 
                                       or die('error: '.mysqli_error($mysqli));
       $data  = mysqli_fetch_assoc($query);
     }
@@ -200,7 +200,7 @@ elseif ($_GET['form']=='edit') {
     </h1>
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
-      <li><a href="?module=medicines"> Miembros </a></li>
+      <li><a href="?module=miembros"> Miembros </a></li>
       <li class="active"> Modificar </li>
     </ol>
   </section>
@@ -211,7 +211,7 @@ elseif ($_GET['form']=='edit') {
       <div class="col-md-12">
         <div class="box box-primary">
           <!-- form start -->
-          <form role="form" class="form-horizontal" action="modules/medicines/proses.php?act=update" method="POST">
+          <form role="form" class="form-horizontal" action="modules/miembros/proses.php?act=update" method="POST">
             <div class="box-body">
               
               <div class="form-group">
@@ -268,7 +268,7 @@ elseif ($_GET['form']=='edit') {
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <input type="submit" class="btn btn-primary btn-submit" name="Guardar" value="Guardar">
-                  <a href="?module=medicines" class="btn btn-default btn-reset">Cancelar</a>
+                  <a href="?module=miembros" class="btn btn-default btn-reset">Cancelar</a>
                 </div>
               </div>
             </div><!-- /.box footer -->

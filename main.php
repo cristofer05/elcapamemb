@@ -9,8 +9,8 @@ session_start();
     <title>Panel de administración | Administracion de Membresias</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="description" content="Inventario de Medicamentos">
-    <meta name="author" content="Inventario de Medicamentos - Sistemas Web" />
+    <meta name="description" content="Gestion de Membresias">
+    <meta name="author" content="Gestion de Membresias - Sistemas Web" />
     
     <!-- favicon -->
     <link rel="shortcut icon" href="assets/img/favicon.png" />
@@ -85,7 +85,7 @@ session_start();
         <!-- Logo -->
         <a href="?module=beranda" class="logo">
           <img style="margin-top:0px;margin-right:5px" width="30" src="assets/img/el-capacitador-logo-mini.png" alt="Logo"> 
-          <span style="font-size:20px">Membresias</span>
+          <span style="font-size:20px">Miembros</span>
         </a>
 
         <nav class="navbar navbar-static-top" role="navigation">

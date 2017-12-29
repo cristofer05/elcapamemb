@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `medicamentos`
 --
 
-CREATE TABLE `medicamentos` (
-  `codigo` varchar(7) NOT NULL,
+CREATE TABLE `miembros` (
+  `codigo` varchar(9) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `precio_compra` int(11) NOT NULL,
   `precio_venta` int(11) NOT NULL,
@@ -43,7 +43,7 @@ CREATE TABLE `medicamentos` (
 -- Volcado de datos para la tabla `medicamentos`
 --
 
-INSERT INTO `medicamentos` (`codigo`, `nombre`, `precio_compra`, `precio_venta`, `unidad`, `stock`, `created_user`, `created_date`, `updated_user`, `updated_date`) VALUES
+INSERT INTO `miembros` (`codigo`, `nombre`, `precio_compra`, `precio_venta`, `unidad`, `stock`, `created_user`, `created_date`, `updated_user`, `updated_date`) VALUES
 ('B000362', 'Dulvanex', 50, 75, 'cajas', 10, 1, '2017-07-24 16:43:20', 1, '2017-07-26 02:09:06'),
 ('B000363', 'Controlip', 12, 50, 'cajas', 10, 1, '2017-07-24 16:56:58', 1, '2017-07-26 02:09:28'),
 ('B000364', 'Quetiazic', 25, 50, 'cajas', 30, 1, '2017-07-25 02:59:48', 1, '2017-07-26 02:09:36');
@@ -106,9 +106,9 @@ INSERT INTO `usuarios` (`id_user`, `username`, `name_user`, `password`, `email`,
 --
 
 --
--- Indices de la tabla `medicamentos`
+-- Indices de la tabla `miembros`
 --
-ALTER TABLE `medicamentos`
+ALTER TABLE `miembros`
   ADD PRIMARY KEY (`codigo`),
   ADD KEY `created_user` (`created_user`),
   ADD KEY `updated_user` (`updated_user`);
@@ -142,9 +142,9 @@ ALTER TABLE `usuarios`
 --
 
 --
--- Filtros para la tabla `medicamentos`
+-- Filtros para la tabla `miembros`
 --
-ALTER TABLE `medicamentos`
+ALTER TABLE `miembros`
   ADD CONSTRAINT `medicamentos_ibfk_1` FOREIGN KEY (`created_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `medicamentos_ibfk_2` FOREIGN KEY (`updated_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -152,7 +152,7 @@ ALTER TABLE `medicamentos`
 -- Filtros para la tabla `transaccion_medicamentos`
 --
 ALTER TABLE `transaccion_medicamentos`
-  ADD CONSTRAINT `transaccion_medicamentos_ibfk_1` FOREIGN KEY (`codigo`) REFERENCES `medicamentos` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaccion_medicamentos_ibfk_1` FOREIGN KEY (`codigo`) REFERENCES `miembros` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `transaccion_medicamentos_ibfk_2` FOREIGN KEY (`created_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -28,11 +28,11 @@
         <div style="background-color:#00c0ef;color:#fff" class="small-box">
         <?php  
           if ($_SESSION['permisos_acceso']!='gerente') { ?>
-            <a href="?module=form_medicines&form=add" class="small-box-footer"  data-toggle="tooltip">
+            <a href="?module=form_miembros&form=add" class="small-box-footer"  data-toggle="tooltip">
           <div class="inner">
             <?php  
           
-            $query = mysqli_query($mysqli, "SELECT COUNT(codigo) as numero FROM medicamentos")
+            $query = mysqli_query($mysqli, "SELECT COUNT(codigo) as numero FROM miembros")
                                             or die('Error '.mysqli_error($mysqli));
 
            
@@ -44,7 +44,7 @@
           <div class="icon">
             <i class="fa fa-folder"></i>
           </div>
-            <a href="?module=form_medicines&form=add" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
+            <a href="?module=form_miembros&form=add" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
           <?php
           } else { ?>
             <a class="small-box-footer"><i class="fa"></i></a>
@@ -90,7 +90,7 @@
           <div class="inner">
             <?php  
   
-            $query = mysqli_query($mysqli, "SELECT COUNT(codigo) as numero FROM medicamentos")
+            $query = mysqli_query($mysqli, "SELECT COUNT(codigo) as numero FROM miembros")
                                             or die('Error'.mysqli_error($mysqli));
 
             $data = mysqli_fetch_assoc($query);

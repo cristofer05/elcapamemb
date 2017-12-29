@@ -12,12 +12,12 @@ else {
 		include "modules/start/view.php";
 	}
 
-	elseif ($_GET['module'] == 'medicines') {
-		include "modules/medicines/view.php";
+	elseif ($_GET['module'] == 'miembros') {
+		include "modules/miembros/view.php";
 	}
 
-	elseif ($_GET['module'] == 'form_medicines') {
-		include "modules/medicines/form.php";
+	elseif ($_GET['module'] == 'form_miembros') {
+		include "modules/miembros/form.php";
 	}
 	
 
