@@ -13,7 +13,7 @@ $hari_ini = date("d-m-Y");
 
 $no = 1;
 
-$query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,unidad,stock FROM medicamentos ORDER BY nombre ASC")
+$query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,unidad,stock FROM miembros ORDER BY nombre ASC")
                                 or die('Error '.mysqli_error($mysqli));
 $count  = mysqli_num_rows($query);
 ?>

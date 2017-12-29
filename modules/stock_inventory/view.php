@@ -2,7 +2,7 @@
 
 <section class="content-header">
   <h1>
-    <i class="fa fa-file-text-o icon-title"></i> Stock de Medicamentos
+    <i class="fa fa-file-text-o icon-title"></i> Lista de Miembros
 
     <a class="btn btn-primary btn-social pull-right" href="modules/stock_inventory/print.php" target="_blank">
       <i class="fa fa-print"></i> Imprimir
@@ -36,7 +36,7 @@
             <?php  
             $no = 1;
           
-            $query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,unidad,stock FROM medicamentos ORDER BY nombre ASC")
+            $query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,unidad,stock FROM miembros ORDER BY nombre ASC")
                                             or die('Error: '.mysqli_error($mysqli));
 
            
