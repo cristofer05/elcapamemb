@@ -24,11 +24,13 @@
               <tr>
                 <th class="center">No.</th>
                 <th class="center">Codigo</th>
-                <th class="center">Nombre de Medicamento</th>
-                <th class="center">Precio de compra</th>
-                <th class="center">Precio de venta</th>
-                <th class="center">Stock</th>
-                <th class="center">Unidad</th>
+                <th class="center">Nombres</th>
+                <th class="center">Apellidos</th>
+                <th class="center">Cedula</th>
+                <th class="center">Edad</th>
+                <th class="center">Sexo</th>
+                <th class="center">Localidad</th>
+                <th class="center">Categoria</th>
               </tr>
             </thead>
           
@@ -36,22 +38,26 @@
             <?php  
             $no = 1;
           
-            $query = mysqli_query($mysqli, "SELECT codigo,nombre,precio_compra,precio_venta,unidad,stock FROM miembros ORDER BY nombre ASC")
+            $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion FROM miembros ORDER BY nombres ASC")
                                             or die('Error: '.mysqli_error($mysqli));
 
            
             while ($data = mysqli_fetch_assoc($query)) { 
-              $precio_compra = format_rupiah($data['precio_compra']);
-              $precio_venta = format_rupiah($data['precio_venta']);
+              //determinando edad
+                $nacimiento = new DateTime($data['fnacimiento']);
+                $hoy = new DateTime();
+                $edad = $hoy->diff($nacimiento);
              
               echo "<tr>
                       <td width='30' class='center'>$no</td>
-                      <td width='80' class='center'>$data[codigo]</td>
-                      <td width='180'>$data[nombre]</td>
-                      <td width='100' align='right'>$. $precio_compra</td>
-                      <td width='100' align='right'>$. $precio_venta</td>
-                      <td width='80' align='right'>$data[stock]</td>
-                      <td width='80' class='center'>$data[unidad]</td>
+                      <td width='150' class='center'>$data[codigo]</td>
+                      <td width='200'>$data[nombres]</td>
+                      <td width='200'>$data[apellidos]</td>
+                      <td width='180'>$data[cedula]</td>
+                      <td width='60'>".$edad->y."</td>
+                      <td width='110'>$data[sexo]</td>
+                      <td width='180'>$data[localidad]</td>
+                      <td width='80'>$data[categoria]</td>
                     </tr>";
               $no++;
             }

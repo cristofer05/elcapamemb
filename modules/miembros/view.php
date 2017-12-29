@@ -72,8 +72,7 @@
 
             while ($data = mysqli_fetch_assoc($query)) {  
               //determinando edad
-                $fnacimiento = $data['fnacimiento'];
-                $nacimiento = new DateTime($fnacimiento);
+                $nacimiento = new DateTime($data['fnacimiento']);
                 $hoy = new DateTime();
                 $edad = $hoy->diff($nacimiento);
 
@@ -89,7 +88,7 @@
                       <td width='80'>$data[categoria]</td>
                       <td class='center' width='80'>
                         <div>
-                          <a data-toggle='tooltip' data-placement='top' title='modificar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_miembros&form=edit&id=$data[codigo]'>
+                          <a data-toggle='tooltip' data-placement='top' title='Ver/Editar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_miembros&form=edit&id=$data[codigo]'>
                               <i style='color:#fff' class='glyphicon glyphicon-edit'></i>
                           </a>";
             ?>

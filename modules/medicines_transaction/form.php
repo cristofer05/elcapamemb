@@ -89,14 +89,14 @@ if ($_GET['form']=='add') { ?>
               ?>
 
               <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo de Transacción </label>
+                <label class="col-sm-2 control-label">Codigo de miembro </label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" name="codigo_transaccion" value="<?php echo $codigo_transaccion; ?>" readonly required>
+                  <input type="text" class="form-control" name="codigo_transaccion" value="<?php echo $codigo_transaccion; ?>" required>
                 </div>
               </div>
 
               <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha</label>
+                <label class="col-sm-2 control-label">Escanear</label>
                 <div class="col-sm-5">
                   <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" name="fecha_a" autocomplete="off" value="<?php echo date("d-m-Y"); ?>" required>
                 </div>
