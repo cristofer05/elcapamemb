@@ -27,12 +27,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `miembros` (
-  `codigo` varchar(9) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `precio_compra` int(11) NOT NULL,
-  `precio_venta` int(11) NOT NULL,
-  `unidad` varchar(20) NOT NULL,
-  `stock` int(11) NOT NULL,
+  `codigo` varchar(10) NOT NULL,
+  `nombres` varchar(50) NOT NULL,
+  `apellidos` varchar(50) NOT NULL,
+  `cedula` varchar(20) NOT NULL,
+  `fnacimiento` varchar(20) NOT NULL,
+  `sexo` varchar(20) NOT NULL,
+  `localidad` varchar(50) NOT NULL,
+  `ocupacion` varchar(50) NOT NULL,
+  `correo` varchar(70) NOT NULL,
+  `telefono` varchar(20) NOT NULL,
+  `categoria` varchar(20) NOT NULL,
+  `fexpiracion` varchar(20) NOT NULL,
   `created_user` int(3) NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_user` int(3) NOT NULL,
@@ -40,13 +46,13 @@ CREATE TABLE `miembros` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `medicamentos`
+-- Volcado de datos para la tabla `miembros`
 --
 
-INSERT INTO `miembros` (`codigo`, `nombre`, `precio_compra`, `precio_venta`, `unidad`, `stock`, `created_user`, `created_date`, `updated_user`, `updated_date`) VALUES
-('B000362', 'Dulvanex', 50, 75, 'cajas', 10, 1, '2017-07-24 16:43:20', 1, '2017-07-26 02:09:06'),
-('B000363', 'Controlip', 12, 50, 'cajas', 10, 1, '2017-07-24 16:56:58', 1, '2017-07-26 02:09:28'),
-('B000364', 'Quetiazic', 25, 50, 'cajas', 30, 1, '2017-07-25 02:59:48', 1, '2017-07-26 02:09:36');
+INSERT INTO `miembros` (`codigo`, `nombres`, `apellidos`, `cedula`, `fnacimiento`, `sexo`, `localidad`, `ocupacion`, `correo`, `telefono`, `categoria`, `fexpiracion`, `created_user`, `created_date`, `updated_user`, `updated_date`) VALUES
+('CAP-000362', 'Juan Carlos', 'Perez Valles', '402-2056454-2', '1991-07-24', 'Masculino', 'Santo Domingo', 'Estudiante', 'juancarlos@gmail.com', '809-123-3211','Standar', '2018-01-26', 1, '2017-07-24 16:43:20', 1, '2017-07-26 02:09:06'),
+('CAP-000363', 'Jose Luis', 'De jesus', '002-5643254-1', '1990-04-22', 'Masculino', 'Santo Domingo', 'Estudiante', 'jose@gmail.com', '809-143-3151','Standar', '2018-01-26', 1, '2017-07-24 16:43:20', 1, '2017-07-26 02:09:06'),
+('CAP-000364', 'Maria Rosa', 'Rodriguez Almonte', '001-11434354-1', '1987-01-12', 'Femenino', 'Santo Domingo', 'Estudiante', 'maria@gmail.com', '849-643-2151','Standar', '2018-01-26', 1, '2017-07-24 16:43:20', 1, '2017-07-26 02:09:06');
 
 -- --------------------------------------------------------
 
@@ -57,7 +63,7 @@ INSERT INTO `miembros` (`codigo`, `nombre`, `precio_compra`, `precio_venta`, `un
 CREATE TABLE `transaccion_medicamentos` (
   `codigo_transaccion` varchar(15) NOT NULL,
   `fecha` date NOT NULL,
-  `codigo` varchar(7) NOT NULL,
+  `codigo` varchar(10) NOT NULL,
   `numero` int(11) NOT NULL,
   `created_user` int(3) NOT NULL,
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -69,9 +75,9 @@ CREATE TABLE `transaccion_medicamentos` (
 --
 
 INSERT INTO `transaccion_medicamentos` (`codigo_transaccion`, `fecha`, `codigo`, `numero`, `created_user`, `created_date`, `tipo_transaccion`) VALUES
-('TM-2017-0000001', '2017-07-26', 'B000362', 5, 1, '2017-07-26 02:09:06', 'Entrada'),
-('TM-2017-0000002', '2017-07-26', 'B000363', 10, 1, '2017-07-26 02:09:28', 'Entrada'),
-('TM-2017-0000003', '2017-07-26', 'B000364', 5, 1, '2017-07-26 02:09:36', 'Salida');
+('TM-2017-0000001', '2017-07-26', 'CAP-000362', 5, 1, '2017-07-26 02:09:06', 'Entrada'),
+('TM-2017-0000002', '2017-07-26', 'CAP-000363', 10, 1, '2017-07-26 02:09:28', 'Entrada'),
+('TM-2017-0000003', '2017-07-26', 'CAP-000364', 5, 1, '2017-07-26 02:09:36', 'Salida');
 
 -- --------------------------------------------------------
 
@@ -145,8 +151,8 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `miembros`
 --
 ALTER TABLE `miembros`
-  ADD CONSTRAINT `medicamentos_ibfk_1` FOREIGN KEY (`created_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `medicamentos_ibfk_2` FOREIGN KEY (`updated_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `miembros_ibfk_1` FOREIGN KEY (`created_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `miembros_ibfk_2` FOREIGN KEY (`updated_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `transaccion_medicamentos`

@@ -30,7 +30,7 @@ else {
 
   
             $query = mysqli_query($mysqli, "INSERT INTO miembros(codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_user,updated_user) 
-                                            VALUES('$codigo','$nombres','$apellidos','$cedula','$fnacimiento','$sexo','$localidad','$ocupacion','$correo','$telefono','$categoria','$fexpiracion','$created_user')")
+                                            VALUES('$codigo','$nombres','$apellidos','$cedula','$fnacimiento','$sexo','$localidad','$ocupacion','$correo','$telefono','$categoria','$fexpiracion','$created_user','$created_user')")
                                             or die('error '.mysqli_error($mysqli));    
 
         
@@ -61,7 +61,7 @@ else {
                 $updated_user = $_SESSION['id_user'];
 
                 $query = mysqli_query($mysqli, "UPDATE miembros SET  nombres       = '$nombres',
-                                                                    apellidos      = '$apellidos',
+                                                                    apellidos     = '$apellidos',
                                                                     cedula      = '$cedula',
                                                                     fnacimiento         = '$fnacimiento',
                                                                     sexo    = '$sexo',
@@ -70,7 +70,8 @@ else {
                                                                     correo         = '$correo',
                                                                     telefono         = '$telefono'
                                                                     categoria         = '$categoria',
-                                                                    fexpiracion       = '$fexpiracion'
+                                                                    fexpiracion       = '$fexpiracion',
+                                                                    updated_user    ='$updated_user'
                                                               WHERE codigo       = '$codigo'")
                                                 or die('error: '.mysqli_error($mysqli));
 
