@@ -83,9 +83,20 @@
                       <td width='200'>$data[apellidos]</td>
                       <td width='180'>$data[cedula]</td>
                       <td width='60'>".$edad->y."</td>
-                      <td width='110'>$data[sexo]</td>
+                      <td width='110' title='";
+                      switch ($data['sexo']) {
+                        case "F": echo "FEMENINO"; break;
+                        case "M": echo "MASCULINO"; break;
+                        }
+                      echo "'>$data[sexo]</td>
                       <td width='180'>$data[localidad]</td>
-                      <td width='80'>$data[categoria]</td>
+                      <td width='80' title='";
+                      switch ($data['categoria']) {
+                        case "A": echo "PREMIUM"; break;
+                        case "B": echo "REGULAR"; break;
+                        case "C": echo "BASICO"; break;
+                        }
+                      echo "'>$data[categoria]</td>
                       <td class='center' width='80'>
                         <div>
                           <a data-toggle='tooltip' data-placement='top' title='Ver/Editar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_miembros&form=edit&id=$data[codigo]'>

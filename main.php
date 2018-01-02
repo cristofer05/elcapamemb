@@ -33,6 +33,24 @@ session_start();
     <link href="assets/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+
+    <!-- Actividar o desactivar edicion -->
+    <script language="javascript">
+      function hedicion() {
+        document.getElementById('hedicion1').removeAttribute('readonly');
+        document.getElementById('hedicion2').removeAttribute('readonly');
+        document.getElementById('hedicion3').removeAttribute('readonly');
+        document.getElementById('hedicion4').removeAttribute('readonly');
+        document.getElementById('hedicion5').removeAttribute('readonly');
+        document.getElementById('hedicion6').removeAttribute('readonly');
+        document.getElementById('hedicion7').removeAttribute('readonly');
+        document.getElementById('hedicion8').removeAttribute('readonly');
+        document.getElementById('hedicion9').removeAttribute('readonly');
+        document.getElementById('hedicion10').removeAttribute('readonly');
+        document.getElementById('hedicion11').removeAttribute('readonly');
+
+      };
+    </script>
     
 
     <script language="javascript">

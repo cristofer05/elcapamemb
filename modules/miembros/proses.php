@@ -56,7 +56,7 @@ else {
                 $correo  = mysqli_real_escape_string($mysqli, trim($_POST['correo']));
                 $telefono  = mysqli_real_escape_string($mysqli, trim($_POST['telefono']));
                 $categoria  = mysqli_real_escape_string($mysqli, trim($_POST['categoria']));
-                $fexpiracion = str_replace('.', '', mysqli_real_escape_string($mysqli, trim($_POST['fexpiracion'])));
+                $fexpiracion = mysqli_real_escape_string($mysqli, trim($_POST['fexpiracion']));
 
                 $updated_user = $_SESSION['id_user'];
 
@@ -68,12 +68,12 @@ else {
                                                                     localidad        = '$localidad',
                                                                     ocupacion         = '$ocupacion',
                                                                     correo         = '$correo',
-                                                                    telefono         = '$telefono'
+                                                                    telefono         = '$telefono',
                                                                     categoria         = '$categoria',
                                                                     fexpiracion       = '$fexpiracion',
                                                                     updated_user    ='$updated_user'
                                                               WHERE codigo       = '$codigo'")
-                                                or die('error: '.mysqli_error($mysqli));
+                                                or die('Error: '.mysqli_error($mysqli));
 
     
                 if ($query) {
