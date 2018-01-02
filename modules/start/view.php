@@ -41,6 +41,7 @@
             <h3><?php // echo $data['numero']; ?></h3>
             <h3>NUEVO USUARIO</h3>
           </div>
+          </a>
           <div class="icon">
             <i class="fa fa-folder"></i>
           </div>
@@ -57,6 +58,7 @@
       <div class="col-lg-6 col-xs-12">
         <!-- small box -->
         <div style="background-color:#00a65a;color:#fff" class="small-box">
+          <a href="?module=form_medicines_transaction&form=add" class="small-box-footer"  data-toggle="tooltip">
           <div class="inner">
             <?php   
    
@@ -69,6 +71,7 @@
             <h3><?php // echo $data['numero']; ?></h3>
             <h3>ESCANEAR CODIGO</h3>
           </div>
+          </a>
           <div class="icon">
             <i class="fa fa-sign-in"></i>
           </div>
@@ -87,6 +90,7 @@
       <div class="col-lg-6 col-xs-12">
         <!-- small box -->
         <div style="background-color:#f39c12;color:#fff" class="small-box">
+        <a href="?module=stock_inventory" class="small-box-footer" data-toggle="tooltip">
           <div class="inner">
             <?php  
   
@@ -95,9 +99,10 @@
 
             $data = mysqli_fetch_assoc($query);
             ?>
-            <h4>Usuarios existentes = <?php echo $data['numero']; ?></h4>
+            <h3><?php echo $data['numero']; ?></h3>
             <h3>MOSTRAR USUARIOS</h3>
           </div>
+          </a>
           <div class="icon">
             <i class="fa fa-file-text-o"></i>
           </div>
@@ -108,6 +113,7 @@
       <div class="col-lg-6 col-xs-12">
         <!-- small box -->
         <div style="background-color:#dd4b39;color:#fff" class="small-box">
+        <a href="?module=stock_report" class="small-box-footer" data-toggle="tooltip">
           <div class="inner">
             <?php   
   
@@ -119,6 +125,7 @@
             <h3><?php // echo $data['numero']; ?></h3>
             <h3>REPORTES</h3>
           </div>
+          </a>
           <div class="icon">
             <i class="fa fa-clone"></i>
           </div>

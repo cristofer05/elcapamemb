@@ -732,6 +732,7 @@ elseif ($_GET['form']=='edit') {
     <h1>
       <i class="fa fa-edit icon-title"></i> Modificar Miembro
     </h1>
+    <a href="javascript:void(0)" onclick="HaEdicion();" class="btn btn-warning btn-reset">Ver/Editar</a>
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
       <li><a href="?module=miembros"> Miembros </a></li>
@@ -745,7 +746,7 @@ elseif ($_GET['form']=='edit') {
       <div class="col-md-12">
         <div class="box box-primary">
           <!-- form start -->
-          <form role="form" class="form-horizontal" action="modules/miembros/proses.php?act=update" method="POST">
+          <form role="form" class="form-horizontal" action="modules/miembros/proses.php?act=update" method="POST" id="Editar" style="display: none;">
             <div class="box-body">
               
               <div class="form-group">
@@ -758,31 +759,31 @@ elseif ($_GET['form']=='edit') {
               <div class="form-group">
                 <label class="col-sm-2 control-label">Nombres</label>
                 <div class="col-sm-5">
-                  <input type="text" id="hedicion1" class="form-control" name="nombres" autocomplete="off" value="<?php echo $data['nombres']; ?>" readonly required>
+                  <input type="text" id="hedicion1" class="form-control" name="nombres" autocomplete="off" value="<?php echo $data['nombres']; ?>" required>
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Apellidos</label>
                 <div class="col-sm-5">
-                  <input type="text" id="hedicion2" class="form-control" name="apellidos" autocomplete="off" value="<?php echo $data['apellidos']; ?>" readonly required>
+                  <input type="text" id="hedicion2" class="form-control" name="apellidos" autocomplete="off" value="<?php echo $data['apellidos']; ?>" required>
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Cedula</label>
                 <div class="col-sm-5">
-                  <input type="text" id="hedicion3" id="cedula" class="form-control" name="cedula" autocomplete="off" value="<?php echo $data['cedula']; ?>" readonly required>
+                  <input type="text" id="hedicion3" id="cedula" class="form-control" name="cedula" autocomplete="off" value="<?php echo $data['cedula']; ?>" required>
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha Nacimiento</label>
                 <div class="col-sm-5">
-                  <input type="date" id="hedicion4" name="fnacimiento" class="form-control" autocomplete="off" step="1" value="<?php echo $data['fnacimiento']; ?>" readonly> 
+                  <input type="date" id="hedicion4" name="fnacimiento" class="form-control" autocomplete="off" step="1" value="<?php echo $data['fnacimiento']; ?>"> 
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Sexo</label>
                 <div class="col-sm-5">
-                  <select class="chosen-select" id="hedicion5" name="sexo" data-placeholder="-- Seleccionar --" autocomplete="off" readonly required>
+                  <select class="chosen-select" id="hedicion5" name="sexo" data-placeholder="-- Seleccionar --" autocomplete="off" required>
                     <option value="<?php echo $data['sexo']; ?>">
                     <?php switch ($data['sexo']) {
                         case "F": echo "Femenino"; break;
@@ -797,7 +798,7 @@ elseif ($_GET['form']=='edit') {
               <div class="form-group">
                 <label class="col-sm-2 control-label">Localidad</label>
                 <div class="col-sm-5">
-                  <select class="chosen-select" id="hedicion6" name="localidad" data-placeholder="-- Seleccionar --" autocomplete="off" readonly required>
+                  <select class="chosen-select" id="hedicion6" name="localidad" data-placeholder="-- Seleccionar --" autocomplete="off" required>
                     <option value="<?php echo $data['localidad']; ?>"><?php echo $data['localidad']; ?></option>
                     <option value="Azua">Azua</option>
                     <option value="Bahoruco">Bahoruco</option>
@@ -837,7 +838,7 @@ elseif ($_GET['form']=='edit') {
               <div class="form-group">
                 <label class="col-sm-2 control-label">Ocupacion</label>
                 <div class="col-sm-5">
-                  <select class="chosen-select" id="hedicion7" name="ocupacion" autocomplete="off" readonly required>
+                  <select class="chosen-select" id="hedicion7" name="ocupacion" autocomplete="off" required>
                     <option value="<?php echo $data['ocupacion']; ?>"><?php echo $data['ocupacion']; ?></option>
                     <option value=""></option>
                     <option value="Abogado">Abogado</option>
@@ -1378,19 +1379,19 @@ elseif ($_GET['form']=='edit') {
               <div class="form-group">
                 <label class="col-sm-2 control-label">Correo</label>
                 <div class="col-sm-5">
-                  <input type="text" id="hedicion8" class="form-control" name="correo" autocomplete="off" value="<?php echo $data['correo']; ?>" readonly required>
+                  <input type="text" id="hedicion8" class="form-control" name="correo" autocomplete="off" value="<?php echo $data['correo']; ?>" required>
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Telefono</label>
                 <div class="col-sm-5">
-                  <input type="tel" id="hedicion9" class="form-control" name="telefono" autocomplete="off" value="<?php echo $data['telefono']; ?>" readonly required>
+                  <input type="tel" id="hedicion9" class="form-control" name="telefono" autocomplete="off" value="<?php echo $data['telefono']; ?>" required>
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Categoria</label>
                 <div class="col-sm-5">
-                  <select class="chosen-select" id="hedicion10" name="categoria" data-placeholder="-- Seleccionar --" autocomplete="off" readonly required>
+                  <select class="chosen-select" id="hedicion10" name="categoria" data-placeholder="-- Seleccionar --" autocomplete="off" required>
                     <option value="<?php echo $data['categoria']; ?>">
                     <?php switch ($data['categoria']) {
                         case "A": echo "Premium"; break;
@@ -1406,7 +1407,7 @@ elseif ($_GET['form']=='edit') {
               <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha Expiracion</label>
                 <div class="col-sm-5">
-                    <input type="date" id="hedicion11" name="fexpiracion" class="form-control" autocomplete="off" step="1" min="2018-01-01" max="2099-12-31" value="<?php echo $data['fexpiracion']; ?>" readonly>
+                    <input type="date" id="hedicion11" name="fexpiracion" class="form-control" autocomplete="off" step="1" min="2018-01-01" max="2099-12-31" value="<?php echo $data['fexpiracion']; ?>">
                 </div>
               </div>
               <div class="form-group">
@@ -1422,12 +1423,101 @@ elseif ($_GET['form']=='edit') {
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <input type="submit" class="btn btn-primary btn-submit" name="Guardar" value="Guardar">
-                  <a href="javascript:void(0)" onclick="hedicion();" class="btn btn-warning btn-reset">Editar</a>
                   <a href="?module=miembros" class="btn btn-default btn-reset">Cancelar</a>
                 </div>
               </div>
             </div><!-- /.box footer -->
           </form>
+        <!-- FORMULARIO DE SOLO VER -->
+          <form class="form-horizontal" id="Ver">
+            <div class="box-body">
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Codigo</label>
+                <div class="col-sm-5">
+                  <?php echo $data['codigo']; ?>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Nombres</label>
+                <div class="col-sm-5">
+                  <?php echo $data['nombres']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Apellidos</label>
+                <div class="col-sm-5">
+                  <?php echo $data['apellidos']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Cedula</label>
+                <div class="col-sm-5">
+                 <?php echo $data['cedula']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Fecha Nacimiento</label>
+                <div class="col-sm-5">
+                 <?php echo $data['fnacimiento']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Sexo</label>
+                <div class="col-sm-5">
+                    <?php switch ($data['sexo']) {
+                        case "F": echo "Femenino"; break;
+                        case "M": echo "Masculino"; break;
+                        } ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Localidad</label>
+                <div class="col-sm-5">
+                  <?php echo $data['localidad']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Ocupacion</label>
+                <div class="col-sm-5">
+                 <?php echo $data['ocupacion']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Correo</label>
+                <div class="col-sm-5">
+                 <?php echo $data['correo']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Telefono</label>
+                <div class="col-sm-5">
+                  <?php echo $data['telefono']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Categoria</label>
+                <div class="col-sm-5">
+                    <?php switch ($data['categoria']) {
+                        case "A": echo "Premium"; break;
+                        case "B": echo "Regular"; break;
+                        case "C": echo "Basico"; break; }  ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Fecha Expiracion</label>
+                <div class="col-sm-5">
+                    <?php echo $data['fexpiracion']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label"></label>
+                <div class="col-sm-2">
+                  <img src="https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=150x150&chl=<?php echo $data['codigo']; ?>">
+                </div>
+              </div>
+            </div><!-- /.box body -->
+          <form>
         </div><!-- /.box -->
       </div><!--/.col -->
     </div>   <!-- /.row -->

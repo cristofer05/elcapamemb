@@ -36,7 +36,22 @@ session_start();
 
     <!-- Actividar o desactivar edicion -->
     <script language="javascript">
-      function hedicion() {
+      function HaEdicion() {
+
+        var x = document.getElementById("Ver");
+          if (x.style.display === "none") {
+              x.style.display = "block";
+          } else {
+              x.style.display = "none";
+          }
+
+          var x = document.getElementById("Editar");
+          if (x.style.display === "none") {
+              x.style.display = "block";
+          } else {
+              x.style.display = "none";
+          }
+/*
         document.getElementById('hedicion1').removeAttribute('readonly');
         document.getElementById('hedicion2').removeAttribute('readonly');
         document.getElementById('hedicion3').removeAttribute('readonly');
@@ -48,7 +63,7 @@ session_start();
         document.getElementById('hedicion9').removeAttribute('readonly');
         document.getElementById('hedicion10').removeAttribute('readonly');
         document.getElementById('hedicion11').removeAttribute('readonly');
-
+*/
       };
     </script>
     

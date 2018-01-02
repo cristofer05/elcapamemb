@@ -42,7 +42,9 @@ $count  = mysqli_num_rows($query);
                         <th height="20" align="center" valign="middle"><small>EDAD</small></th>
                         <th height="20" align="center" valign="middle"><small>SEXO</small></th>
                         <th height="20" align="center" valign="middle"><small>LOCALIDAD</small></th>
-                        <th height="20" align="center" valign="middle"><small>CATEGORIA</small></th>
+                        <th height="20" align="center" valign="middle"><small>OFICIO</small></th>
+                        <th height="20" align="center" valign="middle"><small>CAT</small></th>
+                        <th height="20" align="center" valign="middle"><small>TELEFONO</small></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,16 +56,18 @@ $count  = mysqli_num_rows($query);
                 $hoy = new DateTime();
                 $edad = $hoy->diff($nacimiento);
           
-            echo "  <tr>
-                        <td width='20' height='13' align='center' valign='middle'>$no</td>
-                        <td width='70' height='13' align='center' valign='middle'>$data[codigo]</td>
-                        <td style='padding-left:5px;' width='100' height='13' valign='middle'>$data[nombres]</td>
-                        <td style='padding-left:5px;' width='110' height='13' valign='middle'>$data[apellidos]</td>
-                        <td style='padding-left:5px;' width='85' height='13' valign='middle'>$data[cedula]</td>
-                        <td style='padding-left:5px;' width='25' height='13' valign='middle'>".$edad->y."</td>
-                        <td style='padding-left:5px;' width='25' height='13' valign='middle'>$data[sexo]</td>
-                        <td style='padding-left:5px;' width='100' height='13' valign='middle'>$data[localidad]</td>
-                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$data[categoria]</td>
+            echo "  <tr style='font-size:10px;'>
+                        <td width='15' height='13' align='center' valign='middle'>$no</td>
+                        <td width='60' height='13' align='center' valign='middle'>$data[codigo]</td>
+                        <td style='padding-left:5px;' width='70' height='13' valign='middle'>$data[nombres]</td>
+                        <td style='padding-left:5px;' width='90' height='13' valign='middle'>$data[apellidos]</td>
+                        <td style='padding-left:5px;' width='70' height='13' valign='middle'>$data[cedula]</td>
+                        <td style='padding-left:5px;' width='20' height='13' valign='middle'>".$edad->y."</td>
+                        <td style='padding-left:5px;' width='20' height='13' valign='middle'>$data[sexo]</td>
+                        <td style='padding-left:5px;' width='80' height='13' valign='middle'>$data[localidad]</td>
+                        <td style='padding-left:5px;' width='50' height='13' valign='middle'>$data[ocupacion]</td>
+                        <td style='padding-left:5px;' width='15' height='13' valign='middle'>$data[categoria]</td>
+                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$data[telefono]</td>
                     </tr>";
             $no++;
         }
