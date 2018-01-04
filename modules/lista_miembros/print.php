@@ -36,8 +36,7 @@ $count  = mysqli_num_rows($query);
                     <tr class="tr-title">
                         <th height="20" align="center" valign="middle"><small>NO.</small></th>
                         <th height="20" align="center" valign="middle"><small>CODIGO</small></th>
-                        <th height="20" align="center" valign="middle"><small>NOMBRES</small></th>
-                        <th height="20" align="center" valign="middle"><small>APELLIDOS</small></th>
+                        <th height="20" align="center" valign="middle"><small>NOMBRE</small></th>
                         <th height="20" align="center" valign="middle"><small>CEDULA</small></th>
                         <th height="20" align="center" valign="middle"><small>EDAD</small></th>
                         <th height="20" align="center" valign="middle"><small>SEXO</small></th>
@@ -45,6 +44,7 @@ $count  = mysqli_num_rows($query);
                         <th height="20" align="center" valign="middle"><small>OFICIO</small></th>
                         <th height="20" align="center" valign="middle"><small>CAT</small></th>
                         <th height="20" align="center" valign="middle"><small>TELEFONO</small></th>
+                        <th height="20" align="center" valign="middle"><small>ACTIVO</small></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,8 +59,7 @@ $count  = mysqli_num_rows($query);
             echo "  <tr style='font-size:10px;'>
                         <td width='15' height='13' align='center' valign='middle'>$no</td>
                         <td width='60' height='13' align='center' valign='middle'>$data[codigo]</td>
-                        <td style='padding-left:5px;' width='70' height='13' valign='middle'>$data[nombres]</td>
-                        <td style='padding-left:5px;' width='90' height='13' valign='middle'>$data[apellidos]</td>
+                        <td style='padding-left:5px;' width='70' height='13' valign='middle'>$data[nombres] $data[apellidos]</td>
                         <td style='padding-left:5px;' width='70' height='13' valign='middle'>$data[cedula]</td>
                         <td style='padding-left:5px;' width='20' height='13' valign='middle'>".$edad->y."</td>
                         <td style='padding-left:5px;' width='20' height='13' valign='middle'>$data[sexo]</td>
@@ -68,6 +67,7 @@ $count  = mysqli_num_rows($query);
                         <td style='padding-left:5px;' width='50' height='13' valign='middle'>$data[ocupacion]</td>
                         <td style='padding-left:5px;' width='15' height='13' valign='middle'>$data[categoria]</td>
                         <td style='padding-left:5px;' width='60' height='13' valign='middle'>$data[telefono]</td>
+                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$data[fexpiracion]</td>
                     </tr>";
             $no++;
         }

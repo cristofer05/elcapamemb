@@ -33,7 +33,7 @@ else {
            
             if ($query) {
                 
-                $query1 = mysqli_query($mysqli, "UPDATE medicamentos SET stock        = '$total_stock'
+                $query1 = mysqli_query($mysqli, "UPDATE miembros SET stock        = '$total_stock'
                                                               WHERE codigo   = '$codigo'")
                                                 or die('Error: '.mysqli_error($mysqli));
 

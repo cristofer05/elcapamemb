@@ -110,7 +110,7 @@ if ($_GET['form']=='add') { ?>
                   <select class="chosen-select" name="codigo" data-placeholder="-- Seleccionar Medicamento --" onchange="tampil_obat(this)" autocomplete="off" required>
                     <option value=""></option>
                     <?php
-                      $query_obat = mysqli_query($mysqli, "SELECT codigo, nombre FROM Medicamentos ORDER BY nombre ASC")
+                      $query_obat = mysqli_query($mysqli, "SELECT codigo, nombre FROM miembros ORDER BY nombre ASC")
                                                             or die('error '.mysqli_error($mysqli));
                       while ($data_obat = mysqli_fetch_assoc($query_obat)) {
                         echo"<option value=\"$data_obat[codigo]\"> $data_obat[codigo] | $data_obat[nombre] </option>";

@@ -30,8 +30,8 @@ else {
 	}
 	
 
-	elseif ($_GET['module'] == 'stock_inventory') {
-		include "modules/stock_inventory/view.php";
+	elseif ($_GET['module'] == 'lista_miembros') {
+		include "modules/lista_miembros/view.php";
 	}
 
 	elseif ($_GET['module'] == 'stock_report') {

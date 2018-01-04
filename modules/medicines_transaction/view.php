@@ -52,7 +52,7 @@
             $no = 1;
            
             $query = mysqli_query($mysqli, "SELECT a.tipo_transaccion, a.codigo_transaccion,a.fecha,a.codigo,a.numero,b.codigo,b.nombre,b.unidad
-                                            FROM transaccion_medicamentos as a INNER JOIN medicamentos as b ON a.codigo=b.codigo ORDER BY codigo_transaccion DESC")
+                                            FROM transaccion_medicamentos as a INNER JOIN miembros as b ON a.codigo=b.codigo ORDER BY codigo_transaccion DESC")
                                             or die('error '.mysqli_error($mysqli));
 
            

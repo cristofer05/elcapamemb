@@ -47,13 +47,13 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
   <?php
   }
 
-	if ($_GET["module"]=="stock_inventory") { ?>
+	if ($_GET["module"]=="lista_miembros") { ?>
 		<li class="active treeview">
           	<a href="javascript:void(0);">
             	<i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li class="active"><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
+        		<li class="active"><a href="?module=lista_miembros"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
         		<li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos</a></li>
       		</ul>
     	</li>
@@ -66,7 +66,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
             	<i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
+        		<li><a href="?module=lista_miembros"><i class="fa fa-circle-o"></i> Lista de Miembros</a></li>
         		<li class="active"><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
       		</ul>
     	</li>
@@ -79,7 +79,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
             	<i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
+        		<li><a href="?module=lista_miembros"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
         		<li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
       		</ul>
     	</li>
