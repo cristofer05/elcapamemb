@@ -733,6 +733,8 @@ elseif ($_GET['form']=='edit') {
       <i class="fa fa-edit icon-title"></i> Modificar Miembro
     </h1>
     <a href="javascript:void(0)" onclick="HaEdicion();" class="btn btn-warning btn-reset">Ver/Editar</a>
+    <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary" href="modules/miembros/print.php?&id=<?php echo $data['codigo'];?>"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Imprimir</a>
+    
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
       <li><a href="?module=miembros"> Miembros </a></li>

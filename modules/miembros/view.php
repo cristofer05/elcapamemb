@@ -97,12 +97,16 @@
                         case "C": echo "BASICO"; break;
                         }
                       echo "'>$data[categoria]</td>
-                      <td class='center' width='80'>
+                      <td class='center' width='200'>
                         <div>
                           <a data-toggle='tooltip' data-placement='top' title='Ver/Editar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_miembros&form=edit&id=$data[codigo]'>
                               <i style='color:#fff' class='glyphicon glyphicon-edit'></i>
                           </a>";
             ?>
+                         <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary btn-sm" href="modules/miembros/print.php?&id=<?php echo $data['codigo'];?>" onclick="return confirm('estas seguro de Imprimir a <?php echo $data['nombre']; ?> ?');">
+                              <i style="color:#fff" class="glyphicon glyphicon-print"></i>
+                          </a>
+                          
                           <a data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn btn-danger btn-sm" href="modules/miembros/proses.php?act=delete&id=<?php echo $data['codigo'];?>" onclick="return confirm('estas seguro de eliminar<?php echo $data['nombre']; ?> ?');">
                               <i style="color:#fff" class="glyphicon glyphicon-trash"></i>
                           </a>
