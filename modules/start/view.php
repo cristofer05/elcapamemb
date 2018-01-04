@@ -58,7 +58,7 @@
       <div class="col-lg-6 col-xs-12">
         <!-- small box -->
         <div style="background-color:#00a65a;color:#fff" class="small-box">
-          <a href="?module=form_medicines_transaction&form=add" class="small-box-footer"  data-toggle="tooltip">
+          <a href="?module=escanear&form=add" class="small-box-footer"  data-toggle="tooltip">
           <div class="inner">
             <?php   
    
@@ -77,7 +77,7 @@
           </div>
           <?php  
           if ($_SESSION['permisos_acceso']!='gerente') { ?>
-            <a href="?module=form_medicines_transaction&form=add" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
+            <a href="?module=escanear&form=add" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
           <?php
           } else { ?>
             <a class="small-box-footer"><i class="fa"></i></a>
@@ -90,7 +90,7 @@
       <div class="col-lg-6 col-xs-12">
         <!-- small box -->
         <div style="background-color:#f39c12;color:#fff" class="small-box">
-        <a href="?module=stock_inventory" class="small-box-footer" data-toggle="tooltip">
+        <a href="?module=miembros" class="small-box-footer" data-toggle="tooltip">
           <div class="inner">
             <?php  
   
@@ -106,7 +106,7 @@
           <div class="icon">
             <i class="fa fa-file-text-o"></i>
           </div>
-          <a href="?module=stock_inventory" class="small-box-footer" title="Imprimir" data-toggle="tooltip"><i class="fa fa-print"></i></a>
+          <a href="?module=miembros" class="small-box-footer" title="Imprimir" data-toggle="tooltip"><i class="fa fa-print"></i></a>
         </div>
       </div><!-- ./col -->
 

@@ -45,12 +45,13 @@ session_start();
               x.style.display = "none";
           }
 
-          var x = document.getElementById("Editar");
+        var x = document.getElementById("Editar");
           if (x.style.display === "none") {
               x.style.display = "block";
           } else {
               x.style.display = "none";
-          }
+          }  
+              
 /*
         document.getElementById('hedicion1').removeAttribute('readonly');
         document.getElementById('hedicion2').removeAttribute('readonly');
@@ -65,6 +66,13 @@ session_start();
         document.getElementById('hedicion11').removeAttribute('readonly');
 */
       };
+
+      function ocultar() {
+        var w = document.getElementById("Editar");
+        w.style.display = "none";
+      }
+
+      window.onload = ocultar;
     </script>
     
 
@@ -116,7 +124,7 @@ session_start();
       
       <header class="main-header">
         <!-- Logo -->
-        <a href="?module=beranda" class="logo">
+        <a href="?module=start" class="logo">
           <img style="margin-top:0px;margin-right:5px" width="30" src="assets/img/el-capacitador-logo-mini.png" alt="Logo"> 
           <span style="font-size:20px">Miembros</span>
         </a>

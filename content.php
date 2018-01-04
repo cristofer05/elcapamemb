@@ -22,11 +22,11 @@ else {
 	
 
 	elseif ($_GET['module'] == 'medicines_transaction') {
-		include "modules/medicines_transaction/view.php";
+		include "modules/escanear/view.php";
 	}
 
-	elseif ($_GET['module'] == 'form_medicines_transaction') {
-		include "modules/medicines_transaction/form.php";
+	elseif ($_GET['module'] == 'escanear') {
+		include "modules/escanear/form.php";
 	}
 	
 

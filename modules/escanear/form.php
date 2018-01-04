@@ -91,70 +91,13 @@ if ($_GET['form']=='add') { ?>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Codigo de miembro </label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" name="codigo_transaccion" value="<?php echo $codigo_transaccion; ?>" required>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Escanear</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" name="fecha_a" autocomplete="off" value="<?php echo date("d-m-Y"); ?>" required>
-                </div>
-              </div>
-
-              <hr>
-
-              <div class="form-group">  
-                <label class="col-sm-2 control-label">Medicamento</label>
-                <div class="col-sm-5">
-                  <select class="chosen-select" name="codigo" data-placeholder="-- Seleccionar Medicamento --" onchange="tampil_obat(this)" autocomplete="off" required>
-                    <option value=""></option>
-                    <?php
-                      $query_obat = mysqli_query($mysqli, "SELECT codigo, nombre FROM miembros ORDER BY nombre ASC")
-                                                            or die('error '.mysqli_error($mysqli));
-                      while ($data_obat = mysqli_fetch_assoc($query_obat)) {
-                        echo"<option value=\"$data_obat[codigo]\"> $data_obat[codigo] | $data_obat[nombre] </option>";
-                      }
-                    ?>
-                  </select>
+                  <input type="text" class="form-control" name="codigo_transaccion" placeholder="Ej: CAP-000000" required>
                 </div>
               </div>
               
-              <span id='stok'>
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Stock</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control" id="stok" name="stock" readonly required>
-                </div>
-              </div>
-              </span>
-
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Cantidad</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control" id="jumlah_masuk" name="num" autocomplete="off" onKeyPress="return goodchars(event,'0123456789',this)" onkeyup="hitung_total_stok(this)&cek_jumlah_masuk(this)" required>
-                </div>
-              </div>
-			  
-			  <div class="form-group">
-                <label class="col-sm-2 control-label">Transacción</label>
-                <div class="col-sm-5">
-                  <select name="transaccion" id="transaccion" required class='form-control' onchange="hitung_total_stok();">
-					<option value="Salida">Salida</option>
-					<option value="Entrada">Entrada</option>
-				  </select>
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label class="col-sm-2 control-label">Total Stock</label>
-                <div class="col-sm-5">
-                  <input type="text" class="form-control" id="total_stok" name="total_stock" readonly required>
-                </div>
-              </div>
+              <hr>
 
             </div><!-- /.box body -->
-
             <div class="box-footer">
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
