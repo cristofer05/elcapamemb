@@ -3,7 +3,7 @@
   function tampil_obat(input){
     var num = input.value;
 
-    $.post("modules/medicines_transaction/medicines.php", {
+    $.post("modules/escanear/medicines.php", {
       dataidobat: num,
     }, function(response) {      
       $('#stok').html(response)
@@ -49,12 +49,12 @@ if ($_GET['form']=='add') { ?>
 
   <section class="content-header">
     <h1>
-      <i class="fa fa-edit icon-title"></i> Datos entradas / salidas de Medicamentos
+      <i class="fa fa-edit icon-title"></i> Busqueda de miembros
     </h1>
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
-      <li><a href="?module=medicines_transaction"> Entrada </a></li>
-      <li class="active"> Agregar </li>
+      <li><a href="?module=escanear"> Buscar </a></li>
+      <!-- <li class="active"> Agregar </li> -->
     </ol>
   </section>
 
@@ -64,7 +64,7 @@ if ($_GET['form']=='add') { ?>
       <div class="col-md-12">
         <div class="box box-primary">
           <!-- form start -->
-          <form role="form" class="form-horizontal" action="modules/medicines_transaction/proses.php?act=insert" method="POST" name="formObatMasuk">
+          <form role="form" class="form-horizontal" action="modules/escanear/proses.php?act=insert" method="POST" name="formObatMasuk">
             <div class="box-body">
               <?php  
             
@@ -101,8 +101,8 @@ if ($_GET['form']=='add') { ?>
             <div class="box-footer">
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                  <input type="submit" class="btn btn-primary btn-submit" name="Guardar" value="Guardar">
-                  <a href="?module=medicines_transaction" class="btn btn-default btn-reset">Cancelar</a>
+                  <input type="submit" class="btn btn-primary btn-submit" name="Buscar" value="Buscar">
+                  <a href="?module=escanear" class="btn btn-default btn-reset">Cancelar</a>
                 </div>
               </div>
             </div><!-- /.box footer -->

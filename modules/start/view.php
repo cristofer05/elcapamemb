@@ -39,7 +39,7 @@
             $data = mysqli_fetch_assoc($query);
             ?>
             <h3><?php // echo $data['numero']; ?></h3>
-            <h3>NUEVO USUARIO</h3>
+            <h3>NUEVO MIEMBRO</h3>
           </div>
           </a>
           <div class="icon">
@@ -100,7 +100,7 @@
             $data = mysqli_fetch_assoc($query);
             ?>
             <h3><?php echo $data['numero']; ?></h3>
-            <h3>MOSTRAR USUARIOS</h3>
+            <h3>MOSTRAR MIEMBROS</h3>
           </div>
           </a>
           <div class="icon">

@@ -80,7 +80,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
           	</a>
       		<ul class="treeview-menu">
         		<li><a href="?module=lista_miembros"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
-        		<li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+        		<li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Filtrar miembros </a></li>
       		</ul>
     	</li>
     <?php
@@ -149,8 +149,8 @@ elseif ($_SESSION['permisos_acceso']=='Gerente') { ?>
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos</a></li>
-            <li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+            <li class="active"><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros</a></li>
+            <li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
           </ul>
       </li>
     <?php
@@ -161,8 +161,8 @@ elseif ($_SESSION['permisos_acceso']=='Gerente') { ?>
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
-            <li class="active"><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
+            <li class="active"><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
           </ul>
       </li>
     <?php
@@ -173,8 +173,8 @@ elseif ($_SESSION['permisos_acceso']=='Gerente') { ?>
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i>  Stock de Medicamentos </a></li>
-            <li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i>  Lista de Miembros </a></li>
+            <li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
           </ul>
       </li>
     <?php
@@ -249,7 +249,7 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
+            <li class="active"><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
             <li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
           </ul>
       </li>
@@ -261,8 +261,8 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
-            <li class="active"><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
+            <li class="active"><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
           </ul>
       </li>
     <?php
@@ -273,8 +273,8 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
-            <li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
+            <li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
           </ul>
       </li>
     <?php

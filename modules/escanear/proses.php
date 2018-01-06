@@ -40,7 +40,7 @@ else {
                
                 if ($query1) {                       
                     
-                    header("location: ../../main.php?module=medicines_transaction&alert=1");
+                    header("location: ../../main.php?module=escanear&alert=1");
                 }
             }   
         }   
