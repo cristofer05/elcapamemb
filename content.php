@@ -28,14 +28,17 @@ else {
 	elseif ($_GET['module'] == 'escanear') {
 		include "modules/escanear/form.php";
 	}
+	elseif ($_GET['module'] == 'escaneado') {
+		include "modules/escanear/escanear.php";
+	}
 	
 
 	elseif ($_GET['module'] == 'lista_miembros') {
 		include "modules/lista_miembros/view.php";
 	}
 
-	elseif ($_GET['module'] == 'stock_report') {
-		include "modules/stock_report/view.php";
+	elseif ($_GET['module'] == 'filtro_miembros') {
+		include "modules/filtro_miembros/view.php";
 	}
 
 	elseif ($_GET['module'] == 'user') {

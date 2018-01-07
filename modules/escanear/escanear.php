@@ -5,39 +5,127 @@ session_start();
 
 require_once "../../config/database.php";
 
-if(isset($_POST['dataidobat'])) {
-	$codigo = $_POST['dataidobat'];
+if(isset($_GET['codigo'])) {
+	$codigo = $_GET['codigo'];
 
  
-  $query = mysqli_query($mysqli, "SELECT codigo,nombre,unidad,stock FROM miembros WHERE codigo='$codigo'")
+  $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_date FROM miembros WHERE codigo='$codigo'")
                                   or die('error '.mysqli_error($mysqli));
 
 
   $data = mysqli_fetch_assoc($query);
+?>
+<section class="content-header">
+    <h1>
+      <i class="fa fa-edit icon-title"></i> Busqueda de miembros
+    </h1>
+    <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary" href="modules/miembros/print.php?&id=<?php echo $data['codigo'];?>"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Imprimir</a>
+    
+    <ol class="breadcrumb">
+      <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
+      <li><a href="?module=miembros"> Buscar </a></li>
+      <li class="active"> Escaneado </li>
+    </ol>
+  </section>
 
-  $stock   = $data['stock'];
-  $unidad = $data['unidad'];
+  <!-- Main content -->
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="box box-primary">
 
-	if($stock != '') {
-		echo "<div class='form-group'>
-                <label class='col-sm-2 control-label'>Stock</label>
-                <div class='col-sm-5'>
-                  <div class='input-group'>
-                    <input type='text' class='form-control' id='stok' name='stock' value='$stock' readonly>
-                    <span class='input-group-addon'>$unidad</span>
-                  </div>
+<!-- FORMULARIO DE SOLO VER -->
+
+          <form class="form-horizontal" id="Ver">
+            <div class="box-body">
+              <div class="form-group">
+                
+                <div class="col-sm-2">
+                  <img src="https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=150x150&chl=<?php echo $data['codigo']; ?>">
                 </div>
-              </div>";
-	} else {
-		echo "<div class='form-group'>
-                <label class='col-sm-2 control-label'>Stock</label>
-                <div class='col-sm-5'>
-                  <div class='input-group'>
-                    <input type='text' class='form-control' id='stok' name='stock' value='' readonly>
-                    <span class='input-group-addon'></span>
-                  </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Codigo</label>
+                <div class="col-sm-5">
+                  <?php echo $data['codigo']; ?>
                 </div>
-              </div>";
-	}		
-}
-?> 
+              </div>
+
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Nombres</label>
+                <div class="col-sm-5">
+                  <?php echo $data['nombres']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Apellidos</label>
+                <div class="col-sm-5">
+                  <?php echo $data['apellidos']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Cedula</label>
+                <div class="col-sm-5">
+                 <?php echo $data['cedula']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Fecha Nacimiento</label>
+                <div class="col-sm-5">
+                 <?php echo $data['fnacimiento']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Sexo</label>
+                <div class="col-sm-5">
+                    <?php switch ($data['sexo']) {
+                        case "F": echo "Femenino"; break;
+                        case "M": echo "Masculino"; break;
+                        } ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Localidad</label>
+                <div class="col-sm-5">
+                  <?php echo $data['localidad']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Ocupacion</label>
+                <div class="col-sm-5">
+                 <?php echo $data['ocupacion']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Correo</label>
+                <div class="col-sm-5">
+                 <?php echo $data['correo']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Telefono</label>
+                <div class="col-sm-5">
+                  <?php echo $data['telefono']; ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Categoria</label>
+                <div class="col-sm-5">
+                    <?php switch ($data['categoria']) {
+                        case "A": echo "Premium"; break;
+                        case "B": echo "Regular"; break;
+                        case "C": echo "Basico"; break; }  ?>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Fecha Expiracion</label>
+                <div class="col-sm-5">
+                    <?php echo $data['fexpiracion']; ?>
+                </div>
+              </div>
+            </div><!-- /.box body -->
+          </form>
+</div>
+</div>
+</div>
+</section>

@@ -34,6 +34,15 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
            <h2>Numero de Afiliado <?php echo $data['codigo']; ?> </h2>
         </div>
         <div id="isi" style="border:10px solid #E6E6E6; margin:12px; padding:20px; background-image: url("http://localhost/elcapamemb/assets/img/elcapacitadopdf.png");">
+        <?php 
+          $fech1       = $data['created_date'];
+          $exp1           = explode('-',$fech1);
+          $fecha1 = $exp1[2]."-".$exp1[1]."-".$exp1[0];
+
+          $fech2       = $data['fexpiracion'];
+          $exp2           = explode('-',$fech2);
+          $fecha2 = $exp2[2]."-".$exp2[1]."-".$exp2[0];
+        ?>
         <table width="100%" border="0px">
             <tr border="0px">
                 <td border="0px">
@@ -43,9 +52,14 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
             <tr border="0px">
                 <td  border="0px">
                     <h1><?php echo $data['nombres']; ?> <?php echo $data['apellidos']; ?></h1>
-                    <p style="font-size:20px">Fecha de emision: <?php echo $data['created_date']; ?></p>
-                    <p style="font-size:20px">Fecha de expiracion: <?php echo $data['fexpiracion']; ?></p>
-                    <p style="font-size:20px">Categoria: <?php echo $data['categoria']; ?></p>
+                    <p style="font-size:20px">Miembro desde: <?php echo tgl_eng_to_ind($fecha1); ?></p>
+                    <p style="font-size:20px">Fecha de expiracion: <?php echo tgl_eng_to_ind($fecha2); ?></p>
+                    <p style="font-size:20px">Categoria: <?php 
+                      switch ($data['categoria']) {
+                        case "A": echo "PREMIUM"; break;
+                        case "B": echo "REGULAR"; break;
+                        case "C": echo "BASICO"; break;
+                        } ?></p>
                 </td>
             </tr>   
         </table>

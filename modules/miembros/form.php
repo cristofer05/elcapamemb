@@ -686,16 +686,19 @@ if ($_GET['form']=='add') { ?>
                   </select>
                 </div>
               </div>
-
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Fecha Creacion</label>
+                <div class="col-sm-5">
+                    <input type="date" name="created_date" class="form-control" autocomplete="off"  value="<?php echo date("Y-m-d");?>">
+                </div>
+              </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha Expiracion</label>
                 <div class="col-sm-5">
                     <input type="date" name="fexpiracion" class="form-control" autocomplete="off" step="1" min="2018-01-01" max="2099-12-31" value="<?php echo date("Y-m-d");?>">
                 </div>
               </div>
-
             </div><!-- /.box body -->
-
             <div class="box-footer">
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
@@ -715,7 +718,7 @@ if ($_GET['form']=='add') { ?>
 elseif ($_GET['form']=='edit') { 
   if (isset($_GET['id'])) { 
 
-      $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion FROM miembros WHERE codigo='$_GET[id]'") 
+      $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_date FROM miembros WHERE codigo='$_GET[id]'") 
                                       or die('error: '.mysqli_error($mysqli));
       $data  = mysqli_fetch_assoc($query);
     }
@@ -1397,6 +1400,12 @@ elseif ($_GET['form']=='edit') {
                     <option value="B">Regular</option>
                     <option value="C">Basico</option>
                   </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Fecha Creacion</label>
+                <div class="col-sm-5">
+                    <input type="date" name="created_date" class="form-control" autocomplete="off"  value="<?php echo $data['created_date']; ?>">
                 </div>
               </div>
               <div class="form-group">
