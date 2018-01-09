@@ -28,9 +28,6 @@ else {
 	elseif ($_GET['module'] == 'escanear') {
 		include "modules/escanear/form.php";
 	}
-	elseif ($_GET['module'] == 'escaneado') {
-		include "modules/escanear/escanear.php";
-	}
 	
 
 	elseif ($_GET['module'] == 'lista_miembros') {

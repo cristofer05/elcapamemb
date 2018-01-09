@@ -58,7 +58,7 @@
       <div class="col-lg-6 col-xs-12">
         <!-- small box -->
         <div style="background-color:#00a65a;color:#fff" class="small-box">
-          <a href="?module=escanear&form=buscar" class="small-box-footer"  data-toggle="tooltip">
+          <a href="?module=escanear" class="small-box-footer"  data-toggle="tooltip">
           <div class="inner">
             <?php   
    
@@ -77,7 +77,7 @@
           </div>
           <?php  
           if ($_SESSION['permisos_acceso']!='gerente') { ?>
-            <a href="?module=escanear&form=buscar" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
+            <a href="?module=escanear" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
           <?php
           } else { ?>
             <a class="small-box-footer"><i class="fa"></i></a>

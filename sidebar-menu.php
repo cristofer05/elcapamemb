@@ -35,14 +35,14 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 
   if ($_GET["module"]=="escanear" || $_GET["module"]=="form_escanear") { ?>
     <li class="active">
-      <a href="?module=escanear&form=buscar"><i class="fa fa-clone"></i> Escanear Codigo QR </a>
+      <a href="?module=escanear"><i class="fa fa-clone"></i> Escanear Codigo QR </a>
       </li>
   <?php
   }
 
   else { ?>
     <li>
-      <a href="?module=escanear&form=buscar"><i class="fa fa-clone"></i> Escanear Codigo QR </a>
+      <a href="?module=escanear"><i class="fa fa-clone"></i> Escanear Codigo QR </a>
       </li>
   <?php
   }
