@@ -22,30 +22,25 @@ $tgl_akhir = $explode[2]."-".$explode[1]."-".$explode[0];
 
 if (isset($_GET['tgl_awal'])) {
     $no    = 1;
-    
- /*   $query = mysqli_query($mysqli, "SELECT a.tipo_transaccion, a.codigo_transaccion,a.fecha,a.codigo,a.numero,b.codigo,b.nombre,b.unidad
-                                    FROM transaccion_medicamentos as a INNER JOIN medicamentos as b ON a.codigo=b.codigo
-                                    WHERE a.fecha BETWEEN '$tgl_awal' AND '$tgl_akhir'
-                                    ORDER BY a.codigo_transaccion ASC") 
-                                    or die('error '.mysqli_error($mysqli)); */
+ 
 
-     $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion
-                                    FROM miembros 
+    $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_date FROM miembros 
                                     WHERE created_date BETWEEN '$tgl_awal' AND '$tgl_akhir'
                                     ORDER BY created_date ASC") 
-                                    or die('error '.mysqli_error($mysqli));                               
+                                    or die('error '.mysqli_error($mysqli));                                
+
     $count  = mysqli_num_rows($query);
 }
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"> 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>REPORTE DE MIEMBROS</title>
+        <title>FILTRO DE MIEMBROS</title>
         <link rel="stylesheet" type="text/css" href="../../assets/css/laporan.css" />
     </head>
     <body>
         <div id="title">
-           DATOS DE MIEMBROS REGISTRADOS
+           REPORTE DE MIEMBROS FILTRADOS POR FECHA DE CREACION
         </div>
     <?php  
     if ($tgl_awal==$tgl_akhir) { ?>
@@ -67,13 +62,17 @@ if (isset($_GET['tgl_awal'])) {
                 <thead style="background:#e8ecee">
                     <tr class="tr-title">
                         <th height="20" align="center" valign="middle"><small>NO.</small></th>
-                        <th height="20" align="center" valign="middle"><small>CODIGO </small></th>
+                        <th height="20" align="center" valign="middle"><small>CODIGO</small></th>
+                        <th height="20" align="center" valign="middle"><small>CREADO</small></th>
                         <th height="20" align="center" valign="middle"><small>NOMBRE</small></th>
-                        <th height="20" align="center" valign="middle"><small>APELLIDO </small></th>
-                        <th height="20" align="center" valign="middle"><small>CATEGORIA</small></th>
-                        <th height="20" align="center" valign="middle"><small>OCUPACION </small></th>
-						<th height="20" align="center" valign="middle"><small>TELEFONO</small></th>
-                        <th height="20" align="center" valign="middle"><small>FECHA CREADO</small></th>
+                        <th height="20" align="center" valign="middle"><small>CEDULA</small></th>
+                        <th height="20" align="center" valign="middle"><small>EDAD</small></th>
+                        <th height="20" align="center" valign="middle"><small>SEXO</small></th>
+                        <th height="20" align="center" valign="middle"><small>LOCALIDAD</small></th>
+                        <th height="20" align="center" valign="middle"><small>OFICIO</small></th>
+                        <th height="20" align="center" valign="middle"><small>CAT</small></th>
+                        <th height="20" align="center" valign="middle"><small>TELEFONO</small></th>
+                        <th height="20" align="center" valign="middle"><small>EXPIRACION</small></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -95,19 +94,27 @@ if (isset($_GET['tgl_awal'])) {
     else {
    
         while ($data = mysqli_fetch_assoc($query)) {
-            $tanggal       = $data['fecha'];
+            $tanggal       = $data['created_date'];
             $exp           = explode('-',$tanggal);
             $fecha = $exp[2]."-".$exp[1]."-".$exp[0];
+            //determinando edad
+                $nacimiento = new DateTime($data['fnacimiento']);
+                $hoy = new DateTime();
+                $edad = $hoy->diff($nacimiento);
 
-            echo "  <tr>
-                        <td width='40' height='13' align='center' valign='middle'>$no</td>
-                        <td width='120' height='13' align='center' valign='middle'>$data[codigo]</td>
-                        <td width='80' height='13' align='center' valign='middle'>$data[nombres]</td>
-                        <td width='80' height='13' align='center' valign='middle'>$data[apellidos]</td>
-                        <td style='padding-left:5px;' width='155' height='13' valign='middle'>$data[categoria]</td>
-						<td style='padding-left:5px;' width='50' height='13' valign='middle'>$data[ocupacion]</td>
-                        <td style='padding-right:10px;' width='50' height='13' align='center' valign='middle'>$data[telefono]</td>
-                        <td width='80' height='13' align='center' valign='middle'>$fecha</td>
+            echo "  <tr style='font-size:10px;'>
+                        <td width='15' height='13' align='center' valign='middle'>$no</td>
+                        <td width='60' height='13' align='center' valign='middle'>$data[codigo]</td>
+                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$fecha</td>
+                        <td style='padding-left:5px;' width='70' height='13' valign='middle'>$data[nombres] $data[apellidos]</td>
+                        <td style='padding-left:5px;' width='70' height='13' valign='middle'>$data[cedula]</td>
+                        <td style='padding-left:5px;' width='20' height='13' valign='middle'>".$edad->y."</td>
+                        <td style='padding-left:5px;' width='20' height='13' valign='middle'>$data[sexo]</td>
+                        <td style='padding-left:5px;' width='80' height='13' valign='middle'>$data[localidad]</td>
+                        <td style='padding-left:5px;' width='50' height='13' valign='middle'>$data[ocupacion]</td>
+                        <td style='padding-left:5px;' width='15' height='13' valign='middle'>$data[categoria]</td>
+                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$data[telefono]</td>
+                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$data[fexpiracion]</td>
                     </tr>";
             $no++;
         }

@@ -24,7 +24,7 @@
       echo "<div class='alert alert-success alert-dismissable'>
               <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
               <h4>  <i class='icon fa fa-check-circle'></i> Exito!</h4>
-             Nuevos datos del miembro ha sido  almacenado correctamente.
+             Nuevos datos del miembro han sido  almacenados correctamente.
             </div>";
     }
 
@@ -60,7 +60,7 @@
                 <th class="center">Edad</th>
                 <th class="center">Sexo</th>
                 <th class="center">Localidad</th>
-                <th class="center">Categoria</th>
+                <th class="center">Cat.</th>
                 <th></th>
               </tr>
             </thead>
@@ -77,32 +77,36 @@
                 $edad = $hoy->diff($nacimiento);
 
               echo "<tr>
-                      <td width='30' class='center'>$no</td>
-                      <td width='150' class='center'>$data[codigo]</td>
-                      <td width='200'>$data[nombres]</td>
-                      <td width='200'>$data[apellidos]</td>
-                      <td width='180'>$data[cedula]</td>
-                      <td width='60'>".$edad->y."</td>
-                      <td width='110' title='";
+                      <td width='10' class='center'>$no</td>
+                      <td width='100' class='center'>$data[codigo]</td>
+                      <td width='150'>$data[nombres]</td>
+                      <td width='150'>$data[apellidos]</td>
+                      <td width='110'>$data[cedula]</td>
+                      <td width='20'>".$edad->y."</td>
+                      <td width='20' title='";
                       switch ($data['sexo']) {
                         case "F": echo "FEMENINO"; break;
                         case "M": echo "MASCULINO"; break;
                         }
                       echo "'>$data[sexo]</td>
                       <td width='180'>$data[localidad]</td>
-                      <td width='80' title='";
+                      <td width='20' title='";
                       switch ($data['categoria']) {
                         case "A": echo "PREMIUM"; break;
                         case "B": echo "REGULAR"; break;
                         case "C": echo "BASICO"; break;
                         }
                       echo "'>$data[categoria]</td>
-                      <td class='center' width='80'>
+                      <td class='center' width='200'>
                         <div>
                           <a data-toggle='tooltip' data-placement='top' title='Ver/Editar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_miembros&form=edit&id=$data[codigo]'>
                               <i style='color:#fff' class='glyphicon glyphicon-edit'></i>
                           </a>";
             ?>
+                         <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary btn-sm" href="modules/miembros/print.php?&id=<?php echo $data['codigo'];?>" onclick="return confirm('estas seguro de Imprimir a <?php echo $data['nombre']; ?> ?');">
+                              <i style="color:#fff" class="glyphicon glyphicon-print"></i>
+                          </a>
+                          
                           <a data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn btn-danger btn-sm" href="modules/miembros/proses.php?act=delete&id=<?php echo $data['codigo'];?>" onclick="return confirm('estas seguro de eliminar<?php echo $data['nombre']; ?> ?');">
                               <i style="color:#fff" class="glyphicon glyphicon-trash"></i>
                           </a>

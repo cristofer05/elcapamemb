@@ -20,54 +20,54 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 
   if ($_GET["module"]=="miembros" || $_GET["module"]=="form_miembros") { ?>
     <li class="active">
-      <a href="?module=miembros"><i class="fa fa-folder"></i> Datos de Miembros </a>
+      <a href="?module=miembros"><i class="fa fa-folder"></i> Miembros Registrados</a>
       </li>
   <?php
   }
 
   else { ?>
     <li>
-      <a href="?module=miembros"><i class="fa fa-folder"></i> Datos de Miembros </a>
+      <a href="?module=miembros"><i class="fa fa-folder"></i> Miembros Registrados </a>
       </li>
   <?php
   }
 
 
-  if ($_GET["module"]=="medicines_transaction" || $_GET["module"]=="form_medicines_transaction") { ?>
+  if ($_GET["module"]=="escanear" || $_GET["module"]=="form_escanear") { ?>
     <li class="active">
-      <a href="?module=medicines_transaction"><i class="fa fa-clone"></i> Registro de medicamentos </a>
+      <a href="?module=escanear&form=buscar"><i class="fa fa-clone"></i> Escanear Codigo QR </a>
       </li>
   <?php
   }
 
   else { ?>
     <li>
-      <a href="?module=medicines_transaction"><i class="fa fa-clone"></i> Registro de medicamentos </a>
+      <a href="?module=escanear&form=buscar"><i class="fa fa-clone"></i> Escanear Codigo QR </a>
       </li>
   <?php
   }
 
-	if ($_GET["module"]=="stock_inventory") { ?>
+	if ($_GET["module"]=="lista_miembros") { ?>
 		<li class="active treeview">
           	<a href="javascript:void(0);">
             	<i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li class="active"><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
-        		<li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos</a></li>
+        		<li class="active"><a href="?module=lista_miembros"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
+        		<li><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtrar Miembros</a></li>
       		</ul>
     	</li>
     <?php
 	}
 
-	elseif ($_GET["module"]=="stock_report") { ?>
+	elseif ($_GET["module"]=="filtro_miembros") { ?>
 		<li class="active treeview">
           	<a href="javascript:void(0);">
             	<i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
-        		<li class="active"><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+        		<li><a href="?module=lista_miembros"><i class="fa fa-circle-o"></i> Lista de Miembros</a></li>
+        		<li class="active"><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtrar Miembros </a></li>
       		</ul>
     	</li>
     <?php
@@ -79,8 +79,8 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
             	<i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
-        		<li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+        		<li><a href="?module=lista_miembros"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
+        		<li><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtrar miembros </a></li>
       		</ul>
     	</li>
     <?php
@@ -149,20 +149,20 @@ elseif ($_SESSION['permisos_acceso']=='Gerente') { ?>
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos</a></li>
-            <li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+            <li class="active"><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros</a></li>
+            <li><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
           </ul>
       </li>
     <?php
   }
-  elseif ($_GET["module"]=="stock_report") { ?>
+  elseif ($_GET["module"]=="filtro_miembros") { ?>
     <li class="active treeview">
             <a href="javascript:void(0);">
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
-            <li class="active"><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
+            <li class="active"><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
           </ul>
       </li>
     <?php
@@ -173,8 +173,8 @@ elseif ($_SESSION['permisos_acceso']=='Gerente') { ?>
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i>  Stock de Medicamentos </a></li>
-            <li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i>  Lista de Miembros </a></li>
+            <li><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
           </ul>
       </li>
     <?php
@@ -249,20 +249,20 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
-            <li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+            <li class="active"><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
+            <li><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
           </ul>
       </li>
     <?php
   }
-  elseif ($_GET["module"]=="stock_report") { ?>
+  elseif ($_GET["module"]=="filtro_miembros") { ?>
     <li class="active treeview">
             <a href="javascript:void(0);">
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
-            <li class="active"><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
+            <li class="active"><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
           </ul>
       </li>
     <?php
@@ -273,8 +273,8 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Stock de Medicamentos </a></li>
-            <li><a href="?module=stock_report"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
+            <li><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
           </ul>
       </li>
     <?php

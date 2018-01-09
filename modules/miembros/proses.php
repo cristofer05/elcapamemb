@@ -25,12 +25,12 @@ else {
             $telefono  = mysqli_real_escape_string($mysqli, trim($_POST['telefono']));
             $categoria  = mysqli_real_escape_string($mysqli, trim($_POST['categoria']));
             $fexpiracion = str_replace('.', '', mysqli_real_escape_string($mysqli, trim($_POST['fexpiracion'])));
-
             $created_user = $_SESSION['id_user'];
+            $created_date = str_replace('.', '', mysqli_real_escape_string($mysqli, trim($_POST['created_date'])));
 
   
-            $query = mysqli_query($mysqli, "INSERT INTO miembros(codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_user,updated_user) 
-                                            VALUES('$codigo','$nombres','$apellidos','$cedula','$fnacimiento','$sexo','$localidad','$ocupacion','$correo','$telefono','$categoria','$fexpiracion','$created_user','$created_user')")
+            $query = mysqli_query($mysqli, "INSERT INTO miembros(codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_user,created_date,updated_user) 
+                                            VALUES('$codigo','$nombres','$apellidos','$cedula','$fnacimiento','$sexo','$localidad','$ocupacion','$correo','$telefono','$categoria','$fexpiracion','$created_user','$created_date','$created_user')")
                                             or die('error '.mysqli_error($mysqli));    
 
         
@@ -57,7 +57,7 @@ else {
                 $telefono  = mysqli_real_escape_string($mysqli, trim($_POST['telefono']));
                 $categoria  = mysqli_real_escape_string($mysqli, trim($_POST['categoria']));
                 $fexpiracion = mysqli_real_escape_string($mysqli, trim($_POST['fexpiracion']));
-
+                $created_date = str_replace('.', '', mysqli_real_escape_string($mysqli, trim($_POST['created_date'])));
                 $updated_user = $_SESSION['id_user'];
 
                 $query = mysqli_query($mysqli, "UPDATE miembros SET  nombres       = '$nombres',
@@ -71,6 +71,7 @@ else {
                                                                     telefono         = '$telefono',
                                                                     categoria         = '$categoria',
                                                                     fexpiracion       = '$fexpiracion',
+                                                                    created_date    ='$created_date',
                                                                     updated_user    ='$updated_user'
                                                               WHERE codigo       = '$codigo'")
                                                 or die('Error: '.mysqli_error($mysqli));

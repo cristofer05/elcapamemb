@@ -40,7 +40,8 @@ CREATE TABLE `miembros` (
   `categoria` varchar(20) NOT NULL,
   `fexpiracion` varchar(20) NOT NULL,
   `created_user` int(3) NOT NULL,
-  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_full_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_date` varchar(20) NOT NULL,
   `updated_user` int(3) NOT NULL,
   `updated_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -49,10 +50,10 @@ CREATE TABLE `miembros` (
 -- Volcado de datos para la tabla `miembros`
 --
 
-INSERT INTO `miembros` (`codigo`, `nombres`, `apellidos`, `cedula`, `fnacimiento`, `sexo`, `localidad`, `ocupacion`, `correo`, `telefono`, `categoria`, `fexpiracion`, `created_user`, `created_date`, `updated_user`, `updated_date`) VALUES
-('CAP-000362', 'Juan Carlos', 'Perez Valles', '402-2056454-2', '1991-07-24', 'Masculino', 'Santo Domingo', 'Estudiante', 'juancarlos@gmail.com', '809-123-3211','Standar', '2018-01-26', 1, '2017-07-24 16:43:20', 1, '2017-07-26 02:09:06'),
-('CAP-000363', 'Jose Luis', 'De jesus', '002-5643254-1', '1990-04-22', 'Masculino', 'Santo Domingo', 'Estudiante', 'jose@gmail.com', '809-143-3151','Standar', '2018-01-26', 1, '2017-07-24 16:43:20', 1, '2017-07-26 02:09:06'),
-('CAP-000364', 'Maria Rosa', 'Rodriguez Almonte', '001-11434354-1', '1987-01-12', 'Femenino', 'Santo Domingo', 'Estudiante', 'maria@gmail.com', '849-643-2151','Standar', '2018-01-26', 1, '2017-07-24 16:43:20', 1, '2017-07-26 02:09:06');
+INSERT INTO `miembros` (`codigo`, `nombres`, `apellidos`, `cedula`, `fnacimiento`, `sexo`, `localidad`, `ocupacion`, `correo`, `telefono`, `categoria`, `fexpiracion`, `created_user`, `created_full_date`, `created_date`, `updated_user`, `updated_date`) VALUES
+('CAP-000362', 'Juan Carlos', 'Perez Valles', '402-2056454-2', '1991-07-24', 'Masculino', 'Santo Domingo', 'Estudiante', 'juancarlos@gmail.com', '809-123-3211','Standar', '2018-01-26', 1, '2017-07-24 16:43:20', '2018-01-01', 1, '2017-07-26 02:09:06'),
+('CAP-000363', 'Jose Luis', 'De jesus', '002-5643254-1', '1990-04-22', 'Masculino', 'Santo Domingo', 'Estudiante', 'jose@gmail.com', '809-143-3151','Standar', '2018-01-26', 1, '2017-07-24 16:43:20', '2017-01-26', 1, '2017-07-26 02:09:06'),
+('CAP-000364', 'Maria Rosa', 'Rodriguez Almonte', '001-11434354-1', '1987-01-12', 'Femenino', 'Santo Domingo', 'Estudiante', 'maria@gmail.com', '849-643-2151','Standar', '2018-01-26', 1, '2017-07-24 16:43:20', '2017-01-02', 1, '2017-07-26 02:09:06');
 
 -- --------------------------------------------------------
 

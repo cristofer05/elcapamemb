@@ -11,13 +11,15 @@
 	border-left-style: none;
 }
 
+body {background-image: url("http://localhost/elcapamemb/assets/img/el-capacitador-logo-mini.png"); }
+
 #title{
 	float: none;
-	font-weight: bold;
+	font-weight: lighter;
 	text-transform: capitalize;
 	color: #000;
-	margin-bottom: 4px;
-	font-size: 12pt;
+	margin-bottom: 70px;
+	font-size: 18pt;
 	text-decoration: none;
 	text-align: center;
 }

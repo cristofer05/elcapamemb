@@ -45,26 +45,21 @@ session_start();
               x.style.display = "none";
           }
 
-          var x = document.getElementById("Editar");
+        var x = document.getElementById("Editar");
           if (x.style.display === "none") {
               x.style.display = "block";
           } else {
               x.style.display = "none";
-          }
-/*
-        document.getElementById('hedicion1').removeAttribute('readonly');
-        document.getElementById('hedicion2').removeAttribute('readonly');
-        document.getElementById('hedicion3').removeAttribute('readonly');
-        document.getElementById('hedicion4').removeAttribute('readonly');
-        document.getElementById('hedicion5').removeAttribute('readonly');
-        document.getElementById('hedicion6').removeAttribute('readonly');
-        document.getElementById('hedicion7').removeAttribute('readonly');
-        document.getElementById('hedicion8').removeAttribute('readonly');
-        document.getElementById('hedicion9').removeAttribute('readonly');
-        document.getElementById('hedicion10').removeAttribute('readonly');
-        document.getElementById('hedicion11').removeAttribute('readonly');
-*/
+          }  
+              
       };
+
+      function ocultar() {
+        var w = document.getElementById("Editar");
+        w.style.display = "none";
+      }
+
+      window.onload = ocultar;
     </script>
     
 
@@ -108,7 +103,29 @@ session_start();
         // else return false
         return false;
       }
+      // FUNCION PARA PESTAS DE FILTRO
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+
+      function cambiarTab(evt, tabName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+              tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(tabName).style.display = "block";
+          evt.currentTarget.className += " active";
+      }
+
     </script>
+
+
 
   </head>
   <body class="skin-blue fixed">
@@ -116,7 +133,7 @@ session_start();
       
       <header class="main-header">
         <!-- Logo -->
-        <a href="?module=beranda" class="logo">
+        <a href="?module=start" class="logo">
           <img style="margin-top:0px;margin-right:5px" width="30" src="assets/img/el-capacitador-logo-mini.png" alt="Logo"> 
           <span style="font-size:20px">Miembros</span>
         </a>

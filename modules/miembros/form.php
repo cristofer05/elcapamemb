@@ -41,14 +41,7 @@ if ($_GET['form']=='add') { ?>
               $buat_id   = str_pad($codigo, 6, "0", STR_PAD_LEFT);
               $codigo = "CAP-$buat_id";
               ?>
-              <div class="form-group">
-                <label class="col-sm-2 control-label"></label>
-                <div class="col-sm-2">
-                  <img src="https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=150x150&chl=<?php echo $codigo; ?>">
-                </div>
-              </div>
               
-
               <div class="form-group">
                 <label class="col-sm-2 control-label">Codigo QR</label>
                 <div class="col-sm-5">
@@ -693,16 +686,19 @@ if ($_GET['form']=='add') { ?>
                   </select>
                 </div>
               </div>
-
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Fecha Creacion</label>
+                <div class="col-sm-5">
+                    <input type="date" name="created_date" class="form-control" autocomplete="off"  value="<?php echo date("Y-m-d");?>">
+                </div>
+              </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha Expiracion</label>
                 <div class="col-sm-5">
                     <input type="date" name="fexpiracion" class="form-control" autocomplete="off" step="1" min="2018-01-01" max="2099-12-31" value="<?php echo date("Y-m-d");?>">
                 </div>
               </div>
-
             </div><!-- /.box body -->
-
             <div class="box-footer">
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
@@ -722,7 +718,7 @@ if ($_GET['form']=='add') { ?>
 elseif ($_GET['form']=='edit') { 
   if (isset($_GET['id'])) { 
 
-      $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion FROM miembros WHERE codigo='$_GET[id]'") 
+      $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_date FROM miembros WHERE codigo='$_GET[id]'") 
                                       or die('error: '.mysqli_error($mysqli));
       $data  = mysqli_fetch_assoc($query);
     }
@@ -730,9 +726,11 @@ elseif ($_GET['form']=='edit') {
 
   <section class="content-header">
     <h1>
-      <i class="fa fa-edit icon-title"></i> Modificar Miembro
+      <i class="fa fa-edit icon-title"></i> Ver o Editar Miembro
     </h1>
     <a href="javascript:void(0)" onclick="HaEdicion();" class="btn btn-warning btn-reset">Ver/Editar</a>
+    <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary" href="modules/miembros/print.php?&id=<?php echo $data['codigo'];?>"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Imprimir</a>
+    
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
       <li><a href="?module=miembros"> Miembros </a></li>
@@ -746,7 +744,7 @@ elseif ($_GET['form']=='edit') {
       <div class="col-md-12">
         <div class="box box-primary">
           <!-- form start -->
-          <form role="form" class="form-horizontal" action="modules/miembros/proses.php?act=update" method="POST" id="Editar" style="display: none;">
+          <form role="form" class="form-horizontal" action="modules/miembros/proses.php?act=update" method="POST" id="Editar">
             <div class="box-body">
               
               <div class="form-group">
@@ -1405,15 +1403,15 @@ elseif ($_GET['form']=='edit') {
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label">Fecha Expiracion</label>
+                <label class="col-sm-2 control-label">Fecha Creacion</label>
                 <div class="col-sm-5">
-                    <input type="date" id="hedicion11" name="fexpiracion" class="form-control" autocomplete="off" step="1" min="2018-01-01" max="2099-12-31" value="<?php echo $data['fexpiracion']; ?>">
+                    <input type="date" name="created_date" class="form-control" autocomplete="off"  value="<?php echo $data['created_date']; ?>">
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label"></label>
-                <div class="col-sm-2">
-                  <img src="https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=150x150&chl=<?php echo $data['codigo']; ?>">
+                <label class="col-sm-2 control-label">Fecha Expiracion</label>
+                <div class="col-sm-5">
+                    <input type="date" id="hedicion11" name="fexpiracion" class="form-control" autocomplete="off" step="1" min="2018-01-01" max="2099-12-31" value="<?php echo $data['fexpiracion']; ?>">
                 </div>
               </div>
 
@@ -1429,8 +1427,15 @@ elseif ($_GET['form']=='edit') {
             </div><!-- /.box footer -->
           </form>
         <!-- FORMULARIO DE SOLO VER -->
+
           <form class="form-horizontal" id="Ver">
             <div class="box-body">
+              <div class="form-group">
+                
+                <div class="col-sm-2">
+                  <img src="https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=150x150&chl=<?php echo $data['codigo']; ?>">
+                </div>
+              </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Codigo</label>
                 <div class="col-sm-5">
@@ -1508,12 +1513,6 @@ elseif ($_GET['form']=='edit') {
                 <label class="col-sm-2 control-label">Fecha Expiracion</label>
                 <div class="col-sm-5">
                     <?php echo $data['fexpiracion']; ?>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-2 control-label"></label>
-                <div class="col-sm-2">
-                  <img src="https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=150x150&chl=<?php echo $data['codigo']; ?>">
                 </div>
               </div>
             </div><!-- /.box body -->

@@ -22,20 +22,23 @@ else {
 	
 
 	elseif ($_GET['module'] == 'medicines_transaction') {
-		include "modules/medicines_transaction/view.php";
+		include "modules/escanear/view.php";
 	}
 
-	elseif ($_GET['module'] == 'form_medicines_transaction') {
-		include "modules/medicines_transaction/form.php";
+	elseif ($_GET['module'] == 'escanear') {
+		include "modules/escanear/form.php";
+	}
+	elseif ($_GET['module'] == 'escaneado') {
+		include "modules/escanear/escanear.php";
 	}
 	
 
-	elseif ($_GET['module'] == 'stock_inventory') {
-		include "modules/stock_inventory/view.php";
+	elseif ($_GET['module'] == 'lista_miembros') {
+		include "modules/lista_miembros/view.php";
 	}
 
-	elseif ($_GET['module'] == 'stock_report') {
-		include "modules/stock_report/view.php";
+	elseif ($_GET['module'] == 'filtro_miembros') {
+		include "modules/filtro_miembros/view.php";
 	}
 
 	elseif ($_GET['module'] == 'user') {

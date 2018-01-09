@@ -4,7 +4,7 @@
   <h1>
     <i class="fa fa-file-text-o icon-title"></i> Lista de Miembros
 
-    <a class="btn btn-primary btn-social pull-right" href="modules/stock_inventory/print.php" target="_blank">
+    <a class="btn btn-primary btn-social pull-right" href="modules/lista_miembros/print.php" target="_blank">
       <i class="fa fa-print"></i> Imprimir
     </a>
   </h1>
@@ -24,13 +24,13 @@
               <tr>
                 <th class="center">No.</th>
                 <th class="center">Codigo</th>
-                <th class="center">Nombres</th>
-                <th class="center">Apellidos</th>
+                <th class="center">Nombre</th>
                 <th class="center">Cedula</th>
                 <th class="center">Edad</th>
                 <th class="center">Sexo</th>
                 <th class="center">Localidad</th>
                 <th class="center">Categoria</th>
+                <th class="center">Activo</th>
               </tr>
             </thead>
           
@@ -51,13 +51,13 @@
               echo "<tr>
                       <td width='30' class='center'>$no</td>
                       <td width='150' class='center'>$data[codigo]</td>
-                      <td width='200'>$data[nombres]</td>
-                      <td width='200'>$data[apellidos]</td>
+                      <td width='200'>$data[nombres] $data[apellidos]</td>
                       <td width='180'>$data[cedula]</td>
                       <td width='60'>".$edad->y."</td>
                       <td width='110'>$data[sexo]</td>
                       <td width='180'>$data[localidad]</td>
                       <td width='80'>$data[categoria]</td>
+                      <td width='80'>$data[fexpiracion]</td>
                     </tr>";
               $no++;
             }

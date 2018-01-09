@@ -51,7 +51,7 @@ if ($_GET['form']=='add') { ?>
                     <option value=""></option>
                     <option value="Super Admin">Super Admin</option>
                     <option value="Gerente">Gerente</option>
-                    <option value="Almacen">Almacén</option>
+                    <option value="Asistente">Asistente</option>
                   </select>
                 </div>
               </div>
@@ -159,7 +159,7 @@ elseif ($_GET['form']=='edit') {
                     <option value="<?php echo $data['permisos_acceso']; ?>"><?php echo $data['permisos_acceso']; ?></option>
                     <option value="Super Admin">Super Admin</option>
                     <option value="Gerente">Gerente</option>
-                    <option value="Almacen">Almacén</option>
+                    <option value="Asistente">Asistente</option>
                   </select>
                 </div>
               </div>

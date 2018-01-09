@@ -39,7 +39,7 @@
             $data = mysqli_fetch_assoc($query);
             ?>
             <h3><?php // echo $data['numero']; ?></h3>
-            <h3>NUEVO USUARIO</h3>
+            <h3>NUEVO MIEMBRO</h3>
           </div>
           </a>
           <div class="icon">
@@ -58,7 +58,7 @@
       <div class="col-lg-6 col-xs-12">
         <!-- small box -->
         <div style="background-color:#00a65a;color:#fff" class="small-box">
-          <a href="?module=form_medicines_transaction&form=add" class="small-box-footer"  data-toggle="tooltip">
+          <a href="?module=escanear&form=buscar" class="small-box-footer"  data-toggle="tooltip">
           <div class="inner">
             <?php   
    
@@ -77,7 +77,7 @@
           </div>
           <?php  
           if ($_SESSION['permisos_acceso']!='gerente') { ?>
-            <a href="?module=form_medicines_transaction&form=add" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
+            <a href="?module=escanear&form=buscar" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
           <?php
           } else { ?>
             <a class="small-box-footer"><i class="fa"></i></a>
@@ -90,7 +90,7 @@
       <div class="col-lg-6 col-xs-12">
         <!-- small box -->
         <div style="background-color:#f39c12;color:#fff" class="small-box">
-        <a href="?module=stock_inventory" class="small-box-footer" data-toggle="tooltip">
+        <a href="?module=miembros" class="small-box-footer" data-toggle="tooltip">
           <div class="inner">
             <?php  
   
@@ -100,20 +100,20 @@
             $data = mysqli_fetch_assoc($query);
             ?>
             <h3><?php echo $data['numero']; ?></h3>
-            <h3>MOSTRAR USUARIOS</h3>
+            <h3>MOSTRAR MIEMBROS</h3>
           </div>
           </a>
           <div class="icon">
             <i class="fa fa-file-text-o"></i>
           </div>
-          <a href="?module=stock_inventory" class="small-box-footer" title="Imprimir" data-toggle="tooltip"><i class="fa fa-print"></i></a>
+          <a href="?module=miembros" class="small-box-footer" title="Imprimir" data-toggle="tooltip"><i class="fa fa-print"></i></a>
         </div>
       </div><!-- ./col -->
 
       <div class="col-lg-6 col-xs-12">
         <!-- small box -->
         <div style="background-color:#dd4b39;color:#fff" class="small-box">
-        <a href="?module=stock_report" class="small-box-footer" data-toggle="tooltip">
+        <a href="?module=filtro_miembros" class="small-box-footer" data-toggle="tooltip">
           <div class="inner">
             <?php   
   
@@ -129,7 +129,7 @@
           <div class="icon">
             <i class="fa fa-clone"></i>
           </div>
-          <a href="?module=stock_report" class="small-box-footer" title="Imprimir" data-toggle="tooltip"><i class="fa fa-print"></i></a>
+          <a href="?module=filtro_miembros" class="small-box-footer" title="Imprimir" data-toggle="tooltip"><i class="fa fa-print"></i></a>
         </div>
       </div><!-- ./col -->
     </div><!-- /.row -->
