@@ -23,23 +23,29 @@ $tgl_akhir = $explode[2]."-".$explode[1]."-".$explode[0];
 if (isset($_GET['tgl_awal'])) {
     $no    = 1;
     
-    $query = mysqli_query($mysqli, "SELECT a.tipo_transaccion, a.codigo_transaccion,a.fecha,a.codigo,a.numero,b.codigo,b.nombre,b.unidad
+ /*   $query = mysqli_query($mysqli, "SELECT a.tipo_transaccion, a.codigo_transaccion,a.fecha,a.codigo,a.numero,b.codigo,b.nombre,b.unidad
                                     FROM transaccion_medicamentos as a INNER JOIN medicamentos as b ON a.codigo=b.codigo
                                     WHERE a.fecha BETWEEN '$tgl_awal' AND '$tgl_akhir'
                                     ORDER BY a.codigo_transaccion ASC") 
-                                    or die('error '.mysqli_error($mysqli));
+                                    or die('error '.mysqli_error($mysqli)); */
+
+     $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion
+                                    FROM miembros 
+                                    WHERE created_date BETWEEN '$tgl_awal' AND '$tgl_akhir'
+                                    ORDER BY created_date ASC") 
+                                    or die('error '.mysqli_error($mysqli));                               
     $count  = mysqli_num_rows($query);
 }
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"> 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>REPORTE DE MEDICAMENTOS</title>
+        <title>REPORTE DE MIEMBROS</title>
         <link rel="stylesheet" type="text/css" href="../../assets/css/laporan.css" />
     </head>
     <body>
         <div id="title">
-           DATOS DE REGISTROS DE MEDICAMENTOS
+           DATOS DE MIEMBROS REGISTRADOS
         </div>
     <?php  
     if ($tgl_awal==$tgl_akhir) { ?>
@@ -61,13 +67,13 @@ if (isset($_GET['tgl_awal'])) {
                 <thead style="background:#e8ecee">
                     <tr class="tr-title">
                         <th height="20" align="center" valign="middle"><small>NO.</small></th>
-                        <th height="20" align="center" valign="middle"><small>TRANSACCION No </small></th>
-                        <th height="20" align="center" valign="middle"><small>FECHA</small></th>
-                        <th height="20" align="center" valign="middle"><small>CÓDIGO </small></th>
-                        <th height="20" align="center" valign="middle"><small>NOMBRE DE MEDICAMENTO</small></th>
-                        <th height="20" align="center" valign="middle"><small>TIPO </small></th>
-						<th height="20" align="center" valign="middle"><small>CANT. </small></th>
-                        <th height="20" align="center" valign="middle"><small>UNIDAD</small></th>
+                        <th height="20" align="center" valign="middle"><small>CODIGO </small></th>
+                        <th height="20" align="center" valign="middle"><small>NOMBRE</small></th>
+                        <th height="20" align="center" valign="middle"><small>APELLIDO </small></th>
+                        <th height="20" align="center" valign="middle"><small>CATEGORIA</small></th>
+                        <th height="20" align="center" valign="middle"><small>OCUPACION </small></th>
+						<th height="20" align="center" valign="middle"><small>TELEFONO</small></th>
+                        <th height="20" align="center" valign="middle"><small>FECHA CREADO</small></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -95,13 +101,13 @@ if (isset($_GET['tgl_awal'])) {
 
             echo "  <tr>
                         <td width='40' height='13' align='center' valign='middle'>$no</td>
-                        <td width='120' height='13' align='center' valign='middle'>$data[codigo_transaccion]</td>
+                        <td width='120' height='13' align='center' valign='middle'>$data[codigo]</td>
+                        <td width='80' height='13' align='center' valign='middle'>$data[nombres]</td>
+                        <td width='80' height='13' align='center' valign='middle'>$data[apellidos]</td>
+                        <td style='padding-left:5px;' width='155' height='13' valign='middle'>$data[categoria]</td>
+						<td style='padding-left:5px;' width='50' height='13' valign='middle'>$data[ocupacion]</td>
+                        <td style='padding-right:10px;' width='50' height='13' align='center' valign='middle'>$data[telefono]</td>
                         <td width='80' height='13' align='center' valign='middle'>$fecha</td>
-                        <td width='80' height='13' align='center' valign='middle'>$data[codigo]</td>
-                        <td style='padding-left:5px;' width='155' height='13' valign='middle'>$data[nombre]</td>
-						<td style='padding-left:5px;' width='50' height='13' valign='middle'>$data[tipo_transaccion]</td>
-                        <td style='padding-right:10px;' width='50' height='13' align='center' valign='middle'>$data[numero]</td>
-                        <td width='80' height='13' align='center' valign='middle'>$data[unidad]</td>
                     </tr>";
             $no++;
         }
@@ -114,7 +120,7 @@ if (isset($_GET['tgl_awal'])) {
     </body>
 </html>
 <?php
-$filename="datos de registro de medicamentos.pdf"; 
+$filename="datos de miembros registrados.pdf"; 
 $content = ob_get_clean();
 $content = '<page style="font-family: freeserif">'.($content).'</page>';
 
