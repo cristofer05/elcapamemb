@@ -1,7 +1,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
   <h1>
-    <i class="fa fa-file-text-o icon-title"></i>Reporte de lista de miembros por filtro
+    <i class="fa fa-file-text-o icon-title"></i>Reporte por filtro
   </h1>
   <ol class="breadcrumb">
     <li><a href="?module=start"><i class="fa fa-home"></i> Inicio</a></li>
@@ -29,13 +29,13 @@
             <hr>
             <div class="form-group">
               <label class="col-sm-1">Desde</label>
-              <div class="col-sm-2">
+              <div class="col-sm-4">
                 <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" name="tgl_awal" autocomplete="off" required>
               </div>
 
               <label class="col-sm-1">Hasta</label>
-              <div class="col-sm-2">
-                <input style="margin-left:-35px" type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" name="tgl_akhir" autocomplete="off" required>
+              <div class="col-sm-4">
+                <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" name="tgl_akhir" autocomplete="off" required>
               </div>
             </div>
           </div>

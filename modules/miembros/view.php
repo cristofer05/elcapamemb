@@ -55,11 +55,10 @@
                 <th class="center">No.</th>
                 <th class="center">Codigo</th>
                 <th class="center">Nombres</th>
-                <th class="center">Apellidos</th>
                 <th class="center">Cedula</th>
                 <th class="center">Edad</th>
                 <th class="center">Sexo</th>
-                <th class="center">Localidad</th>
+            <!--    <th class="center">Localidad</th> -->
                 <th class="center">Cat.</th>
                 <th></th>
               </tr>
@@ -77,10 +76,9 @@
                 $edad = $hoy->diff($nacimiento);
 
               echo "<tr>
-                      <td width='10' class='center'>$no</td>
+                      <td width='5' class='center'>$no</td>
                       <td width='100' class='center'>$data[codigo]</td>
-                      <td width='150'>$data[nombres]</td>
-                      <td width='150'>$data[apellidos]</td>
+                      <td width='150'>$data[nombres] $data[apellidos]</td>
                       <td width='110'>$data[cedula]</td>
                       <td width='20'>".$edad->y."</td>
                       <td width='20' title='";
@@ -88,8 +86,9 @@
                         case "F": echo "FEMENINO"; break;
                         case "M": echo "MASCULINO"; break;
                         }
-                      echo "'>$data[sexo]</td>
-                      <td width='180'>$data[localidad]</td>
+                      echo "'>$data[sexo]</td>";
+                  //    <td width='120'>$data[localidad]</td>
+                      echo "
                       <td width='20' title='";
                       switch ($data['categoria']) {
                         case "A": echo "PREMIUM"; break;

@@ -28,8 +28,8 @@
                 <th class="center">Cedula</th>
                 <th class="center">Edad</th>
                 <th class="center">Sexo</th>
-                <th class="center">Localidad</th>
-                <th class="center">Categoria</th>
+            <!--    <th class="center">Localidad</th> -->
+                <th class="center">Cat.</th>
                 <th class="center">Activo</th>
               </tr>
             </thead>
@@ -49,13 +49,14 @@
                 $edad = $hoy->diff($nacimiento);
              
               echo "<tr>
-                      <td width='30' class='center'>$no</td>
+                      <td width='10' class='center'>$no</td>
                       <td width='150' class='center'>$data[codigo]</td>
                       <td width='200'>$data[nombres] $data[apellidos]</td>
                       <td width='180'>$data[cedula]</td>
-                      <td width='60'>".$edad->y."</td>
-                      <td width='110'>$data[sexo]</td>
-                      <td width='180'>$data[localidad]</td>
+                      <td width='20'>".$edad->y."</td>
+                      <td width='20'>$data[sexo]</td>";
+                 //     <td width='180'>$data[localidad]</td>
+                      echo "
                       <td width='80'>$data[categoria]</td>
                       <td width='80'>$data[fexpiracion]</td>
                     </tr>";

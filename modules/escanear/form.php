@@ -30,7 +30,7 @@ require_once "config/database.php";
                 <label class="col-sm-4 control-label">Codigo de miembro </label>
                 <div class="col-sm-5">
                   <span v-if="scans.length === 0">
-                    <input type="text" class="form-control empty" name="codigo" placeholder="Ej: CAP-000000" required>
+                    <input type="text" class="form-control empty" name="codigo" placeholder="Ej: CAP-000000" autofocus required>
                   </span>
                   <transition-group name="scans" tag="span">
                     <input v-for="scan in scans" :key="scan.date" :title="scan.content" type="text" class="form-control empty" name="codigo" :value="scan.content">
