@@ -1,6 +1,10 @@
 <?php 
 require_once "config/database.php";
 ?>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="qr-scan/vue.min.js"></script>
+<script type="text/javascript" src="qr-scan/instascan.min.js"></script>
 
   <section class="content-header">
     <h1>
@@ -15,21 +19,25 @@ require_once "config/database.php";
 
   <!-- Main content -->
   <section class="content">
+    <div id="app" class="panel">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6">
         <div class="box box-primary">
           <!-- form start -->
           <form role="form" class="form-horizontal" action="?module=escanear&act=mostrar&alert=1" method="POST" name="buscar">
             <div class="box-body">
               <div class="form-group">
-                <label class="col-sm-2 control-label">Codigo de miembro </label>
+                <label class="col-sm-4 control-label">Codigo de miembro </label>
                 <div class="col-sm-5">
-                  <input type="text" class="form-control" name="codigo" placeholder="Ej: CAP-000000" required>
+                  <span v-if="scans.length === 0">
+                    <input type="text" class="form-control empty" name="codigo" placeholder="Ej: CAP-000000" required>
+                  </span>
+                  <transition-group name="scans" tag="span">
+                    <input v-for="scan in scans" :key="scan.date" :title="scan.content" type="text" class="form-control empty" name="codigo" :value="scan.content">
+                  </transition-group> 
                 </div>
-              </div>
-              
+              </div>      
               <hr>
-
             </div><!-- /.box body -->
             <div class="box-footer">
               <div class="form-group">
@@ -42,8 +50,51 @@ require_once "config/database.php";
           </form>
         </div><!-- /.box -->
       </div><!--/.col -->
+      <!--SCAN CODE QR -->
+      <!--****************************-->
+      <div class="col-md-6">
+        <div class="box box-default">
+          <!-- form start -->
+            <div class="box-body">
+                <div class="row">
+                  <div class="col-sm-7">
+                    <label class="control-label">Camara:</label>
+                    <ul>
+                      <li v-if="cameras.length === 0" class="empty">Camara no detectada</li>
+                      <li v-for="camera in cameras">
+                        <span v-if="camera.id == activeCameraId" :title="formatName(camera.name)" class="active">{{ formatName(camera.name) }}</span>
+                        <span v-if="camera.id != activeCameraId" :title="formatName(camera.name)">
+                          <a @click.stop="selectCamera(camera)">{{ formatName(camera.name) }}</a>
+                        </span>
+                      </li>
+                    </ul> 
+                    <label class="control-label">Tomar foto:</label>
+                    <input type="file" accept="image/*" id="capture" capture="camera">
+                  </div>
+                  <div class="col-sm-5">
+                    <video id="preview" style="width: 200px;"></video>
+                  </div>
+              
+              <hr>
+
+            </div><!-- /.box body -->
+            <div class="box-footer">
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+
+                </div>
+              </div>
+            </div><!-- /.box footer -->
+        </div><!-- /.box -->
+      </div><!--/.col -->
+      <!--FIN CODE SCAN QR -->
+      <!--****************************-->
     </div>   <!-- /.row -->
+    </div> <!-- /#app -->
+    <script type="text/javascript" src="qr-scan/app.js"></script>
   </section><!-- /.content -->
+
+
 <?php
 
 if (isset($_GET['act']) && $_GET['act'] =='mostrar') {

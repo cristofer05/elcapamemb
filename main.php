@@ -34,6 +34,7 @@ session_start();
     <!-- Custom CSS -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 
+
     <!-- Actividar o desactivar edicion -->
     <script language="javascript">
       function HaEdicion() {
