@@ -6,6 +6,7 @@ require_once "config/database.php";
 <script type="text/javascript" src="qr-scan/vue.min.js"></script>
 <script type="text/javascript" src="qr-scan/instascan.min.js"></script>
 
+
   <section class="content-header">
     <h1>
       <i class="fa fa-edit icon-title"></i> Busqueda de miembros
@@ -30,12 +31,13 @@ require_once "config/database.php";
                 <label class="col-sm-4 control-label">Codigo de miembro </label>
                 <div class="col-sm-5">
                   <span v-if="scans.length === 0">
-                    <input type="text" class="form-control empty" name="codigo" placeholder="Ej: CAP-000000" autofocus required>
+                    <input type="text" class="form-control empty" name="codigo" placeholder="Ej: CAP-000000" required>
                   </span>
                   <transition-group name="scans" tag="span">
-                    <input v-for="scan in scans" :key="scan.date" :title="scan.content" type="text" class="form-control empty" name="codigo" :value="scan.content">
-                  </transition-group> 
+                    <input v-for="scan in scans" :key="scan.date" :title="scan.content" type="text" class="form-control empty" name="codigo" :value="scan.content" autofocus="autofocus">
+                  </transition-group>
                 </div>
+              
               </div>      
               <hr>
             </div><!-- /.box body -->
@@ -216,3 +218,10 @@ if (isset($_GET['act']) && $_GET['act'] =='mostrar') {
             } 
         } 
 ?>
+<script type="text/javascript">
+  function buscarQR()
+  {
+    alert("Image is loaded");
+   // document.myform.submit();
+  }
+</script>
