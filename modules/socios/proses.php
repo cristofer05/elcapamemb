@@ -29,14 +29,14 @@ else {
             $created_date = str_replace('.', '', mysqli_real_escape_string($mysqli, trim($_POST['created_date'])));
 
   
-            $query = mysqli_query($mysqli, "INSERT INTO miembros(codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_user,created_date,updated_user) 
+            $query = mysqli_query($mysqli, "INSERT INTO socios(codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_user,created_date,updated_user) 
                                             VALUES('$codigo','$nombres','$apellidos','$cedula','$fnacimiento','$sexo','$localidad','$ocupacion','$correo','$telefono','$categoria','$fexpiracion','$created_user','$created_date','$created_user')")
                                             or die('error '.mysqli_error($mysqli));    
 
         
             if ($query) {
          
-                header("location: ../../main.php?module=miembros&alert=1");
+                header("location: ../../main.php?module=socios&alert=1");
             }   
         }   
     }
@@ -60,7 +60,7 @@ else {
                 $created_date = str_replace('.', '', mysqli_real_escape_string($mysqli, trim($_POST['created_date'])));
                 $updated_user = $_SESSION['id_user'];
 
-                $query = mysqli_query($mysqli, "UPDATE miembros SET  nombres       = '$nombres',
+                $query = mysqli_query($mysqli, "UPDATE socios SET  nombres       = '$nombres',
                                                                     apellidos     = '$apellidos',
                                                                     cedula      = '$cedula',
                                                                     fnacimiento         = '$fnacimiento',
@@ -79,7 +79,7 @@ else {
     
                 if ($query) {
                   
-                    header("location: ../../main.php?module=miembros&alert=2");
+                    header("location: ../../main.php?module=socios&alert=2");
                 }         
             }
         }
@@ -89,13 +89,13 @@ else {
         if (isset($_GET['id'])) {
             $codigo = $_GET['id'];
       
-            $query = mysqli_query($mysqli, "DELETE FROM miembros WHERE codigo='$codigo'")
+            $query = mysqli_query($mysqli, "DELETE FROM socios WHERE codigo='$codigo'")
                                             or die('error '.mysqli_error($mysqli));
 
 
             if ($query) {
      
-                header("location: ../../main.php?module=miembros&alert=3");
+                header("location: ../../main.php?module=socios&alert=3");
             }
         }
     }       

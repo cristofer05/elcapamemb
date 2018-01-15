@@ -6,7 +6,7 @@
   <ol class="breadcrumb">
     <li><a href="?module=start"><i class="fa fa-home"></i> Inicio</a></li>
     <li class="active">informe</li>
-    <li class="active"> lista de miembros</li>
+    <li class="active"> lista de socios</li>
   </ol>
 </section>
 
@@ -23,9 +23,9 @@
         </div>
         <!-- PRIMER TAB -->
         <div id="fecha" class="tabcontent" style="display: block;">
-        <form role="form" class="form-horizontal" method="GET" action="modules/filtro_miembros/print_fecha.php" target="_blank">
+        <form role="form" class="form-horizontal" method="GET" action="modules/filtro_socios/print_fecha.php" target="_blank">
           <div class="box-body">
-            <h3>A continuacion ingrese las fechas por las que desea filtar a los miembros a mostar en este reporte</h3>
+            <h3>A continuacion ingrese las fechas por las que desea filtar a los socios a mostar en este reporte</h3>
             <hr>
             <div class="form-group">
               <label class="col-sm-1">Desde</label>
@@ -53,9 +53,9 @@
         </div>
         <!-- SEGUNDO TAB -->
         <div id="nuevos" class="tabcontent">
-          <form role="form" class="form-horizontal" method="GET" action="modules/filtro_miembros/print_nuevos.php" target="_blank">
+          <form role="form" class="form-horizontal" method="GET" action="modules/filtro_socios/print_nuevos.php" target="_blank">
           <div class="box-body">
-            <h3>Selecciona el rango de los ultimos miembros "Creados" que quieres mostrar</h3>
+            <h3>Selecciona el rango de los ultimos socios "Creados" que quieres mostrar</h3>
             <hr>
             <div class="form-group">
               <label class="col-sm-2 radio-inline">
@@ -83,9 +83,9 @@
         </div>
         <!-- TERCER TAB -->
         <div id="expirar" class="tabcontent">
-          <form role="form" class="form-horizontal" method="GET" action="modules/filtro_miembros/print_expirar.php" target="_blank">
+          <form role="form" class="form-horizontal" method="GET" action="modules/filtro_socios/print_expirar.php" target="_blank">
           <div class="box-body">
-           <h3>Selecciona el rango de los proximos miembros a "Expirar" que quieres mostrar</h3>
+           <h3>Selecciona el rango de los proximos socios a "Expirar" que quieres mostrar</h3>
             <hr>
             <div class="form-group">
               <label class="col-sm-2 radio-inline">

@@ -9,7 +9,7 @@ include "../../config/fungsi_tanggal.php";
 
 include "../../config/fungsi_rupiah.php";
 
-$query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_date FROM miembros WHERE codigo='$_GET[id]'") 
+$query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_date FROM socios WHERE codigo='$_GET[id]'") 
                                       or die('error: '.mysqli_error($mysqli));
       $data  = mysqli_fetch_assoc($query);
 ?>
@@ -56,9 +56,11 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
                     <p style="font-size:20px">Fecha de expiracion: <?php echo tgl_eng_to_ind($fecha2); ?></p>
                     <p style="font-size:20px">Categoria: <?php 
                       switch ($data['categoria']) {
-                        case "A": echo "PREMIUM"; break;
-                        case "B": echo "REGULAR"; break;
-                        case "C": echo "BASICO"; break;
+                        case "A": echo "A"; break;
+                        case "B": echo "B"; break;
+                        case "C": echo "C"; break;
+                        case "F": echo "F"; break;
+                        case "E": echo "E"; break;
                         } ?></p>
                 </td>
             </tr>   

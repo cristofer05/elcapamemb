@@ -9,7 +9,7 @@ require_once "config/database.php";
 
   <section class="content-header">
     <h1>
-      <i class="fa fa-edit icon-title"></i> Busqueda de miembros
+      <i class="fa fa-edit icon-title"></i> Busqueda de socios
     </h1>
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
@@ -28,7 +28,7 @@ require_once "config/database.php";
           <form role="form" class="form-horizontal" action="?module=escanear&act=mostrar&alert=1" method="POST" name="buscar">
             <div class="box-body">
               <div class="form-group">
-                <label class="col-sm-4 control-label">Codigo de miembro </label>
+                <label class="col-sm-4 control-label">Codigo del socio </label>
                 <div class="col-sm-5">
                   <span v-if="scans.length === 0">
                     <input type="text" class="form-control empty" name="codigo" placeholder="Ej: CAP-000000" required>
@@ -103,7 +103,7 @@ if (isset($_GET['act']) && $_GET['act'] =='mostrar') {
         if (isset($_POST['codigo'])) {     
             $codigo = mysqli_real_escape_string($mysqli, trim($_POST['codigo'])); 
 
-            $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_date FROM miembros WHERE codigo='$codigo'")
+            $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_date FROM socios WHERE codigo='$codigo'")
                                   or die('error '.mysqli_error($mysqli));
 
 
@@ -187,9 +187,11 @@ if (isset($_GET['act']) && $_GET['act'] =='mostrar') {
                           <label class="col-sm-2 control-label">Categoria</label>
                           <div class="col-sm-5">
                               <?php switch ($data['categoria']) {
-                                  case "A": echo "Premium"; break;
-                                  case "B": echo "Regular"; break;
-                                  case "C": echo "Basico"; break; }  ?>
+                                case "A": echo "A"; break;
+                                case "B": echo "B"; break;
+                                case "C": echo "C"; break;
+                                case "F": echo "F"; break;
+                                case "E": echo "E"; break; }  ?>
                           </div>
                         </div>
                         <div class="form-group">
@@ -202,8 +204,8 @@ if (isset($_GET['act']) && $_GET['act'] =='mostrar') {
                       <div class="box-footer">
                         <div class="form-group">
                           <div class="col-sm-offset-2 col-sm-10">
-                              <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary" href="modules/miembros/print.php?&id=<?php echo $data['codigo'];?>"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Imprimir</a>
-                              <a data-toggle="tooltip" data-placement="top" title="Editar" class="btn btn-warning btn-reset" href="?module=form_miembros&form=edit&id=<?php echo $data['codigo'];?>"><i style="color:#fff" class="glyphicon glyphicon-pencil"></i> Editar</a>
+                              <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary" href="modules/socios/print.php?&id=<?php echo $data['codigo'];?>"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Imprimir</a>
+                              <a data-toggle="tooltip" data-placement="top" title="Editar" class="btn btn-warning btn-reset" href="?module=form_socios&form=edit&id=<?php echo $data['codigo'];?>"><i style="color:#fff" class="glyphicon glyphicon-pencil"></i> Editar</a>
                             </div>
                           </div>
                         </div>

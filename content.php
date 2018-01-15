@@ -12,12 +12,12 @@ else {
 		include "modules/start/view.php";
 	}
 
-	elseif ($_GET['module'] == 'miembros') {
-		include "modules/miembros/view.php";
+	elseif ($_GET['module'] == 'socios') {
+		include "modules/socios/view.php";
 	}
 
-	elseif ($_GET['module'] == 'form_miembros') {
-		include "modules/miembros/form.php";
+	elseif ($_GET['module'] == 'form_socios') {
+		include "modules/socios/form.php";
 	}
 	
 
@@ -30,12 +30,12 @@ else {
 	}
 	
 
-	elseif ($_GET['module'] == 'lista_miembros') {
-		include "modules/lista_miembros/view.php";
+	elseif ($_GET['module'] == 'lista_socios') {
+		include "modules/lista_socios/view.php";
 	}
 
-	elseif ($_GET['module'] == 'filtro_miembros') {
-		include "modules/filtro_miembros/view.php";
+	elseif ($_GET['module'] == 'filtro_socios') {
+		include "modules/filtro_socios/view.php";
 	}
 
 	elseif ($_GET['module'] == 'user') {

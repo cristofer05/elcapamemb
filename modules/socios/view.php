@@ -1,8 +1,8 @@
 <section class="content-header">
   <h1>
-    <i class="fa fa-folder-o icon-title"></i> Datos de Miembros
+    <i class="fa fa-folder-o icon-title"></i> Datos de socios
 
-    <a class="btn btn-primary btn-social pull-right" href="?module=form_miembros&form=add" title="agregar" data-toggle="tooltip">
+    <a class="btn btn-primary btn-social pull-right" href="?module=form_socios&form=add" title="agregar" data-toggle="tooltip">
       <i class="fa fa-plus"></i> Agregar
     </a>
   </h1>
@@ -55,7 +55,7 @@
                 <th class="center">No.</th>
                 <th class="center">Codigo</th>
                 <th class="center">Nombres</th>
-                <th class="center">Cedula</th>
+                <th class="center">Cedula / RNC</th>
                 <th class="center">Edad</th>
                 <th class="center">Sexo</th>
             <!--    <th class="center">Localidad</th> -->
@@ -66,7 +66,7 @@
             <tbody>
             <?php  
             $no = 1;
-            $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion FROM miembros ORDER BY codigo DESC")
+            $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion FROM socios ORDER BY codigo DESC")
                                             or die('error: '.mysqli_error($mysqli));
 
             while ($data = mysqli_fetch_assoc($query)) {  
@@ -98,15 +98,15 @@
                       echo "'>$data[categoria]</td>
                       <td class='center' width='200'>
                         <div>
-                          <a data-toggle='tooltip' data-placement='top' title='Ver/Editar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_miembros&form=edit&id=$data[codigo]'>
+                          <a data-toggle='tooltip' data-placement='top' title='Ver/Editar' style='margin-right:5px' class='btn btn-primary btn-sm' href='?module=form_socios&form=edit&id=$data[codigo]'>
                               <i style='color:#fff' class='glyphicon glyphicon-edit'></i>
                           </a>";
             ?>
-                         <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary btn-sm" href="modules/miembros/print.php?&id=<?php echo $data['codigo'];?>" onclick="return confirm('estas seguro de Imprimir a <?php echo $data['nombre']; ?> ?');">
+                         <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary btn-sm" href="modules/socios/print.php?&id=<?php echo $data['codigo'];?>" onclick="return confirm('estas seguro de Imprimir a <?php echo $data['nombre']; ?> ?');">
                               <i style="color:#fff" class="glyphicon glyphicon-print"></i>
                           </a>
                           
-                          <a data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn btn-danger btn-sm" href="modules/miembros/proses.php?act=delete&id=<?php echo $data['codigo'];?>" onclick="return confirm('estas seguro de eliminar<?php echo $data['nombre']; ?> ?');">
+                          <a data-toggle="tooltip" data-placement="top" title="Eliminar" class="btn btn-danger btn-sm" href="modules/socios/proses.php?act=delete&id=<?php echo $data['codigo'];?>" onclick="return confirm('estas seguro de eliminar<?php echo $data['nombre']; ?> ?');">
                               <i style="color:#fff" class="glyphicon glyphicon-trash"></i>
                           </a>
             <?php

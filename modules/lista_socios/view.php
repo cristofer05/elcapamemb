@@ -2,9 +2,9 @@
 
 <section class="content-header">
   <h1>
-    <i class="fa fa-file-text-o icon-title"></i> Lista de Miembros
+    <i class="fa fa-file-text-o icon-title"></i> Lista de socios
 
-    <a class="btn btn-primary btn-social pull-right" href="modules/lista_miembros/print.php" target="_blank">
+    <a class="btn btn-primary btn-social pull-right" href="modules/lista_socios/print.php" target="_blank">
       <i class="fa fa-print"></i> Imprimir
     </a>
   </h1>
@@ -25,7 +25,7 @@
                 <th class="center">No.</th>
                 <th class="center">Codigo</th>
                 <th class="center">Nombre</th>
-                <th class="center">Cedula</th>
+                <th class="center">Cedula/RNC</th>
                 <th class="center">Edad</th>
                 <th class="center">Sexo</th>
             <!--    <th class="center">Localidad</th> -->
@@ -38,7 +38,7 @@
             <?php  
             $no = 1;
           
-            $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion FROM miembros ORDER BY nombres ASC")
+            $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion FROM socios ORDER BY nombres ASC")
                                             or die('Error: '.mysqli_error($mysqli));
 
            

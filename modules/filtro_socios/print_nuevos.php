@@ -11,24 +11,23 @@ include "../../config/fungsi_rupiah.php";
 
 $hari_ini = date("d-m-Y");
 
-
-if (isset($_GET['rango'])) {
+ if (isset($_GET['rango'])) {
      $no    = 1;
 
     if ($_GET['rango'] == "mes"){
 
-        $intervalo="-1 MONTH";
+        $intervalo="1 MONTH";
     }
     elseif ($_GET['rango'] == "semana") {
-        $intervalo="-1 WEEK";
+        $intervalo="1 WEEK";
     }
     elseif ($_GET['rango'] == "3dias") {
-        $intervalo="-3 DAY";
+        $intervalo="3 DAY";
     }
 
-    $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_date FROM miembros 
-                                    WHERE fexpiracion < DATE_SUB(NOW(), INTERVAL ".$intervalo.")
-                                    ORDER BY fexpiracion ASC") 
+    $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_date FROM socios 
+                                    WHERE created_date > DATE_SUB(NOW(), INTERVAL ".$intervalo.")
+                                    ORDER BY created_date ASC") 
                                     or die('error '.mysqli_error($mysqli));                                
     $count  = mysqli_num_rows($query);
  }
@@ -36,21 +35,22 @@ if (isset($_GET['rango'])) {
 <html xmlns="http://www.w3.org/1999/xhtml"> 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>FILTRO DE MIEMBROS</title>
+        <title>FILTRO DE SOCIOS</title>
         <link rel="stylesheet" type="text/css" href="../../assets/css/laporan.css" />
     </head>
     <body>
         <div id="title">
-           REPORTE DE MIEMBROS FILTRADOS POR FECHA DE EXPIRACION
+           REPORTE DE SOCIOS FILTRADOS POR FECHA DE CREACION
         </div>
+
         <div id="title-tanggal">
-            Mostrando las miembresias que van a expirar en <?php switch ($_GET['rango']) {
-                        case "mes": echo "el proximo mes"; break;
-                        case "semana": echo "la proxima semana"; break;
-                        case "3dias": echo "los proximos tres dias"; break;
+            Mostrando los socios creados en <?php switch ($_GET['rango']) {
+                        case "mes": echo "el ultimo mes"; break;
+                        case "semana": echo "la utlima semana"; break;
+                        case "3dias": echo "los ultimos tres dias"; break;
                         } ?>
         </div>
-        
+
         <hr><br>
         <div id="isi">
             <table width="100%" border="0.3" cellpadding="0" cellspacing="0">
@@ -58,8 +58,9 @@ if (isset($_GET['rango'])) {
                     <tr class="tr-title">
                         <th height="20" align="center" valign="middle"><small>NO.</small></th>
                         <th height="20" align="center" valign="middle"><small>CODIGO</small></th>
+                        <th height="20" align="center" valign="middle"><small>CREADO</small></th>
                         <th height="20" align="center" valign="middle"><small>NOMBRE</small></th>
-                        <th height="20" align="center" valign="middle"><small>CEDULA</small></th>
+                        <th height="20" align="center" valign="middle"><small>CEDULA/RNC</small></th>
                         <th height="20" align="center" valign="middle"><small>EDAD</small></th>
                         <th height="20" align="center" valign="middle"><small>SEXO</small></th>
                         <th height="20" align="center" valign="middle"><small>LOCALIDAD</small></th>
@@ -88,7 +89,7 @@ if (isset($_GET['rango'])) {
     else {
    
         while ($data = mysqli_fetch_assoc($query)) {
-            $tanggal       = $data['fexpiracion'];
+            $tanggal       = $data['created_date'];
             $exp           = explode('-',$tanggal);
             $fecha = $exp[2]."-".$exp[1]."-".$exp[0];
             //determinando edad
@@ -99,6 +100,7 @@ if (isset($_GET['rango'])) {
             echo "  <tr style='font-size:10px;'>
                         <td width='15' height='13' align='center' valign='middle'>$no</td>
                         <td width='60' height='13' align='center' valign='middle'>$data[codigo]</td>
+                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$fecha</td>
                         <td style='padding-left:5px;' width='70' height='13' valign='middle'>$data[nombres] $data[apellidos]</td>
                         <td style='padding-left:5px;' width='70' height='13' valign='middle'>$data[cedula]</td>
                         <td style='padding-left:5px;' width='20' height='13' valign='middle'>".$edad->y."</td>
@@ -107,7 +109,7 @@ if (isset($_GET['rango'])) {
                         <td style='padding-left:5px;' width='50' height='13' valign='middle'>$data[ocupacion]</td>
                         <td style='padding-left:5px;' width='15' height='13' valign='middle'>$data[categoria]</td>
                         <td style='padding-left:5px;' width='60' height='13' valign='middle'>$data[telefono]</td>
-                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$fecha</td>
+                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$data[fexpiracion]</td>
                     </tr>";
             $no++;
         }
@@ -120,7 +122,7 @@ if (isset($_GET['rango'])) {
     </body>
 </html>
 <?php
-$filename="datos de registro de medicamentos.pdf"; 
+$filename="socios creados en el ultimo mes.pdf"; 
 $content = ob_get_clean();
 $content = '<page style="font-family: freeserif">'.($content).'</page>';
 

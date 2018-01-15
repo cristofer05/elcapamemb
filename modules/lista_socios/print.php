@@ -13,19 +13,19 @@ $hari_ini = date("d-m-Y");
 
 $no = 1;
 
-$query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion FROM miembros ORDER BY nombres ASC")
+$query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion FROM socios ORDER BY nombres ASC")
                                 or die('Error '.mysqli_error($mysqli));
 $count  = mysqli_num_rows($query);
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"> 
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-        <title>INFORME DE MEMBRESIAS EL CAPACITADOR</title>
+        <title>INFORME DE SOCIOS EL CAPACITADOR</title>
         <link rel="stylesheet" type="text/css" href="../../assets/css/laporan.css" />
     </head>
     <body>
         <div id="title">
-           REPORTE DE MIEMBROS
+           REPORTE DE SOCIOS
         </div>
         
         <hr><br>
@@ -80,7 +80,7 @@ $count  = mysqli_num_rows($query);
     </body>
 </html>
 <?php
-$filename="INFORME DE MIEMRBOS.pdf"; 
+$filename="INFORME DE SOCIOS.pdf"; 
 //==========================================================================================================
 $content = ob_get_clean();
 $content = '<page style="font-family: freeserif">'.($content).'</page>';
