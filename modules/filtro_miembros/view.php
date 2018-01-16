@@ -58,13 +58,13 @@
             <h3>Selecciona el rango de los ultimos miembros "Creados" que quieres mostrar</h3>
             <hr>
             <div class="form-group">
-              <label class="col-sm-2 radio-inline">
+              <label class="col-sm-3 radio-inline">
                 <input type="radio" name="rango" value="3dias" checked> Ultimos Tres Dias<br>
               </label>
-              <label class="col-sm-2 radio-inline">
+              <label class="col-sm-3 radio-inline">
                 <input type="radio" name="rango" value="semana"> Ultima Semana<br>
               </label>
-              <label class="col-sm-2 radio-inline">
+              <label class="col-sm-3 radio-inline">
                 <input type="radio" name="rango" value="mes"> Ultimo Mes<br>
               </label>
             </div>
@@ -88,13 +88,13 @@
            <h3>Selecciona el rango de los proximos miembros a "Expirar" que quieres mostrar</h3>
             <hr>
             <div class="form-group">
-              <label class="col-sm-2 radio-inline">
+              <label class="col-sm-3 radio-inline">
                 <input type="radio" name="rango" value="3dias" checked> Proximos Tres Dias<br>
               </label>
-              <label class="col-sm-2 radio-inline">
+              <label class="col-sm-3 radio-inline">
                 <input type="radio" name="rango" value="semana" checked> Proxima Semana<br>
               </label>
-              <label class="col-sm-2 radio-inline">
+              <label class="col-sm-3 radio-inline">
                 <input type="radio" name="rango" value="mes" checked> Proximo Mes<br>
               </label>
             </div>

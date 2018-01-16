@@ -30,7 +30,7 @@ require_once "config/database.php";
                 <label class="col-sm-4 control-label">Codigo de miembro </label>
                 <div class="col-sm-5">
                   <span v-if="scans.length === 0">
-                    <input type="text" class="form-control empty" name="codigo" placeholder="Ej: CAP-000000" autofocus required>
+                    <input type="text" class="form-control empty" id="codigo_input" name="codigo" placeholder="Ej: CAP-000000" autofocus required>
                   </span>
                   <transition-group name="scans" tag="span">
                     <input v-for="scan in scans" :key="scan.date" :title="scan.content" type="text" class="form-control empty" name="codigo" :value="scan.content">
@@ -216,3 +216,17 @@ if (isset($_GET['act']) && $_GET['act'] =='mostrar') {
             } 
         } 
 ?>
+<script type="text/javascript">
+  document.onkeydown = function(e){
+   if(e.keyCode == 13){
+    var campo = $('#codigo_input').val();
+    if(campo === ''){
+     alert("El campo codigo esta vacío");
+    return false;
+    }else{
+     document.buscar.submit();
+    }
+   }
+};
+
+</script>

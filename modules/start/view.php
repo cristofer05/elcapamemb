@@ -99,8 +99,8 @@
 
             $data = mysqli_fetch_assoc($query);
             ?>
-            <h3><?php echo $data['numero']; ?></h3>
-            <h3>MOSTRAR MIEMBROS</h3>
+            <h3></h3>
+            <h3>MOSTRAR MIEMBROS (<?php echo $data['numero']; ?>)</h3>
           </div>
           </a>
           <div class="icon">
