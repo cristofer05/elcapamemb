@@ -28,24 +28,24 @@
         <div style="background-color:#00c0ef;color:#fff" class="small-box">
         <?php  
           if ($_SESSION['permisos_acceso']!='gerente') { ?>
-            <a href="?module=form_miembros&form=add" class="small-box-footer"  data-toggle="tooltip">
+            <a href="?module=form_socios&form=add" class="small-box-footer"  data-toggle="tooltip">
           <div class="inner">
             <?php  
           
-            $query = mysqli_query($mysqli, "SELECT COUNT(codigo) as numero FROM miembros")
+            $query = mysqli_query($mysqli, "SELECT COUNT(codigo) as numero FROM socios")
                                             or die('Error '.mysqli_error($mysqli));
 
            
             $data = mysqli_fetch_assoc($query);
             ?>
             <h3><?php // echo $data['numero']; ?></h3>
-            <h3>NUEVO MIEMBRO</h3>
+            <h3>NUEVO SOCIO</h3>
           </div>
           </a>
           <div class="icon">
             <i class="fa fa-folder"></i>
           </div>
-            <a href="?module=form_miembros&form=add" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
+            <a href="?module=form_socios&form=add" class="small-box-footer" title="Agregar" data-toggle="tooltip"><i class="fa fa-plus"></i></a>
           <?php
           } else { ?>
             <a class="small-box-footer"><i class="fa"></i></a>
@@ -57,7 +57,7 @@
 
       <div class="col-lg-6 col-xs-12">
         <!-- small box -->
-        <div style="background-color:#00a65a;color:#fff" class="small-box">
+        <div style="background-color:#f39c12;color:#fff" class="small-box">
           <a href="?module=escanear" class="small-box-footer"  data-toggle="tooltip">
           <div class="inner">
             <?php   
@@ -89,31 +89,31 @@
 
       <div class="col-lg-6 col-xs-12">
         <!-- small box -->
-        <div style="background-color:#f39c12;color:#fff" class="small-box">
-        <a href="?module=miembros" class="small-box-footer" data-toggle="tooltip">
+        <div style="background-color:#424242;color:#fff" class="small-box">
+        <a href="?module=socios" class="small-box-footer" data-toggle="tooltip">
           <div class="inner">
             <?php  
   
-            $query = mysqli_query($mysqli, "SELECT COUNT(codigo) as numero FROM miembros")
+            $query = mysqli_query($mysqli, "SELECT COUNT(codigo) as numero FROM socios")
                                             or die('Error'.mysqli_error($mysqli));
 
             $data = mysqli_fetch_assoc($query);
             ?>
             <h3></h3>
-            <h3>MOSTRAR MIEMBROS (<?php echo $data['numero']; ?>)</h3>
+            <h3>MOSTRAR SOCIOS (<?php echo $data['numero']; ?>)</h3>
           </div>
           </a>
           <div class="icon">
             <i class="fa fa-file-text-o"></i>
           </div>
-          <a href="?module=miembros" class="small-box-footer" title="Imprimir" data-toggle="tooltip"><i class="fa fa-print"></i></a>
+          <a href="?module=socios" class="small-box-footer" title="Imprimir" data-toggle="tooltip"><i class="fa fa-print"></i></a>
         </div>
       </div><!-- ./col -->
 
       <div class="col-lg-6 col-xs-12">
         <!-- small box -->
-        <div style="background-color:#dd4b39;color:#fff" class="small-box">
-        <a href="?module=filtro_miembros" class="small-box-footer" data-toggle="tooltip">
+        <div style="background-color:#CCC;color:#fff" class="small-box">
+        <a href="?module=filtro_socios" class="small-box-footer" data-toggle="tooltip">
           <div class="inner">
             <?php   
   
@@ -129,7 +129,7 @@
           <div class="icon">
             <i class="fa fa-clone"></i>
           </div>
-          <a href="?module=filtro_miembros" class="small-box-footer" title="Imprimir" data-toggle="tooltip"><i class="fa fa-print"></i></a>
+          <a href="?module=filtro_socios" class="small-box-footer" title="Imprimir" data-toggle="tooltip"><i class="fa fa-print"></i></a>
         </div>
       </div><!-- ./col -->
     </div><!-- /.row -->

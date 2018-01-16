@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `miembros`
+-- Estructura de tabla para la tabla `socios`
 --
 
-CREATE TABLE `miembros` (
+CREATE TABLE `socios` (
   `codigo` varchar(10) NOT NULL,
   `nombres` varchar(50) NOT NULL,
   `apellidos` varchar(50) NOT NULL,
@@ -47,10 +47,10 @@ CREATE TABLE `miembros` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `miembros`
+-- Volcado de datos para la tabla `socios`
 --
 
-INSERT INTO `miembros` (`codigo`, `nombres`, `apellidos`, `cedula`, `fnacimiento`, `sexo`, `localidad`, `ocupacion`, `correo`, `telefono`, `categoria`, `fexpiracion`, `created_user`, `created_full_date`, `created_date`, `updated_user`, `updated_date`) VALUES
+INSERT INTO `socios` (`codigo`, `nombres`, `apellidos`, `cedula`, `fnacimiento`, `sexo`, `localidad`, `ocupacion`, `correo`, `telefono`, `categoria`, `fexpiracion`, `created_user`, `created_full_date`, `created_date`, `updated_user`, `updated_date`) VALUES
 ('CAP-000362', 'Juan Carlos', 'Perez Valles', '402-2056454-2', '1991-07-24', 'Masculino', 'Santo Domingo', 'Estudiante', 'juancarlos@gmail.com', '809-123-3211','Standar', '2018-01-26', 1, '2017-07-24 16:43:20', '2018-01-01', 1, '2017-07-26 02:09:06'),
 ('CAP-000363', 'Jose Luis', 'De jesus', '002-5643254-1', '1990-04-22', 'Masculino', 'Santo Domingo', 'Estudiante', 'jose@gmail.com', '809-143-3151','Standar', '2018-01-26', 1, '2017-07-24 16:43:20', '2017-01-26', 1, '2017-07-26 02:09:06'),
 ('CAP-000364', 'Maria Rosa', 'Rodriguez Almonte', '001-11434354-1', '1987-01-12', 'Femenino', 'Santo Domingo', 'Estudiante', 'maria@gmail.com', '849-643-2151','Standar', '2018-01-26', 1, '2017-07-24 16:43:20', '2017-01-02', 1, '2017-07-26 02:09:06');
@@ -60,7 +60,7 @@ INSERT INTO `miembros` (`codigo`, `nombres`, `apellidos`, `cedula`, `fnacimiento
 --
 -- Estructura de tabla para la tabla `transaccion_medicamentos`
 --
-
+/*
 CREATE TABLE `transaccion_medicamentos` (
   `codigo_transaccion` varchar(15) NOT NULL,
   `fecha` date NOT NULL,
@@ -70,16 +70,17 @@ CREATE TABLE `transaccion_medicamentos` (
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `tipo_transaccion` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+*/
 
 --
 -- Volcado de datos para la tabla `transaccion_medicamentos`
 --
-
+/*
 INSERT INTO `transaccion_medicamentos` (`codigo_transaccion`, `fecha`, `codigo`, `numero`, `created_user`, `created_date`, `tipo_transaccion`) VALUES
 ('TM-2017-0000001', '2017-07-26', 'CAP-000362', 5, 1, '2017-07-26 02:09:06', 'Entrada'),
 ('TM-2017-0000002', '2017-07-26', 'CAP-000363', 10, 1, '2017-07-26 02:09:28', 'Entrada'),
 ('TM-2017-0000003', '2017-07-26', 'CAP-000364', 5, 1, '2017-07-26 02:09:36', 'Salida');
-
+*/
 -- --------------------------------------------------------
 
 --
@@ -113,9 +114,9 @@ INSERT INTO `usuarios` (`id_user`, `username`, `name_user`, `password`, `email`,
 --
 
 --
--- Indices de la tabla `miembros`
+-- Indices de la tabla `socios`
 --
-ALTER TABLE `miembros`
+ALTER TABLE `socios`
   ADD PRIMARY KEY (`codigo`),
   ADD KEY `created_user` (`created_user`),
   ADD KEY `updated_user` (`updated_user`);
@@ -123,11 +124,12 @@ ALTER TABLE `miembros`
 --
 -- Indices de la tabla `transaccion_medicamentos`
 --
+/*
 ALTER TABLE `transaccion_medicamentos`
   ADD PRIMARY KEY (`codigo_transaccion`),
   ADD KEY `id_barang` (`codigo`),
   ADD KEY `created_user` (`created_user`);
-
+*/
 --
 -- Indices de la tabla `usuarios`
 --
@@ -149,19 +151,20 @@ ALTER TABLE `usuarios`
 --
 
 --
--- Filtros para la tabla `miembros`
+-- Filtros para la tabla `socios`
 --
-ALTER TABLE `miembros`
-  ADD CONSTRAINT `miembros_ibfk_1` FOREIGN KEY (`created_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `miembros_ibfk_2` FOREIGN KEY (`updated_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `socios`
+  ADD CONSTRAINT `socios_ibfk_1` FOREIGN KEY (`created_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `socios_ibfk_2` FOREIGN KEY (`updated_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `transaccion_medicamentos`
 --
+/*
 ALTER TABLE `transaccion_medicamentos`
-  ADD CONSTRAINT `transaccion_medicamentos_ibfk_1` FOREIGN KEY (`codigo`) REFERENCES `miembros` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transaccion_medicamentos_ibfk_1` FOREIGN KEY (`codigo`) REFERENCES `socios` (`codigo`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `transaccion_medicamentos_ibfk_2` FOREIGN KEY (`created_user`) REFERENCES `usuarios` (`id_user`) ON DELETE CASCADE ON UPDATE CASCADE;
-
+*/
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -136,7 +136,7 @@ session_start();
         <!-- Logo -->
         <a href="?module=start" class="logo">
           <img style="margin-top:0px;margin-right:5px" width="30" src="assets/img/el-capacitador-logo-mini.png" alt="Logo"> 
-          <span style="font-size:20px">Miembros</span>
+          <span style="font-size:20px">Socios</span>
         </a>
 
         <nav class="navbar navbar-static-top" role="navigation">

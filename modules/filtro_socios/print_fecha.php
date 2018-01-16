@@ -24,7 +24,7 @@ if (isset($_GET['tgl_awal'])) {
     $no    = 1;
  
 
-    $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_date FROM miembros 
+    $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_date FROM socios 
                                     WHERE created_date BETWEEN '$tgl_awal' AND '$tgl_akhir'
                                     ORDER BY created_date ASC") 
                                     or die('error '.mysqli_error($mysqli));                                
@@ -40,7 +40,7 @@ if (isset($_GET['tgl_awal'])) {
     </head>
     <body>
         <div id="title">
-           REPORTE DE MIEMBROS FILTRADOS POR FECHA DE CREACION
+           REPORTE DE SOCIOS FILTRADOS POR FECHA DE CREACION
         </div>
     <?php  
     if ($tgl_awal==$tgl_akhir) { ?>
@@ -65,7 +65,7 @@ if (isset($_GET['tgl_awal'])) {
                         <th height="20" align="center" valign="middle"><small>CODIGO</small></th>
                         <th height="20" align="center" valign="middle"><small>CREADO</small></th>
                         <th height="20" align="center" valign="middle"><small>NOMBRE</small></th>
-                        <th height="20" align="center" valign="middle"><small>CEDULA</small></th>
+                        <th height="20" align="center" valign="middle"><small>CEDULA/RNC</small></th>
                         <th height="20" align="center" valign="middle"><small>EDAD</small></th>
                         <th height="20" align="center" valign="middle"><small>SEXO</small></th>
                         <th height="20" align="center" valign="middle"><small>LOCALIDAD</small></th>
@@ -127,7 +127,7 @@ if (isset($_GET['tgl_awal'])) {
     </body>
 </html>
 <?php
-$filename="datos de miembros registrados.pdf"; 
+$filename="datos de socios registrados.pdf"; 
 $content = ob_get_clean();
 $content = '<page style="font-family: freeserif">'.($content).'</page>';
 

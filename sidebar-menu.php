@@ -18,16 +18,16 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 	  	</li>
 	<?php
 
-  if ($_GET["module"]=="miembros" || $_GET["module"]=="form_miembros") { ?>
+  if ($_GET["module"]=="socios" || $_GET["module"]=="form_socios") { ?>
     <li class="active">
-      <a href="?module=miembros"><i class="fa fa-folder"></i> Miembros Registrados</a>
+      <a href="?module=socios"><i class="fa fa-folder"></i> Socios Registrados</a>
       </li>
   <?php
   }
 
   else { ?>
     <li>
-      <a href="?module=miembros"><i class="fa fa-folder"></i> Miembros Registrados </a>
+      <a href="?module=socios"><i class="fa fa-folder"></i> Socios Registrados </a>
       </li>
   <?php
   }
@@ -47,27 +47,27 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
   <?php
   }
 
-	if ($_GET["module"]=="lista_miembros") { ?>
+	if ($_GET["module"]=="lista_socios") { ?>
 		<li class="active treeview">
           	<a href="javascript:void(0);">
             	<i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li class="active"><a href="?module=lista_miembros"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
-        		<li><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtrar Miembros</a></li>
+        		<li class="active"><a href="?module=lista_socios"><i class="fa fa-circle-o"></i> Lista de Socios </a></li>
+        		<li><a href="?module=filtro_socios"><i class="fa fa-circle-o"></i> Filtrar Socios</a></li>
       		</ul>
     	</li>
     <?php
 	}
 
-	elseif ($_GET["module"]=="filtro_miembros") { ?>
+	elseif ($_GET["module"]=="filtro_socios") { ?>
 		<li class="active treeview">
           	<a href="javascript:void(0);">
             	<i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li><a href="?module=lista_miembros"><i class="fa fa-circle-o"></i> Lista de Miembros</a></li>
-        		<li class="active"><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtrar Miembros </a></li>
+        		<li><a href="?module=lista_socios"><i class="fa fa-circle-o"></i> Lista de Socios</a></li>
+        		<li class="active"><a href="?module=filtro_socios"><i class="fa fa-circle-o"></i> Filtrar Socios </a></li>
       		</ul>
     	</li>
     <?php
@@ -79,8 +79,8 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
             	<i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
           	</a>
       		<ul class="treeview-menu">
-        		<li><a href="?module=lista_miembros"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
-        		<li><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtrar miembros </a></li>
+        		<li><a href="?module=lista_socios"><i class="fa fa-circle-o"></i> Lista de Socios </a></li>
+        		<li><a href="?module=filtro_socios"><i class="fa fa-circle-o"></i> Filtrar socios </a></li>
       		</ul>
     	</li>
     <?php
@@ -149,20 +149,20 @@ elseif ($_SESSION['permisos_acceso']=='Gerente') { ?>
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros</a></li>
-            <li><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
+            <li class="active"><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Socios</a></li>
+            <li><a href="?module=filtro_socios"><i class="fa fa-circle-o"></i> Filtro de socios </a></li>
           </ul>
       </li>
     <?php
   }
-  elseif ($_GET["module"]=="filtro_miembros") { ?>
+  elseif ($_GET["module"]=="filtro_socios") { ?>
     <li class="active treeview">
             <a href="javascript:void(0);">
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
-            <li class="active"><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
+            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Socios </a></li>
+            <li class="active"><a href="?module=filtro_socios"><i class="fa fa-circle-o"></i> Filtro de socios </a></li>
           </ul>
       </li>
     <?php
@@ -173,8 +173,8 @@ elseif ($_SESSION['permisos_acceso']=='Gerente') { ?>
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i>  Lista de Miembros </a></li>
-            <li><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
+            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i>  Lista de Socios </a></li>
+            <li><a href="?module=filtro_socios"><i class="fa fa-circle-o"></i> Filtro de socios </a></li>
           </ul>
       </li>
     <?php
@@ -217,15 +217,15 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
   <?php
   }
 
-  if ($_GET["module"]=="miembros" || $_GET["module"]=="form_miembros") { ?>
+  if ($_GET["module"]=="socios" || $_GET["module"]=="form_socios") { ?>
     <li class="active">
-      <a href="?module=miembros"><i class="fa fa-folder"></i> Datos de Miembros </a>
+      <a href="?module=socios"><i class="fa fa-folder"></i> Datos de Socios </a>
       </li>
   <?php
   }
   else { ?>
     <li>
-      <a href="?module=miembros"><i class="fa fa-folder"></i> Datos de Miembros </a>
+      <a href="?module=socios"><i class="fa fa-folder"></i> Datos de Socios </a>
       </li>
   <?php
   }
@@ -249,20 +249,20 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
-            <li><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
+            <li class="active"><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Socios </a></li>
+            <li><a href="?module=filtro_socios"><i class="fa fa-circle-o"></i> Registro de medicamentos </a></li>
           </ul>
       </li>
     <?php
   }
-  elseif ($_GET["module"]=="filtro_miembros") { ?>
+  elseif ($_GET["module"]=="filtro_socios") { ?>
     <li class="active treeview">
             <a href="javascript:void(0);">
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
-            <li class="active"><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
+            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Socios </a></li>
+            <li class="active"><a href="?module=filtro_socios"><i class="fa fa-circle-o"></i> Filtro de socios </a></li>
           </ul>
       </li>
     <?php
@@ -273,8 +273,8 @@ if ($_SESSION['permisos_acceso']=='Almacen') { ?>
               <i class="fa fa-file-text"></i> <span>Reportes</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
           <ul class="treeview-menu">
-            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Miembros </a></li>
-            <li><a href="?module=filtro_miembros"><i class="fa fa-circle-o"></i> Filtro de miembros </a></li>
+            <li><a href="?module=stock_inventory"><i class="fa fa-circle-o"></i> Lista de Socios </a></li>
+            <li><a href="?module=filtro_socios"><i class="fa fa-circle-o"></i> Filtro de socios </a></li>
           </ul>
       </li>
     <?php

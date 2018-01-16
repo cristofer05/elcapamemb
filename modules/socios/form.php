@@ -4,11 +4,11 @@ if ($_GET['form']=='add') { ?>
 
   <section class="content-header">
     <h1>
-      <i class="fa fa-edit icon-title"></i> Agregar Nuevo Miembros
+      <i class="fa fa-edit icon-title"></i> Agregar nuevo socio
     </h1>
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
-      <li><a href="?module=miembros"> Miembros </a></li>
+      <li><a href="?module=socios"> Socios </a></li>
       <li class="active"> Más </li>
     </ol>
   </section>
@@ -19,11 +19,11 @@ if ($_GET['form']=='add') { ?>
       <div class="col-md-12">
         <div class="box box-primary">
           <!-- form start -->
-          <form role="form" class="form-horizontal" action="modules/miembros/proses.php?act=insert" method="POST">
+          <form role="form" class="form-horizontal" action="modules/socios/proses.php?act=insert" method="POST">
             <div class="box-body">
               <?php  
           
-              $query_id = mysqli_query($mysqli, "SELECT RIGHT(codigo,6) as codigo FROM miembros
+              $query_id = mysqli_query($mysqli, "SELECT RIGHT(codigo,6) as codigo FROM socios
                                                 ORDER BY codigo DESC LIMIT 1")
                                                 or die('error '.mysqli_error($mysqli));
 
@@ -62,7 +62,7 @@ if ($_GET['form']=='add') { ?>
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label">Cedula</label>
+                <label class="col-sm-2 control-label">Cedula / RNC</label>
                 <div class="col-sm-5">
                   <input type="text" id="cedula" class="form-control" name="cedula" autocomplete="off" required>
                 </div>
@@ -680,9 +680,11 @@ if ($_GET['form']=='add') { ?>
                 <div class="col-sm-5">
                   <select class="chosen-select" name="categoria" data-placeholder="-- Seleccionar --" autocomplete="off" required>
                     <option value=""></option>
-                    <option value="A">Premium</option>
-                    <option value="B">Regular</option>
-                    <option value="C">Basico</option>
+                    <option value="A">ALUMNO</option>
+                    <option value="B">ALUMNO - PREMIUM</option>
+                    <option value="C">CENTRO DE CAPACITACION</option>
+                    <option value="F">FACILIADOR</option>
+                    <option value="E">ESTABLECIMIENTO</option>
                   </select>
                 </div>
               </div>
@@ -703,7 +705,7 @@ if ($_GET['form']=='add') { ?>
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <input type="submit" class="btn btn-primary btn-submit" name="Guardar" value="Guardar">
-                  <a href="?module=miembros" class="btn btn-default btn-reset">Cancelar</a>
+                  <a href="?module=socios" class="btn btn-default btn-reset">Cancelar</a>
                 </div>
               </div>
             </div><!-- /.box footer -->
@@ -718,7 +720,7 @@ if ($_GET['form']=='add') { ?>
 elseif ($_GET['form']=='edit') { 
   if (isset($_GET['id'])) { 
 
-      $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_date FROM miembros WHERE codigo='$_GET[id]'") 
+      $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_date FROM socios WHERE codigo='$_GET[id]'") 
                                       or die('error: '.mysqli_error($mysqli));
       $data  = mysqli_fetch_assoc($query);
     }
@@ -729,11 +731,11 @@ elseif ($_GET['form']=='edit') {
       <i class="fa fa-edit icon-title"></i> Ver o Editar Miembro
     </h1>
     <a href="javascript:void(0)" onclick="HaEdicion();" class="btn btn-warning btn-reset">Ver/Editar</a>
-    <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary" href="modules/miembros/print.php?&id=<?php echo $data['codigo'];?>"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Imprimir</a>
+    <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary" href="modules/socios/print.php?&id=<?php echo $data['codigo'];?>"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Imprimir</a>
     
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
-      <li><a href="?module=miembros"> Miembros </a></li>
+      <li><a href="?module=socios"> socios </a></li>
       <li class="active"> Modificar </li>
     </ol>
   </section>
@@ -744,7 +746,7 @@ elseif ($_GET['form']=='edit') {
       <div class="col-md-12">
         <div class="box box-primary">
           <!-- form start -->
-          <form role="form" class="form-horizontal" action="modules/miembros/proses.php?act=update" method="POST" id="Editar">
+          <form role="form" class="form-horizontal" action="modules/socios/proses.php?act=update" method="POST" id="Editar">
             <div class="box-body">
               
               <div class="form-group">
@@ -767,7 +769,7 @@ elseif ($_GET['form']=='edit') {
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label">Cedula</label>
+                <label class="col-sm-2 control-label">Cedula / RNC</label>
                 <div class="col-sm-5">
                   <input type="text" id="hedicion3" id="cedula" class="form-control" name="cedula" autocomplete="off" value="<?php echo $data['cedula']; ?>" required>
                 </div>
@@ -1392,13 +1394,17 @@ elseif ($_GET['form']=='edit') {
                   <select class="chosen-select" id="hedicion10" name="categoria" data-placeholder="-- Seleccionar --" autocomplete="off" required>
                     <option value="<?php echo $data['categoria']; ?>">
                     <?php switch ($data['categoria']) {
-                        case "A": echo "Premium"; break;
-                        case "B": echo "Regular"; break;
-                        case "C": echo "Basico"; break; }  ?>
+                        case "A": echo "ALUMNO"; break;
+                        case "B": echo "ALUMNO - PREMIUM"; break;
+                        case "C": echo "CENTRO DE CAPACITACION"; break;
+                        case "F": echo "FACILIADOR"; break;
+                        case "E": echo "ESTABLECIMIENTO"; break;}  ?>
                     </option>
-                    <option value="A">Premium</option>
-                    <option value="B">Regular</option>
-                    <option value="C">Basico</option>
+                    <option value="A">ALUMNO</option>
+                    <option value="B">ALUMNO - PREMIUM</option>
+                    <option value="C">CENTRO DE CAPACITACION</option>
+                    <option value="F">FACILIADOR</option>
+                    <option value="E">ESTABLECIMIENTO</option>
                   </select>
                 </div>
               </div>
@@ -1421,7 +1427,7 @@ elseif ($_GET['form']=='edit') {
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                   <input type="submit" class="btn btn-primary btn-submit" name="Guardar" value="Guardar">
-                  <a href="?module=miembros" class="btn btn-default btn-reset">Cancelar</a>
+                  <a href="?module=socios" class="btn btn-default btn-reset">Cancelar</a>
                 </div>
               </div>
             </div><!-- /.box footer -->
@@ -1456,7 +1462,7 @@ elseif ($_GET['form']=='edit') {
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label">Cedula</label>
+                <label class="col-sm-2 control-label">Cedula / RNC</label>
                 <div class="col-sm-5">
                  <?php echo $data['cedula']; ?>
                 </div>
@@ -1471,8 +1477,8 @@ elseif ($_GET['form']=='edit') {
                 <label class="col-sm-2 control-label">Sexo</label>
                 <div class="col-sm-5">
                     <?php switch ($data['sexo']) {
-                        case "F": echo "Femenino"; break;
-                        case "M": echo "Masculino"; break;
+                        case "F": echo "F"; break;
+                        case "M": echo "M"; break;
                         } ?>
                 </div>
               </div>
@@ -1504,9 +1510,11 @@ elseif ($_GET['form']=='edit') {
                 <label class="col-sm-2 control-label">Categoria</label>
                 <div class="col-sm-5">
                     <?php switch ($data['categoria']) {
-                        case "A": echo "Premium"; break;
-                        case "B": echo "Regular"; break;
-                        case "C": echo "Basico"; break; }  ?>
+                        case "A": echo "ALUMNO"; break;
+                        case "B": echo "ALUMNO - PREMIUM"; break;
+                        case "C": echo "CENTRO DE CAPACITACION"; break;
+                        case "F": echo "FACILIADOR"; break;
+                        case "E": echo "ESTABLECIMIENTO"; break;}  ?>
                 </div>
               </div>
               <div class="form-group">
