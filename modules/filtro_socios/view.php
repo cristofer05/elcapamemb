@@ -17,9 +17,9 @@
       <div class="box box-primary">
         <!-- form start -->
         <div class="tab">
-          <button class="btn btn-primary active tablinks" onclick="cambiarTab(event, 'fecha')" active>Filtrar Por Fecha</button>
-          <button class="btn btn-primary tablinks" onclick="cambiarTab(event, 'nuevos')">Nuevos Inscritos</button>
-          <button class="btn btn-primary tablinks" onclick="cambiarTab(event, 'expirar')">Membresias a Expirar</button>
+          <button class="btn btn-primary active tablinks" onclick="cambiarTab(event, 'fecha')" active>FILTRAR POR FECHA</button>
+          <button class="btn btn-primary tablinks" onclick="cambiarTab(event, 'nuevos')">NUEVOS SOCIOS</button>
+          <button class="btn btn-primary tablinks" onclick="cambiarTab(event, 'expirar')">ESTATUS DE MEMBRESIA</button>
         </div>
         <!-- PRIMER TAB -->
         <div id="fecha" class="tabcontent" style="display: block;">

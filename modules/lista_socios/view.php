@@ -54,10 +54,23 @@
                       <td width='200'>$data[nombres] $data[apellidos]</td>
                       <td width='180'>$data[cedula]</td>
                       <td width='20'>".$edad->y."</td>
-                      <td width='20'>$data[sexo]</td>";
+                      <td width='20'title='";
+                      switch ($data['sexo']) {
+                        case "F": echo "FEMENINO"; break;
+                        case "M": echo "MASCULINO"; break;
+                        }
+                      echo "'>$data[sexo]</td>";
                  //     <td width='180'>$data[localidad]</td>
                       echo "
-                      <td width='80'>$data[categoria]</td>
+                      <td width='80' title='";
+                      switch ($data['categoria']) {
+                        case "A": echo "ALUMNO"; break;
+                        case "B": echo "ALUMNO - PREMIUM"; break;
+                        case "C": echo "CENTRO DE CAPACITACION"; break;
+                        case "F": echo "FACILIADOR"; break;
+                        case "E": echo "ESTABLECIMIENTO"; break;
+                        }
+                      echo "'>$data[categoria]</td>
                       <td width='80'>$data[fexpiracion]</td>
                     </tr>";
               $no++;

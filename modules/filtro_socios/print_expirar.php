@@ -60,13 +60,13 @@ if (isset($_GET['rango'])) {
                         <th height="20" align="center" valign="middle"><small>CODIGO</small></th>
                         <th height="20" align="center" valign="middle"><small>NOMBRE</small></th>
                         <th height="20" align="center" valign="middle"><small>CEDULA/RNC</small></th>
-                        <th height="20" align="center" valign="middle"><small>EDAD</small></th>
-                        <th height="20" align="center" valign="middle"><small>SEXO</small></th>
-                        <th height="20" align="center" valign="middle"><small>LOCALIDAD</small></th>
-                        <th height="20" align="center" valign="middle"><small>OFICIO</small></th>
                         <th height="20" align="center" valign="middle"><small>CAT</small></th>
-                        <th height="20" align="center" valign="middle"><small>TELEFONO</small></th>
+                        <th height="20" align="center" valign="middle"><small>CORREO</small></th>
+                        <th height="20" align="center" valign="middle"><small>TELEFONO 1</small></th>
+                        <th height="20" align="center" valign="middle"><small>TELEFONO 2</small></th>
+                        <th height="20" align="center" valign="middle"><small>EMISION</small></th>
                         <th height="20" align="center" valign="middle"><small>EXPIRACION</small></th>
+                        <th height="20" align="center" valign="middle"><small>ESTATUS</small></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -88,9 +88,14 @@ if (isset($_GET['rango'])) {
     else {
    
         while ($data = mysqli_fetch_assoc($query)) {
+            // fecha de expiracion
             $tanggal       = $data['fexpiracion'];
             $exp           = explode('-',$tanggal);
-            $fecha = $exp[2]."-".$exp[1]."-".$exp[0];
+            $fecha_exp = $exp[2]."-".$exp[1]."-".$exp[0];
+            // fecha de emision
+            $created_tang       = $data['created_date'];
+            $creat           = explode('-',$created_tang);
+            $emision = $creat[2]."-".$creat[1]."-".$creat[0];
             //determinando edad
                 $nacimiento = new DateTime($data['fnacimiento']);
                 $hoy = new DateTime();
@@ -101,13 +106,13 @@ if (isset($_GET['rango'])) {
                         <td width='60' height='13' align='center' valign='middle'>$data[codigo]</td>
                         <td style='padding-left:5px;' width='70' height='13' valign='middle'>$data[nombres] $data[apellidos]</td>
                         <td style='padding-left:5px;' width='70' height='13' valign='middle'>$data[cedula]</td>
-                        <td style='padding-left:5px;' width='20' height='13' valign='middle'>".$edad->y."</td>
-                        <td style='padding-left:5px;' width='20' height='13' valign='middle'>$data[sexo]</td>
-                        <td style='padding-left:5px;' width='80' height='13' valign='middle'>$data[localidad]</td>
-                        <td style='padding-left:5px;' width='50' height='13' valign='middle'>$data[ocupacion]</td>
-                        <td style='padding-left:5px;' width='15' height='13' valign='middle'>$data[categoria]</td>
-                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$data[telefono]</td>
-                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$fecha</td>
+                        <td style='padding-left:5px;' width='20' height='13' valign='middle'>$data[categoria]</td>
+                        <td style='padding-left:5px;' width='100' height='13' valign='middle'>$data[correo]</td>
+                        <td style='padding-left:5px;' width='50' height='13' valign='middle'>$data[telefono]</td>
+                        <td style='padding-left:5px;' width='15' height='13' valign='middle'>$data[telefono]</td>
+                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$emision</td>
+                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$fecha_exp</td>
+                        <td style='padding-left:5px;' width='50' height='13' valign='middle'>Activo</td>
                     </tr>";
             $no++;
         }

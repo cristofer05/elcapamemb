@@ -91,9 +91,11 @@
                       echo "
                       <td width='20' title='";
                       switch ($data['categoria']) {
-                        case "A": echo "PREMIUM"; break;
-                        case "B": echo "REGULAR"; break;
-                        case "C": echo "BASICO"; break;
+                        case "A": echo "ALUMNO"; break;
+                        case "B": echo "ALUMNO - PREMIUM"; break;
+                        case "C": echo "CENTRO DE CAPACITACION"; break;
+                        case "F": echo "FACILIADOR"; break;
+                        case "E": echo "ESTABLECIMIENTO"; break;
                         }
                       echo "'>$data[categoria]</td>
                       <td class='center' width='200'>

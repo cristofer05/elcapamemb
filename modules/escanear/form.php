@@ -187,11 +187,12 @@ if (isset($_GET['act']) && $_GET['act'] =='mostrar') {
                           <label class="col-sm-2 control-label">Categoria</label>
                           <div class="col-sm-5">
                               <?php switch ($data['categoria']) {
-                                case "A": echo "A"; break;
-                                case "B": echo "B"; break;
-                                case "C": echo "C"; break;
-                                case "F": echo "F"; break;
-                                case "E": echo "E"; break; }  ?>
+                                case "A": echo "ALUMNO"; break;
+                                case "B": echo "ALUMNO - PREMIUM"; break;
+                                case "C": echo "CENTRO DE CAPACITACION"; break;
+                                case "F": echo "FACILIADOR"; break;
+                                case "E": echo "ESTABLECIMIENTO"; break;
+                                 }  ?>
                           </div>
                         </div>
                         <div class="form-group">

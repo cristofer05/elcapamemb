@@ -60,15 +60,8 @@
         <div style="background-color:#f39c12;color:#fff" class="small-box">
           <a href="?module=escanear" class="small-box-footer"  data-toggle="tooltip">
           <div class="inner">
-            <?php   
-   
-            $query = mysqli_query($mysqli, "SELECT COUNT(codigo_transaccion) as numero FROM transaccion_medicamentos")
-                                            or die('Error '.mysqli_error($mysqli));
-
-
-            $data = mysqli_fetch_assoc($query);
-            ?>
-            <h3><?php // echo $data['numero']; ?></h3>
+            
+            <h3></h3>
             <h3>ESCANEAR CODIGO</h3>
           </div>
           </a>
@@ -115,14 +108,8 @@
         <div style="background-color:#CCC;color:#fff" class="small-box">
         <a href="?module=filtro_socios" class="small-box-footer" data-toggle="tooltip">
           <div class="inner">
-            <?php   
-  
-            $query = mysqli_query($mysqli, "SELECT COUNT(codigo_transaccion) as numero FROM transaccion_medicamentos")
-                                            or die('Error: '.mysqli_error($mysqli));
-
-            $data = mysqli_fetch_assoc($query);
-            ?>
-            <h3><?php // echo $data['numero']; ?></h3>
+          
+            <h3></h3>
             <h3>REPORTES</h3>
           </div>
           </a>

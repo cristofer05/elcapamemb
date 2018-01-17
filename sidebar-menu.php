@@ -18,7 +18,7 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
 	  	</li>
 	<?php
 
-  if ($_GET["module"]=="socios" || $_GET["module"]=="form_socios") { ?>
+  if ($_GET["module"]=="socios") { ?>
     <li class="active">
       <a href="?module=socios"><i class="fa fa-folder"></i> Socios Registrados</a>
       </li>
@@ -32,6 +32,19 @@ if ($_SESSION['permisos_acceso']=='Super Admin') { ?>
   <?php
   }
 
+  if ($_GET["module"]=="form_socios") { ?>
+    <li class="active">
+      <a href="?module=form_socios&form=add"><i class="fa fa-plus-square"></i> Nuevo Socio </a>
+      </li>
+  <?php
+  }
+
+  else { ?>
+    <li>
+      <a href="?module=form_socios&form=add"><i class="fa fa-plus-square"></i> Nuevo Socio </a>
+      </li>
+  <?php
+  }
 
   if ($_GET["module"]=="escanear" || $_GET["module"]=="form_escanear") { ?>
     <li class="active">

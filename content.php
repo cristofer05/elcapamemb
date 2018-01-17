@@ -21,10 +21,6 @@ else {
 	}
 	
 
-	elseif ($_GET['module'] == 'medicines_transaction') {
-		include "modules/escanear/view.php";
-	}
-
 	elseif ($_GET['module'] == 'escanear') {
 		include "modules/escanear/form.php";
 	}
