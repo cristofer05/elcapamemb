@@ -1,11 +1,16 @@
-
-
+<?php
+//include "modules/lista_socios/csv.php";
+?>
 <section class="content-header">
   <h1>
     <i class="fa fa-file-text-o icon-title"></i> Lista de socios
 
-    <a class="btn btn-primary btn-social pull-right" href="modules/lista_socios/print.php" target="_blank">
-      <i class="fa fa-print"></i> Imprimir
+    <a class="btn btn-primary btn-social pull-right pdf-button" href="modules/lista_socios/print.php" target="_blank">
+      <i class="fa fa-print"></i> Imprimir PDF
+    </a>
+
+    <a class="btn btn-success btn-social pull-right" href="modules/lista_socios/csv.php?print_csv=si">
+      <i class="fa fa-file-text-o"></i> Imprimir CSV
     </a>
   </h1>
 
