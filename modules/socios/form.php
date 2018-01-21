@@ -64,7 +64,7 @@ if ($_GET['form']=='add') { ?>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Cedula / RNC</label>
                 <div class="col-sm-5">
-                  <input type="text" id="cedula" class="form-control" name="cedula" autocomplete="off" required>
+                  <input type="number" id="cedula" class="form-control" name="cedula" autocomplete="off" required>
                 </div>
               </div>
               <div class="form-group">
@@ -468,6 +468,8 @@ elseif ($_GET['form']=='edit') {
     </h1>
     <a href="javascript:void(0)" onclick="HaEdicion();" class="btn btn-warning btn-reset">Ver/Editar</a>
     <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary" href="modules/socios/print.php?&id=<?php echo $data['codigo'];?>"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Imprimir</a>
+
+    <a data-toggle="tooltip" data-placement="top" title="Enviar tarjeta" class="btn btn-default" href="modules/socios/enviar_tarjeta.php?&id=<?php echo $data['codigo'];?> " onclick="loading()"><i style="color:#3c8dbc" class="glyphicon glyphicon-envelope"></i> Enviar Tarjeta</a>
     
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>
@@ -481,6 +483,10 @@ elseif ($_GET['form']=='edit') {
     <div class="row">
       <div class="col-md-12">
         <div class="box box-primary">
+        <div class="popup">
+            <img class="popupimage" id="myPopup" src="assets/img/email.webp" width="400">
+        </div>
+        <div class="black-background" id="myBackground"></div>
           <!-- form start -->
           <form role="form" class="form-horizontal" action="modules/socios/proses.php?act=update" method="POST" id="Editar">
             <div class="box-body">
@@ -902,12 +908,7 @@ elseif ($_GET['form']=='edit') {
 
           <form class="form-horizontal" id="Ver">
             <div class="box-body">
-              <div class="form-group">
-                
-                <div class="col-sm-2">
-                  <img src="https://chart.googleapis.com/chart?cht=qr&choe=UTF-8&chs=150x150&chl=<?php echo $data['codigo']; ?>">
-                </div>
-              </div>
+ 
               <div class="form-group">
                 <label class="col-sm-2 control-label">Codigo</label>
                 <div class="col-sm-5">
@@ -998,3 +999,13 @@ elseif ($_GET['form']=='edit') {
 <?php
 }
 ?>
+
+<script type="text/javascript">
+    function loading() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+
+        var background = document.getElementById("myBackground");
+        background.classList.toggle("show-background");    
+    }
+</script>

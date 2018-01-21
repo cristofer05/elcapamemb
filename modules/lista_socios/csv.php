@@ -20,7 +20,7 @@ if (isset($_GET['print_csv']) && $_GET['print_csv'] =='si') {
         $f = fopen('php://memory', 'w');
         
         //set column headers
-        $fields = array('No.','Codigo', 'Nombres', 'Apellidos', 'Cedula', 'Edad', 'Sexo','Localidad','Ocupacion','Correo','Telefono 1','Telefono 2','Categoria','Fecha Expiracion','Estatus');
+        $fields = array('No.','Codigo', 'Nombres', 'Apellidos', 'Cedula', 'Fecha Nacimiento', 'Sexo','Localidad','Ocupacion','Correo','Telefono 1','Telefono 2','Categoria','Fecha Expiracion','Estatus');
         fputcsv($f, $fields, $delimiter);
         
         //output each data of the data, format line as csv and write to file pointer

@@ -91,8 +91,14 @@ try
     $html2pdf = new HTML2PDF('P','F4','en', false, 'ISO-8859-15',array(10, 10, 10, 10));
     $html2pdf->setDefaultFont('Arial');
     $html2pdf->writeHTML($content, isset($_GET['vuehtml']));
-    $html2pdf->Output($filename);
-//    $html2pdf->Output('../../temp_files/'.$filename, 'F');
+    $html2pdf->Output('../../temp_files/'.$filename, 'F');
 }
 catch(HTML2PDF_exception $e) { echo $e; }
 ?>
+<!-- Volver atras -->
+<script type="text/javascript">
+    window.onpageshow = function(event) {
+      window.history.back();
+    }; 
+
+</script>

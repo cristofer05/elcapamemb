@@ -16,7 +16,7 @@ else {
             $codigo  = mysqli_real_escape_string($mysqli, trim($_POST['codigo']));
             $nombres  = mysqli_real_escape_string($mysqli, trim($_POST['nombres']));
             $apellidos  = mysqli_real_escape_string($mysqli, trim($_POST['apellidos']));
-            $cedula  = mysqli_real_escape_string($mysqli, trim($_POST['cedula']));
+            $cedula  = str_replace('-', '', mysqli_real_escape_string($mysqli, trim($_POST['cedula'])));
             $fnacimiento  = mysqli_real_escape_string($mysqli, trim($_POST['fnacimiento']));
             $sexo  = mysqli_real_escape_string($mysqli, trim($_POST['sexo']));
             $localidad  = mysqli_real_escape_string($mysqli, trim($_POST['localidad']));
