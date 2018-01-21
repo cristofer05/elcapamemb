@@ -11,8 +11,6 @@
 	border-left-style: none;
 }
 
-body {background-image: url("http://localhost/elcapamemb/assets/img/el-capacitador-logo-mini.png"); }
-
 #title{
 	float: none;
 	font-weight: lighter;
@@ -37,6 +35,7 @@ body {background-image: url("http://localhost/elcapamemb/assets/img/el-capacitad
 
 #isi{
 	font-size: 9pt;
+    background-image: url("http://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg") !important;
 }
 
 #isi-table{

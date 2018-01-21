@@ -18,10 +18,15 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
         <title>TARJETA DE MEMBRESIA</title>
         <link rel="stylesheet" type="text/css" href="../../assets/css/laporan.css" />
+         <style type="text/css">    
+        #isi{margin-top: 0px;margin-left: 0px;
+        background-image: url(../../assets/img/bgpdf2.png);
+     }
+             </style>
     </head>
     <body>
         <div id="title">
-           TARJETA DIGITAL DE MEMBRESIA
+           TARJETA DIGITAL DE MEMBRES&Iacute;A
         </div>
         
         <br>
@@ -33,7 +38,7 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
            <br>
            <h2>Numero de Afiliado <?php echo $data['codigo']; ?> </h2>
         </div>
-        <div id="isi" style="border:10px solid #E6E6E6; margin:12px; padding:20px; background-image: url("http://localhost/elcapamemb/assets/img/elcapacitadopdf.png");">
+        <div id="isi" style="border:10px solid #E6E6E6; margin:12px; padding:20px;">
         <?php 
           $fech1       = $data['created_date'];
           $exp1           = explode('-',$fech1);
@@ -43,7 +48,7 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
           $exp2           = explode('-',$fech2);
           $fecha2 = $exp2[2]."-".$exp2[1]."-".$exp2[0];
         ?>
-        <table width="100%" border="0px">
+        <table width="100%" border="0px" background-image="../../assets/img/boxed-bg.jpg">
             <tr border="0px">
                 <td border="0px">
                     <img style="width:600px" src="../../assets/img/elcapacitadopdf.png" >
@@ -52,9 +57,9 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
             <tr border="0px">
                 <td  border="0px">
                     <h1><?php echo $data['nombres']; ?> <?php echo $data['apellidos']; ?></h1>
-                    <p style="font-size:20px">Miembro desde: <?php echo tgl_eng_to_ind($fecha1); ?></p>
-                    <p style="font-size:20px">Fecha de expiracion: <?php echo tgl_eng_to_ind($fecha2); ?></p>
-                    <p style="font-size:20px">Categoria: <?php 
+                    <p style="font-size:20px">Fecha de emisi&oacute;n: <?php echo tgl_eng_to_ind($fecha1); ?></p>
+                    <p style="font-size:20px">Fecha de expiraci&oacute;n: <?php echo tgl_eng_to_ind($fecha2); ?></p>
+                    <p style="font-size:20px">Categor&iacute;a: <?php 
                       switch ($data['categoria']) {
                         case "A": echo "A"; break;
                         case "B": echo "B"; break;
@@ -78,7 +83,7 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
 $filename="tarjeta_elcapacitador.pdf"; 
 //==========================================================================================================
 $content = ob_get_clean();
-$content = '<page style="font-family: freeserif">'.($content).'</page>';
+$content = '<page style="font-family: freeserif; background-image: url("http://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg")" >'.($content).'</page>';
 
 require_once('../../assets/plugins/html2pdf_v4.03/html2pdf.class.php');
 try
