@@ -65,24 +65,27 @@ if (isset($_GET['rango'])) {
                         <th height="20" align="center" valign="middle"><small>TELEFONO 1</small></th>
                         <th height="20" align="center" valign="middle"><small>TELEFONO 2</small></th>
                         <th height="20" align="center" valign="middle"><small>EMISION</small></th>
-                        <th height="20" align="center" valign="middle"><small>EXPIRACION</small></th>
-                        <th height="20" align="center" valign="middle"><small>ESTATUS</small></th>
+                        <th height="20" align="center" valign="middle"><small>EXPIRAC.</small></th>
+                        <th height="20" align="center" valign="middle"><small>ESTAT.</small></th>
                     </tr>
                 </thead>
                 <tbody>
 <?php
     
-    if($count == 0) {
-        echo "  <tr>
-                    <td width='40' height='13' align='center' valign='middle'></td>
-                    <td width='120' height='13' align='center' valign='middle'></td>
-                    <td width='80' height='13' align='center' valign='middle'></td>
-                    <td width='80' height='13' align='center' valign='middle'></td>
-                    <td style='padding-left:5px;' width='155' height='13' valign='middle'></td>
-					<td style='padding-left:5px;' width='50' height='13' valign='middle'></td>
-                    <td style='padding-right:10px;' width='50' height='13' align='right' valign='middle'></td>
-                    <td width='80' height='13' align='center' valign='middle'></td>
-                </tr>";
+    if($count < 1) {
+        echo "  <tr style='font-size:10px;'>
+                        <td width='15' height='13' align='center' valign='middle'></td>
+                        <td width='60' height='13' align='center' valign='middle'></td>
+                        <td style='padding-left:5px;' width='70' height='13' valign='middle'></td>
+                        <td style='padding-left:5px;' width='70' height='13' valign='middle'></td>
+                        <td style='padding-left:5px;' width='20' height='13' valign='middle'></td>
+                        <td style='padding-left:5px;' width='100' height='13' valign='middle'></td>
+                        <td style='padding-left:5px;' width='58' height='13' valign='middle'></td>
+                        <td style='padding-left:5px;' width='58' height='13' valign='middle'></td>
+                        <td style='padding-left:5px;' width='50' height='13' valign='middle'></td>
+                        <td style='padding-left:5px;' width='50' height='13' valign='middle'></td>
+                        <td style='padding-left:5px;' width='30' height='13' valign='middle'></td>
+                    </tr>";
     }
 
     else {
@@ -97,22 +100,22 @@ if (isset($_GET['rango'])) {
             $creat           = explode('-',$created_tang);
             $emision = $creat[2]."-".$creat[1]."-".$creat[0];
             //determinando edad
-                $nacimiento = new DateTime($data['fnacimiento']);
-                $hoy = new DateTime();
-                $edad = $hoy->diff($nacimiento);
+            $nacimiento = new DateTime($data['fnacimiento']);
+            $hoy = new DateTime();
+            $edad = $hoy->diff($nacimiento);
 
             echo "  <tr style='font-size:10px;'>
                         <td width='15' height='13' align='center' valign='middle'>$no</td>
                         <td width='60' height='13' align='center' valign='middle'>$data[codigo]</td>
                         <td style='padding-left:5px;' width='70' height='13' valign='middle'>$data[nombres] $data[apellidos]</td>
                         <td style='padding-left:5px;' width='70' height='13' valign='middle'>$data[cedula]</td>
-                        <td style='padding-left:5px;' width='20' height='13' valign='middle'>$data[categoria]</td>
+                        <td style='padding-left:5px;' width='10' height='13' valign='middle'>$data[categoria]</td>
                         <td style='padding-left:5px;' width='100' height='13' valign='middle'>$data[correo]</td>
-                        <td style='padding-left:5px;' width='50' height='13' valign='middle'>$data[telefono]</td>
-                        <td style='padding-left:5px;' width='15' height='13' valign='middle'>$data[telefono]</td>
-                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$emision</td>
-                        <td style='padding-left:5px;' width='60' height='13' valign='middle'>$fecha_exp</td>
-                        <td style='padding-left:5px;' width='50' height='13' valign='middle'>Activo</td>
+                        <td style='padding-left:5px;' width='58' height='13' valign='middle'>$data[telefono]</td>
+                        <td style='padding-left:5px;' width='58' height='13' valign='middle'>$data[telefono]</td>
+                        <td style='padding-left:5px;' width='50' height='13' valign='middle'>$emision</td>
+                        <td style='padding-left:5px;' width='50' height='13' valign='middle'>$fecha_exp</td>
+                        <td style='padding-left:5px;' width='30' height='13' valign='middle'>Activo</td>
                     </tr>";
             $no++;
         }

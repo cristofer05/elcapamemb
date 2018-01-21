@@ -2,6 +2,10 @@
 session_start();
 ob_start();
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../../vendor/autoload.php';
 
 require_once "../../config/database.php";
 
@@ -94,11 +98,55 @@ try
     $html2pdf->Output('../../temp_files/'.$filename, 'F');
 }
 catch(HTML2PDF_exception $e) { echo $e; }
+/////////////////////////////////////////
+/////////////////////////////////////////
+$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+try {
+    //Server settings
+//    $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = 'bh-65.webhostbox.net';  // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'info@mediaexperto.com';                 // SMTP username
+    $mail->Password = 'gblzHR7DP9@@';                           // SMTP password
+    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 587;                                    // TCP port to connect to
+
+    //Recipients
+    $mail->setFrom('info@mediaexperto.com', 'elCapacitador');
+    $mail->addAddress('lccristobalbello@gmail.com', 'Nombres');     // Add a recipient              
+    $mail->addReplyTo('info@elcapacitador.com.do', 'elCapacitador');
+//    $mail->addCC('cc@example.com');
+//    $mail->addBCC('bcc@example.com');
+
+    //Attachments
+//    $mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+    $mail->addAttachment('../../temp_files/'.$filename, $filename);    // Optional name
+
+    //Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = 'Tarjeta Membresia elCapacitador';
+    $mail->Body    = 'Hola Nombre Adjunto a este correo podras encontrar tu tarjeta de membrecia en un archivo PDF <b>ElCapacitador!</b> <br/> Gracias por ser parte de nostros';
+    $mail->AltBody = 'Adjunto a este correo podras encontrar tu tarjeta de membrecia en un archivo PDF - ElCapacitador!';
+
+    $mail->send();
+//    echo 'Message has been sent';
+    unlink('../../temp_files/'.$filename);
+    header('Location: ../../main.php?module=socios&alert=4');
+} catch (Exception $e) {
+//    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+    header('Location: ../../main.php?module=socios&alert=5');
+}
+
+/////////////////////////////////////////
+/////////////////////////////////////////
 ?>
 <!-- Volver atras -->
 <script type="text/javascript">
     window.onpageshow = function(event) {
-      window.history.back();
+     // window.history.back();
+
+  //   window.location="../../main.php?module=socios&alert=4";
     }; 
 
 </script>

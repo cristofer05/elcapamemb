@@ -43,6 +43,22 @@
             Se eliminaron los datos del Miembro
             </div>";
     }
+
+    elseif ($_GET['alert'] == 4) {
+      echo "<div class='alert alert-success alert-dismissable'>
+              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+              <h4>  <i class='icon fa fa-check-circle'></i> Exito!</h4>
+            Tarjeta de membresia enviada satisfactoriamente
+            </div>";
+    }
+
+    elseif ($_GET['alert'] == 5) {
+      echo "<div class='alert alert-danger alert-dismissable'>
+              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+              <h4>  <i class='icon fa fa-check-circle'></i> ERROR!</h4>
+            No se pudo enviar el correo
+            </div>";
+    }
     ?>
 
       <div class="box box-primary">
