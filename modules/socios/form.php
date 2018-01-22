@@ -469,7 +469,7 @@ elseif ($_GET['form']=='edit') {
     <a href="javascript:void(0)" onclick="HaEdicion();" class="btn btn-warning btn-reset">Ver/Editar</a>
     <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary" href="modules/socios/print.php?&id=<?php echo $data['codigo'];?>"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Imprimir</a>
 
-    <a data-toggle="tooltip" data-placement="top" title="Enviar tarjeta" class="btn btn-default" href="modules/socios/enviar_tarjeta.php?&id=<?php echo $data['codigo'];?> " onclick="loading()"><i style="color:#3c8dbc" class="glyphicon glyphicon-envelope"></i> Enviar Tarjeta</a>
+    <a data-toggle="tooltip" data-placement="top" title="Enviar tarjeta" class="btn btn-default" href="modules/socios/enviar_tarjeta.php?&id=<?php echo $data['codigo'];?>" onclick="loading()"><i style="color:#3c8dbc" class="glyphicon glyphicon-envelope"></i> Enviar Tarjeta</a>
     
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>

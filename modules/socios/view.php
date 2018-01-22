@@ -59,6 +59,22 @@
             No se pudo enviar el correo
             </div>";
     }
+
+    elseif ($_GET['alert'] == 6) {
+      echo "<div class='alert alert-success alert-dismissable'>
+              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+              <h4>  <i class='icon fa fa-check-circle'></i> Exito!</h4>
+            Nuevos datos del miembro han sido  almacenados correctamente y Tarjeta de membresia enviada satisfactoriamente.
+            </div>";
+    }
+
+    elseif ($_GET['alert'] == 7) {
+      echo "<div class='alert alert-warning alert-dismissable'>
+              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+              <h4>  <i class='icon fa fa-check-circle'></i> Advertencia!</h4>
+            Nuevos datos del miembro han sido  almacenados correctamente pero NO se pudo enviar el correo
+            </div>";
+    }
     ?>
 
       <div class="box box-primary">

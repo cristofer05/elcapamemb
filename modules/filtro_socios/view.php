@@ -43,8 +43,11 @@
           <div class="box-footer">
             <div class="form-group">
               <div class="col-sm-offset-1 col-sm-11">
-                <button type="submit" class="btn btn-primary btn-social btn-submit" style="width: 120px;">
-                  <i class="fa fa-print"></i> Imprimir
+                <a class="btn btn-success btn-social pull-right" href="modules/filtro_socios/fecha_csv.php?print_csv=si">
+                <i class="fa fa-file-text-o"></i> Imprimir CSV
+              </a>
+                <button type="submit" class="btn btn-primary btn-social btn-submit" style="width: 150px;">
+                  <i class="fa fa-print"></i> Imprimir PDF
                 </button>
               </div>
             </div>
@@ -73,8 +76,11 @@
           <div class="box-footer">
             <div class="form-group">
               <div class="col-sm-offset-1 col-sm-11">
-                <button type="submit" class="btn btn-primary btn-social btn-submit" style="width: 120px;">
-                  <i class="fa fa-print"></i> Imprimir
+                <a class="btn btn-success btn-social pull-right" href="modules/filtro_socios/nuevos.php?print_csv=si">
+                  <i class="fa fa-file-text-o"></i> Imprimir CSV
+                </a>
+                <button type="submit" class="btn btn-primary btn-social btn-submit" style="width: 150px;">
+                  <i class="fa fa-print"></i> Imprimir PDF
                 </button>
               </div>
             </div>
@@ -103,8 +109,11 @@
           <div class="box-footer">
             <div class="form-group">
               <div class="col-sm-offset-1 col-sm-11">
-                <button type="submit" class="btn btn-primary btn-social btn-submit" style="width: 120px;">
-                  <i class="fa fa-print"></i> Imprimir
+                <a class="btn btn-success btn-social pull-right" href="modules/filtro_socios/expirar_csv.php?print_csv=si">
+                  <i class="fa fa-file-text-o"></i> Imprimir CSV
+                </a>
+                <button type="submit" class="btn btn-primary btn-social btn-submit" style="width: 150px;">
+                  <i class="fa fa-print"></i> Imprimir PDF
                 </button>
               </div>
             </div>
