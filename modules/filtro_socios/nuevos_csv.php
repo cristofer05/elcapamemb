@@ -11,17 +11,18 @@ if (isset($_GET['print_csv']) && $_GET['print_csv'] == 'si') {
 
         if ($_GET['rango'] == "mes"){
 
-            $intervalo="-1 MONTH";
+            $intervalo="1 MONTH";
         }
         elseif ($_GET['rango'] == "semana") {
-            $intervalo="-1 WEEK";
+            $intervalo="1 WEEK";
         }
         elseif ($_GET['rango'] == "3dias") {
-            $intervalo="-3 DAY";
+            $intervalo="3 DAY";
         }
 
-    $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,telefono2,categoria,fexpiracion,created_date FROM socios WHERE fexpiracion < DATE_SUB(NOW(), INTERVAL ".$intervalo.")
-                                    ORDER BY fexpiracion ASC") 
+    $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,telefono2,categoria,fexpiracion,created_date FROM socios 
+                                    WHERE created_date > DATE_SUB(NOW(), INTERVAL ".$intervalo.")
+                                    ORDER BY created_date ASC") 
                                     or die('error '.mysqli_error($mysqli));                                
     $count  = mysqli_num_rows($query);
  }
@@ -29,7 +30,7 @@ if (isset($_GET['print_csv']) && $_GET['print_csv'] == 'si') {
 
     if($count > 0){
         $delimiter = ",";
-        $filename = "socios_a_expirar_proximo_(".$_GET['rango'].")".date('Y-m-d').".csv";
+        $filename = "socios_registrados_(".$_GET['rango'].")".date('Y-m-d').".csv";
         
         //create a file pointer
         $f = fopen('php://memory', 'w');

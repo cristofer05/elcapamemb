@@ -20,7 +20,13 @@ $tgl2      = $_GET['tgl_akhir'];
 $explode   = explode('-',$tgl2);
 $tgl_akhir = $explode[2]."-".$explode[1]."-".$explode[0];
 
-if (isset($_GET['tgl_awal'])) {
+if (isset($_GET['tgl_awal']) && isset($_GET['print'])) {
+    if ($_GET['print'] == "csv"){
+
+        header('Location: fecha_csv.php?tgl_awal='.$tgl_awal.'&tgl_akhir='.$tgl_akhir.'&print_csv=si');
+
+    }else {
+
     $no    = 1;
  
 
@@ -30,6 +36,7 @@ if (isset($_GET['tgl_awal'])) {
                                     or die('error '.mysqli_error($mysqli));                                
 
     $count  = mysqli_num_rows($query);
+ }
 }
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml"> 

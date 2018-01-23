@@ -5,31 +5,21 @@ include "../../config/fungsi_tanggal.php";
 include "../../config/fungsi_rupiah.php";
 $hari_ini = date("d-m-Y");
 
-if (isset($_GET['print_csv']) && $_GET['print_csv'] == 'si') { 
+if (isset($_GET['print_csv']) && $_GET['print_csv'] =='si') { 
+    $tgl_awal = $_GET['tgl_awal'];
+    $tgl_akhir = $_GET['tgl_akhir'];
 
-    if (isset($_GET['rango'])) {
+    $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,telefono2,categoria,fexpiracion,created_date FROM socios 
+                                    WHERE created_date BETWEEN '$tgl_awal' AND '$tgl_akhir'
+                                    ORDER BY created_date ASC") 
+                                    or die('error '.mysqli_error($mysqli));
 
-        if ($_GET['rango'] == "mes"){
-
-            $intervalo="-1 MONTH";
-        }
-        elseif ($_GET['rango'] == "semana") {
-            $intervalo="-1 WEEK";
-        }
-        elseif ($_GET['rango'] == "3dias") {
-            $intervalo="-3 DAY";
-        }
-
-    $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,telefono2,categoria,fexpiracion,created_date FROM socios WHERE fexpiracion < DATE_SUB(NOW(), INTERVAL ".$intervalo.")
-                                    ORDER BY fexpiracion ASC") 
-                                    or die('error '.mysqli_error($mysqli));                                
     $count  = mysqli_num_rows($query);
- }
     $no = 1;
 
     if($count > 0){
         $delimiter = ",";
-        $filename = "socios_a_expirar_proximo_(".$_GET['rango'].")".date('Y-m-d').".csv";
+        $filename = "socios_filtrados_por_fecha_" . date('Y-m-d') . ".csv";
         
         //create a file pointer
         $f = fopen('php://memory', 'w');
@@ -64,9 +54,8 @@ if (isset($_GET['print_csv']) && $_GET['print_csv'] == 'si') {
         //output all remaining data on a file pointer
         fpassthru($f);
     } elseif ($count < 1) {
-    //    header('Location: ../../main.php?module=filtro_socios&alert=1');
         header('Location: ../../fin_csv.php?alert=1');
     }
-   exit;
+    exit;
 }
 ?>

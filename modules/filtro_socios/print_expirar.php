@@ -11,8 +11,13 @@ include "../../config/fungsi_rupiah.php";
 
 $hari_ini = date("d-m-Y");
 
+ if (isset($_GET['rango']) && isset($_GET['print'])) {
+    if ($_GET['print'] == "csv"){
 
-if (isset($_GET['rango'])) {
+        header('Location: expirar_csv.php?rango='.$_GET['rango'].'&print_csv=si');
+
+    }else {
+
      $no    = 1;
 
     if ($_GET['rango'] == "mes"){
@@ -32,6 +37,7 @@ if (isset($_GET['rango'])) {
                                     or die('error '.mysqli_error($mysqli));                                
     $count  = mysqli_num_rows($query);
  }
+}
 ?> 
 <html xmlns="http://www.w3.org/1999/xhtml"> 
     <head>

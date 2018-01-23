@@ -38,16 +38,20 @@
                 <input type="text" class="form-control date-picker" data-date-format="dd-mm-yyyy" name="tgl_akhir" autocomplete="off" required>
               </div>
             </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Formato de exportacion</label>
+                <div class="col-sm-6">
+                  <input type="radio" name="print" value="pdf" checked> PDF <br>
+                  <input type="radio" name="print" value="csv"> CSV 
+              </div>            
+            </div>
           </div>
           
           <div class="box-footer">
             <div class="form-group">
               <div class="col-sm-offset-1 col-sm-11">
-                <a class="btn btn-success btn-social pull-right" href="modules/filtro_socios/fecha_csv.php?print_csv=si">
-                <i class="fa fa-file-text-o"></i> Imprimir CSV
-              </a>
                 <button type="submit" class="btn btn-primary btn-social btn-submit" style="width: 150px;">
-                  <i class="fa fa-print"></i> Imprimir PDF
+                  <i class="fa fa-print"></i> Imprimir 
                 </button>
               </div>
             </div>
@@ -71,16 +75,20 @@
                 <input type="radio" name="rango" value="mes"> Ultimo Mes<br>
               </label>
             </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Formato de exportacion</label>
+                <div class="col-sm-6">
+                  <input type="radio" name="print" value="pdf" checked> PDF <br>
+                  <input type="radio" name="print" value="csv"> CSV 
+              </div>            
+            </div>
           </div>
           
           <div class="box-footer">
             <div class="form-group">
               <div class="col-sm-offset-1 col-sm-11">
-                <a class="btn btn-success btn-social pull-right" href="modules/filtro_socios/nuevos.php?print_csv=si">
-                  <i class="fa fa-file-text-o"></i> Imprimir CSV
-                </a>
                 <button type="submit" class="btn btn-primary btn-social btn-submit" style="width: 150px;">
-                  <i class="fa fa-print"></i> Imprimir PDF
+                  <i class="fa fa-print"></i> Imprimir 
                 </button>
               </div>
             </div>
@@ -104,16 +112,20 @@
                 <input type="radio" name="rango" value="mes" checked> Proximo Mes<br>
               </label>
             </div>
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Formato de exportacion</label>
+                <div class="col-sm-6">
+                  <input type="radio" name="print" value="pdf" checked> PDF <br>
+                  <input type="radio" name="print" value="csv"> CSV 
+                </div>            
+              </div>
           </div>
           
           <div class="box-footer">
             <div class="form-group">
               <div class="col-sm-offset-1 col-sm-11">
-                <a class="btn btn-success btn-social pull-right" href="modules/filtro_socios/expirar_csv.php?print_csv=si">
-                  <i class="fa fa-file-text-o"></i> Imprimir CSV
-                </a>
                 <button type="submit" class="btn btn-primary btn-social btn-submit" style="width: 150px;">
-                  <i class="fa fa-print"></i> Imprimir PDF
+                  <i class="fa fa-print"></i> Imprimir
                 </button>
               </div>
             </div>
