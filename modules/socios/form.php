@@ -436,6 +436,13 @@ if ($_GET['form']=='add') { ?>
                     <input type="date" name="fexpiracion" class="form-control" autocomplete="off" step="1" min="2018-01-01" max="2099-12-31" value="<?php echo date("Y-m-d",strtotime('+364 day'));?>">
                 </div>
               </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">¿Desea enviar la tarjeta por correo?</label>
+                  <div class="col-sm-5">
+                    <input type="radio" name="enviar_email" value="si" checked> (SI) Enviar <br>
+                    <input type="radio" name="enviar_email" value="no"> (NO) No enviar 
+                  </div>            
+              </div>
             </div><!-- /.box body -->
             <div class="box-footer">
               <div class="form-group">
@@ -469,7 +476,7 @@ elseif ($_GET['form']=='edit') {
     <a href="javascript:void(0)" onclick="HaEdicion();" class="btn btn-warning btn-reset">Ver/Editar</a>
     <a data-toggle="tooltip" data-placement="top" target="_blank" title="Imprimir" class="btn btn-primary" href="modules/socios/print.php?&id=<?php echo $data['codigo'];?>"><i style="color:#fff" class="glyphicon glyphicon-print"></i> Imprimir</a>
 
-    <a data-toggle="tooltip" data-placement="top" title="Enviar tarjeta" class="btn btn-default" href="modules/socios/enviar_tarjeta.php?&id=<?php echo $data['codigo'];?>" onclick="loading()"><i style="color:#3c8dbc" class="glyphicon glyphicon-envelope"></i> Enviar Tarjeta</a>
+    <a data-toggle="tooltip" data-placement="top" title="Enviar tarjeta" class="btn btn-default" href="modules/socios/enviar_tarjeta.php?&id=<?php echo $data['codigo'];?>&enviar_email=si" onclick="loading()"><i style="color:#3c8dbc" class="glyphicon glyphicon-envelope"></i> Enviar Tarjeta</a>
     
     <ol class="breadcrumb">
       <li><a href="?module=start"><i class="fa fa-home"></i> Inicio </a></li>

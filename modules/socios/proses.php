@@ -27,6 +27,7 @@ else {
             $fexpiracion = str_replace('.', '', mysqli_real_escape_string($mysqli, trim($_POST['fexpiracion'])));
             $created_user = $_SESSION['id_user'];
             $created_date = str_replace('.', '', mysqli_real_escape_string($mysqli, trim($_POST['created_date'])));
+            
 
   
             $query = mysqli_query($mysqli, "INSERT INTO socios(codigo,nombres,apellidos,cedula,fnacimiento,sexo,localidad,ocupacion,correo,telefono,categoria,fexpiracion,created_user,created_date,updated_user) 
@@ -35,9 +36,12 @@ else {
 
         
             if ($query) {
-                
-                header("location: enviar_tarjeta.php?id=".$codigo."&accion=creado");
-            //    header("location: ../../main.php?module=socios&alert=1");
+                if (isset($_POST['enviar_email']) && $_POST['enviar_email'] == 'si' ) {
+                    header("location: enviar_tarjeta.php?id=".$codigo."&accion=creado");
+
+                } else {
+                header("location: ../../main.php?module=socios&alert=1");
+                }
             }   
         }   
     }
