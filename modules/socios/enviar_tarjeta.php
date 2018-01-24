@@ -23,9 +23,12 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
         <title>TARJETA DE MEMBRESIA</title>
         <link rel="stylesheet" type="text/css" href="../../assets/css/laporan.css" />
          <style type="text/css">    
+        <style type="text/css">    
         #isi{margin-top: 0px;margin-left: 0px;
-        background-image: url(../../assets/img/bgpdf2.png);
-     }
+        background-image: url(../../assets/img/bgpdf2.png);}
+             table p {
+                 margin-bottom:-10;
+             }
              </style>
     </head>
     <body>
@@ -42,7 +45,7 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
            <br>
            <h2>Numero de Afiliado <?php echo $data['codigo']; ?> </h2>
         </div>
-        <div id="isi" style="border:10px solid #E6E6E6; margin:12px; padding:20px;">
+        <div id="isi" style="border:10px solid #E6E6E6; margin:12px; padding:20px; height:280px;">
         <?php 
           $fech1       = $data['created_date'];
           $exp1           = explode('-',$fech1);
@@ -52,7 +55,7 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
           $exp2           = explode('-',$fech2);
           $fecha2 = $exp2[2]."-".$exp2[1]."-".$exp2[0];
         ?>
-        <table width="100%" border="0px" background-image="../../assets/img/boxed-bg.jpg">
+        <table width="100%" border="0px">
             <tr border="0px">
                 <td border="0px">
                     <img style="width:600px" src="../../assets/img/elcapacitadopdf.png" >
@@ -116,7 +119,7 @@ try {
     //Recipients
     $mail->setFrom('socios@elcapacitador.com', 'elCapacitador');
     $mail->addAddress($data['correo'], $data['nombres']);     // Add a recipient              
-    $mail->addReplyTo('info@elcapacitador.com.do', 'elCapacitador');
+    $mail->addReplyTo('info@elcapacitador.com', 'elCapacitador');
 //    $mail->addCC('cc@example.com');
 //    $mail->addBCC('bcc@example.com');
 
@@ -127,7 +130,7 @@ try {
     //Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Tarjeta Membresia elCapacitador';
-    $mail->Body    = 'Hola '.$data['nombres'].' Adjunto a este correo podras encontrar tu tarjeta de membrecia en un archivo PDF <b>ElCapacitador!</b> <br/> Gracias por ser parte de nostros';
+    $mail->Body    = 'Hola '.$data['nombres'].' Adjunto a este correo podras encontrar tu tarjeta de membrecia en un archivo PDF, Recuerda llevarla contigo en el proximo evento. <br/> Gracias por ser parte de nostros. ';
     $mail->AltBody = 'Hola '.$data['nombres'].' Adjunto a este correo podras encontrar tu tarjeta de membrecia en un archivo PDF - ElCapacitador!';
 
     $mail->send();

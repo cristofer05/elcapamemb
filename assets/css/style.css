@@ -51,8 +51,10 @@
 
 .form-horizontal .control-label {
     margin-bottom: 0;
-    padding-top: 5px;
+    padding-top: 0px;
     text-align: right;
+    font-weight: bold;
+    color: #3c8cbc;
 }
 
 label {
@@ -83,6 +85,14 @@ label {
     background-color: #fff;
     border-color: #d2d6de;
     color: #444;
+    margin-top: 7px;
+}
+
+.btn-success {
+    margin-top: 7px !important;
+}
+.btn-warning {
+    margin-top: 7px !important;
 }
 
 .btn-default:hover, .btn-default:active, .btn-default.hover {
@@ -171,12 +181,19 @@ label {
 
 .btn-reset{
 	width: 100px;
-	margin-top: 0px;
+	margin-top: 7px;
 	font-size: 15px;
 }
 
 .icon-title {
 	margin-right: 5px;
+}
+
+.btn-primary{
+    margin-top: 7px !important;
+}
+.btn-danger {
+    margin-top: 7px !important;
 }
 
 .bg-btn-action {

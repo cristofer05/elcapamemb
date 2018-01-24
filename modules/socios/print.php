@@ -20,8 +20,10 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
         <link rel="stylesheet" type="text/css" href="../../assets/css/laporan.css" />
          <style type="text/css">    
         #isi{margin-top: 0px;margin-left: 0px;
-        background-image: url(../../assets/img/bgpdf2.png);
-     }
+        background-image: url(../../assets/img/bgpdf2.png);}
+             table p {
+                 margin-bottom:-10;
+             }
              </style>
     </head>
     <body>
@@ -38,7 +40,7 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
            <br>
            <h2>Numero de Afiliado <?php echo $data['codigo']; ?> </h2>
         </div>
-        <div id="isi" style="border:10px solid #E6E6E6; margin:12px; padding:20px;">
+        <div id="isi" style="border:10px solid #E6E6E6; margin:12px; padding:20px; height:280px;">
         <?php 
           $fech1       = $data['created_date'];
           $exp1           = explode('-',$fech1);
@@ -48,7 +50,7 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
           $exp2           = explode('-',$fech2);
           $fecha2 = $exp2[2]."-".$exp2[1]."-".$exp2[0];
         ?>
-        <table width="100%" border="0px" background-image="../../assets/img/boxed-bg.jpg">
+        <table width="100%" height="1000px" border="0px" background-image="../../assets/img/boxed-bg.jpg">
             <tr border="0px">
                 <td border="0px">
                     <img style="width:600px" src="../../assets/img/elcapacitadopdf.png" >

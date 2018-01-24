@@ -427,13 +427,13 @@ if ($_GET['form']=='add') { ?>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha Creacion</label>
                 <div class="col-sm-5">
-                    <input type="date" name="created_date" class="form-control" autocomplete="off"  value="<?php echo date("Y-m-d");?>">
+                    <input type="date" name="created_date" class="form-control" autocomplete="off"  value="<?php echo date("Y-m-d",strtotime('-1 day'));?>">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-2 control-label">Fecha Expiracion</label>
                 <div class="col-sm-5">
-                    <input type="date" name="fexpiracion" class="form-control" autocomplete="off" step="1" min="2018-01-01" max="2099-12-31" value="<?php echo date("Y-m-d");?>">
+                    <input type="date" name="fexpiracion" class="form-control" autocomplete="off" step="1" min="2018-01-01" max="2099-12-31" value="<?php echo date("Y-m-d",strtotime('+364 day'));?>">
                 </div>
               </div>
             </div><!-- /.box body -->
