@@ -36,8 +36,8 @@ else {
         
             if ($query) {
                 
-                header("location: enviar_tarjeta.php?id=".$data['codigo']."&accion=creado");
-            //    header("location: ../../main.php?module=socios&alert=1");
+                header("location: enviar_tarjeta.php?id=".$codigo."&accion=creado");
+            //    header("location: ../../main.php?module=socios&alert=1");
             }   
         }   
     }

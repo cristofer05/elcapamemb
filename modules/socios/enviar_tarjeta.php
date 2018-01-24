@@ -23,7 +23,6 @@ $query = mysqli_query($mysqli, "SELECT codigo,nombres,apellidos,cedula,fnacimien
         <title>TARJETA DE MEMBRESIA</title>
         <link rel="stylesheet" type="text/css" href="../../assets/css/laporan.css" />
          <style type="text/css">    
-        <style type="text/css">    
         #isi{margin-top: 0px;margin-left: 0px;
         background-image: url(../../assets/img/bgpdf2.png);}
              table p {
@@ -144,6 +143,7 @@ try {
     
 } catch (Exception $e) {
 //    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+    unlink('../../temp_files/'.$filename);
     if (isset($_GET['accion']) && $_GET['accion'] =='creado') { 
       header('Location: ../../main.php?module=socios&alert=7');
     }else {
@@ -155,12 +155,3 @@ try {
 /////////////////////////////////////////
 /////////////////////////////////////////
 ?>
-<!-- Volver atras -->
-<script type="text/javascript">
-    window.onpageshow = function(event) {
-     // window.history.back();
-
-  //   window.location="../../main.php?module=socios&alert=4";
-    }; 
-
-</script>
